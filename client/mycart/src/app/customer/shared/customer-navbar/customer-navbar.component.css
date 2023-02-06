@@ -1,33 +1,26 @@
 
 .my-cart-logo {
     font-size: 1.4rem;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
-
 .cart-logo {
     font-size: 1.8rem;
     font-weight: bolder;
     color: #ffa500;
 }
 
-.container-fluid {
-    min-width: 450px;
-}
 
-@media screen and (max-width: 722px) {
+@media  screen and (max-width: 722px){
     .form-search {
         width: 100px;
     }
-
     .navbar-toggler {
         margin-left: auto;
     }
-
     .login-btn {
         display: block;
         margin-bottom: 5px;
     }
-
     .register-btn {
         display: block;
         margin-bottom: 5px;
