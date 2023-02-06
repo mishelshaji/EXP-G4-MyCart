@@ -7,8 +7,8 @@ import { UserLayoutComponent } from './user-layout/user-layout.component';
 const routes: Routes = [
   {
     path: '', component: UserLayoutComponent, children: [
-      {path: '', component: LandingPageComponent},
-      {path: 'login', component: LoginComponent}
+      { path: '', component: LandingPageComponent },
+      { path: 'login', component: LoginComponent }
     ]
   },
 ];
@@ -17,4 +17,5 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
+
 export class UserRoutingModule { }
