@@ -10,7 +10,7 @@ export class LoginComponent {
     email: '',
     password: ''
   };
-  onSubmit(form:any) {
+  onSubmit(form: any) {
     console.log(form);
-}
+  }
 }
