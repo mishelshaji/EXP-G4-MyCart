@@ -1,0 +1,13 @@
+
+.banner-container {
+    width: 100%;
+    height: 50vh;
+    background-image: url(/assets/images/banner2.avif);
+    background-position:center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.hot-deals {
+    font-size: 1.6rem;
+}
+
