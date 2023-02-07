@@ -9,19 +9,21 @@ import { UserLayoutComponent } from './user-layout/user-layout.component';
 import { NavbarComponent } from '../shared/navbar/navbar.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { LoginComponent } from './login/login.component';
+import { FooterComponent } from "../shared/footer/footer.component";
 
 @NgModule({
-  declarations: [
-    LandingPageComponent,
-    UserLayoutComponent,
-    LoginComponent
-  ],
-  imports: [
-    CommonModule,
-    UserRoutingModule,
-    FormsModule,
-    NavbarComponent,
-    FontAwesomeModule
-  ]
+    declarations: [
+        LandingPageComponent,
+        UserLayoutComponent,
+        LoginComponent
+    ],
+    imports: [
+        CommonModule,
+        UserRoutingModule,
+        FormsModule,
+        NavbarComponent,
+        FontAwesomeModule,
+        FooterComponent
+    ]
 })
 export class UserModule { }
