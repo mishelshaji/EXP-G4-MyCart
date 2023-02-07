@@ -5,19 +5,28 @@ import { UserLayoutComponent } from './user-layout/user-layout.component';
 import { RegisterComponent } from './register/register.component';
 import { FormsModule } from '@angular/forms';
 import { OtpComponent } from './otp/otp.component';
-
+import { CartItemComponent } from '../customer/shared/cart-item/cart-item.component';
+import { CartComponent } from '../customer/cart/cart.component';
+import { LandingPageComponent } from './landing-page/landing-page.component';
+import { NavbarComponent } from '../shared/navbar/navbar.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
     UserLayoutComponent,
     RegisterComponent,
     UserLayoutComponent,
-    OtpComponent
+    OtpComponent,
+    LandingPageComponent,
+    LoginComponent
   ],
   imports: [
     CommonModule,
     UserRoutingModule,
-    FormsModule
+    FormsModule,
+    NavbarComponent,
+    FontAwesomeModule
   ]
 })
 export class UserModule { }

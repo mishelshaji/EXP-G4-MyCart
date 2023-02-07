@@ -6,10 +6,16 @@ const routes: Routes = [
     path: '', 
     loadChildren: () => import('./user/user.module').then(m => m.UserModule)
   },
+  {
+    path: 'customer', 
+    loadChildren: () => import('./customer/customer.module').then(m => m.CustomerModule)
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule,
+  
+  ]
 })
 export class AppRoutingModule { }
