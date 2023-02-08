@@ -1,4 +1,3 @@
-<h1 class="text-center text-primary my-4">MYCART</h1>
 <h2 class="text-center text-dark my-4 font-weight-bold">Login</h2>
 <div class="row">
     <div class="col-md-6 offset-md-3">
@@ -27,7 +26,7 @@
                 </div>
             </div>
             <div class="d-flex justify-content-center align-items-center mt-5 mb-5">
-                <button type="submit" class="btn btn-primary" [disabled]="email.invalid">Login</button>
+                <button type="submit" class="btn btn-primary" [routerLink]="['/customer/customerHome']" [disabled]="email.invalid">Login</button>
             </div>
             <div class="d-flex justify-content-around">
                 <div class="text-danger">
