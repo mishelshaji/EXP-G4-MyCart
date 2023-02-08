@@ -20,6 +20,4 @@ export class FooterComponent {
   faInsta = faInstagram;
   faLin = faLinkedin;
   faGit = faGit
-
-
 }
