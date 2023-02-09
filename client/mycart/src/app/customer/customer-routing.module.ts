@@ -8,8 +8,8 @@ import { CustomerLayoutComponent } from './customer-layout/customer-layout.compo
 const routes: Routes = [
   {
     path: '', component: CustomerLayoutComponent, children: [
-        { path: 'cart', component: CartComponent },
-        { path: 'customerHome', component: CustomerHomeComponent }
+      { path: 'cart', component: CartComponent },
+      { path: 'customerHome', component: CustomerHomeComponent }
     ]
   }
 ];

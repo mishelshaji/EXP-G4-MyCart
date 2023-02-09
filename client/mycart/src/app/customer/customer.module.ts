@@ -9,6 +9,8 @@ import { CustomerNavbarComponent } from './shared/customer-navbar/customer-navba
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faShopify } from '@fortawesome/free-brands-svg-icons';
 import { HomePageComponent } from '../shared/home-page/home-page.component';
+import { FooterComponent } from "../shared/footer/footer.component";
+import { FeedbackComponent } from './feedback/feedback.component';
 
 @NgModule({
   declarations: [
@@ -16,13 +18,15 @@ import { HomePageComponent } from '../shared/home-page/home-page.component';
     CartComponent,
     CartItemComponent,
     CustomerHomeComponent,
-    CustomerNavbarComponent
+    CustomerNavbarComponent,
+    FeedbackComponent
   ],
   imports: [
     CommonModule,
     CustomerRoutingModule,
     FontAwesomeModule,
-    HomePageComponent
+    HomePageComponent,
+    FooterComponent
   ]
 })
 export class CustomerModule { }
