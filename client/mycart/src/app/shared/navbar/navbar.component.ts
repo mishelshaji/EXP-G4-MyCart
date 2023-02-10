@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faShopify } from '@fortawesome/free-brands-svg-icons';
 import { RouterModule } from '@angular/router';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { IconProp } from '@fortawesome/fontawesome-svg-core';
+
 
 @Component({
   selector: 'app-navbar',
@@ -14,10 +16,5 @@ import { RouterModule } from '@angular/router';
 
 
 export class NavbarComponent {
-  faShop = faShopify;
-  collapsed = true;
-  toggleCollapsed(): void {
-    this.collapsed = !this.collapsed;
-  }
-  
+  faShop = faShopify as IconProp;
 }

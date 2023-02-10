@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { IconProp } from '@fortawesome/fontawesome-svg-core';
 import { faShopify } from '@fortawesome/free-brands-svg-icons';
 
 @Component({
@@ -7,5 +8,5 @@ import { faShopify } from '@fortawesome/free-brands-svg-icons';
   styleUrls: ['./customer-navbar.component.css']
 })
 export class CustomerNavbarComponent {
-  faShop = faShopify;
+  faShop = faShopify as IconProp;
 }

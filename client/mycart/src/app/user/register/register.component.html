@@ -1,75 +1,72 @@
-<div class="container-fluid bg bg-info d-flex justify-content-center align-items-center">
-    <div class="container">
-        <h2 class="text-center text-warning mb-4 pt-4">REGISTER</h2>
-        <div class="row">
-            <div class="col-md-6 offset-md-3">
-                <form #form="ngForm" (ngSubmit)="onSubmit()">
-                    <div class="my-3">
-                        <label>Full Name</label>
-                        <input type="text" name="fname" [(ngModel)]="model.fname" #fname="ngModel" class="form-control"
-                            placeholder="Enter Full Name" maxlength="30" required>
-                        <div class="text-danger" *ngIf="fname.invalid && fname.touched">
-                            <div *ngIf="fname.errors?.['required']">Full Name is required</div>
-                        </div>
-                    </div>
-                    <div class="my-3">
-                        <label>Email ID</label>
-                        <input type="email" name="email" [(ngModel)]="model.email" #email="ngModel" class="form-control"
-                            placeholder="Enter Email ID" minlength="5" maxlength="70"
-                            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required>
-                        <div class="text-danger" *ngIf="email.invalid && email.touched">
-                            <div *ngIf="email.errors?.['required']">Email is required</div>
-                            <div *ngIf="email.errors?.['minlength']">Email is too short</div>
-                            <div *ngIf="email.errors?.['maxlength']">Email is too long</div>
-                            <div *ngIf="email.errors?.['pattern']">Email is Invalid</div>
-                        </div>
-                    </div>
-                    <div class="my-3">
-                        <label>Phone Number</label>
-                        <input type="tel" name="phone" [(ngModel)]="model.phone" #phone="ngModel" class="form-control"
-                            placeholder="Enter Phone Number" pattern="[1-9]{1}[0-9]{9}" required>
-                        <div class="text-danger" *ngIf="phone.invalid && phone.touched">
-                            <div *ngIf="phone.errors?.['required']">Phone Number is required</div>
-                            <div *ngIf="phone.errors?.['pattern']">Phone Number is invalid</div>
-                        </div>
-                    </div>
-                    <div class="my-3">
-                        <label>Date of Birth</label>
-                        <input type="date" name="dob" [(ngModel)]="model.dob" #dob="ngModel" class="form-control"
-                            placeholder="Enter Date of Birth" (change)="handleDob(dob)" required>
-                        <div class="text-danger">
-                            <div *ngIf="status">Age is less than 18</div>
-                            <div class="text-danger" *ngIf="dob.invalid && dob.touched">
-                                <div *ngIf="dob.errors?.['required']">Date of birth is required</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="my-3">
-                        <label>Password</label>
-                        <input type="password" name="password" [(ngModel)]="model.password" #password="ngModel"
-                            class="form-control" placeholder="Enter Password" minlength="6" maxlength="16"
-                            (change)="storePassword(password)" required>
-                        <div class="text-danger" *ngIf="password.invalid && password.touched">
-                            <div *ngIf="password.errors?.['minlength']">Password is too short.</div>
-                            <div *ngIf="password.errors?.['required']">Password is required.</div>
-                            <div *ngIf="password.errors?.['maxlength']">Password is too long.</div>
-                        </div>
-                    </div>
-                    <div class="my-3">
-                        <label>Confirm Password</label>
-                        <input type="password" name="cpassword" [(ngModel)]="model.cpassword" #cpassword="ngModel"
-                            class="form-control" placeholder="Re-enter Password" minlength="6" maxlength="16"
-                            (change)="handlePassword(cpassword)" required>
-                        <div class="text-danger" *ngIf="displayPasswordError">Password doesn't match</div>
-                        <div class="text-danger" *ngIf="cpassword.touched && cpassword.invalid">
-                            <div *ngIf="cpassword.errors?.['required']">Password is required</div>
-                        </div>
-                    </div>
-                    <div class="d-grid my-3 d-flex justify-content-center">
-                        <button type="submit" class="btn btn-warning w-30" [disabled]="form.invalid">REGISTER</button>
-                    </div>
-                </form>
+<h1 class="text-center text-primary my-4">MYCART</h1>
+<h2 class="text-center text-dark my-4 font-weight-bold">Register</h2>
+<div class="row">
+    <div class="col-md-6 offset-md-3">
+        <form #form="ngForm" (ngSubmit)="onSubmit()">
+            <div class="my-3">
+                <label>Full Name</label>
+                <input type="text" name="fname" [(ngModel)]="model.fname" #fname="ngModel" class="form-control"
+                    placeholder="Enter Full Name" maxlength="30" required>
+                <div class="text-danger" *ngIf="fname.invalid && fname.touched">
+                    <div *ngIf="fname.errors?.['required']">Full Name is required</div>
+                </div>
             </div>
-        </div>
+            <div class="my-3">
+                <label>Email ID</label>
+                <input type="email" name="email" [(ngModel)]="model.email" #email="ngModel" class="form-control"
+                    placeholder="Enter Email ID" minlength="5" maxlength="70"
+                    pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required>
+                <div class="text-danger" *ngIf="email.invalid && email.touched">
+                    <div *ngIf="email.errors?.['required']">Email is required</div>
+                    <div *ngIf="email.errors?.['minlength']">Email is too short</div>
+                    <div *ngIf="email.errors?.['maxlength']">Email is too long</div>
+                    <div *ngIf="email.errors?.['pattern']">Email is Invalid</div>
+                </div>
+            </div>
+            <div class="my-3">
+                <label>Phone Number</label>
+                <input type="tel" name="phone" [(ngModel)]="model.phone" #phone="ngModel" class="form-control"
+                    placeholder="Enter Phone Number" pattern="[1-9]{1}[0-9]{9}" required>
+                <div class="text-danger" *ngIf="phone.invalid && phone.touched">
+                    <div *ngIf="phone.errors?.['required']">Phone Number is required</div>
+                    <div *ngIf="phone.errors?.['pattern']">Phone Number is invalid</div>
+                </div>
+            </div>
+            <div class="my-3">
+                <label>Date of Birth</label>
+                <input type="date" name="dob" [(ngModel)]="model.dob" #dob="ngModel" class="form-control"
+                    placeholder="Enter Date of Birth" (change)="handleDob(dob)" required>
+                <div class="text-danger">
+                    <div *ngIf="status">Age is less than 18</div>
+                    <div class="text-danger" *ngIf="dob.invalid && dob.touched">
+                        <div *ngIf="dob.errors?.['required']">Date of birth is required</div>
+                    </div>
+                </div>
+            </div>
+            <div class="my-3">
+                <label>Password</label>
+                <input type="password" name="password" [(ngModel)]="model.password" #password="ngModel"
+                    class="form-control" placeholder="Enter Password" minlength="6" maxlength="16"
+                    (change)="storePassword(password)" required>
+                <div class="text-danger" *ngIf="password.invalid && password.touched">
+                    <div *ngIf="password.errors?.['minlength']">Password is too short.</div>
+                    <div *ngIf="password.errors?.['required']">Password is required.</div>
+                    <div *ngIf="password.errors?.['maxlength']">Password is too long.</div>
+                </div>
+            </div>
+            <div class="my-3">
+                <label>Confirm Password</label>
+                <input type="password" name="cpassword" [(ngModel)]="model.cpassword" #cpassword="ngModel"
+                    class="form-control" placeholder="Re-enter Password" minlength="6" maxlength="16"
+                    (change)="handlePassword(cpassword)" required>
+                <div class="text-danger" *ngIf="displayPasswordError">Password doesn't match</div>
+                <div class="text-danger" *ngIf="cpassword.touched && cpassword.invalid">
+                    <div *ngIf="cpassword.errors?.['required']">Password is required</div>
+                </div>
+            </div>
+            <div class="d-grid my-3 d-flex justify-content-center">
+                <button type="submit" class="btn btn-primary w-30" [disabled]="form.invalid">REGISTER</button>
+            </div>
+        </form>
     </div>
-</div>      
+</div>

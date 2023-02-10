@@ -6,8 +6,8 @@ import { CartItemComponent } from './shared/cart-item/cart-item.component';
 import { CustomerRoutingModule } from './customer-routing.module';
 import { CustomerHomeComponent } from './customer-home/customer-home.component';
 import { CustomerNavbarComponent } from './shared/customer-navbar/customer-navbar.component';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faShopify } from '@fortawesome/free-brands-svg-icons';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -15,12 +15,12 @@ import { faShopify } from '@fortawesome/free-brands-svg-icons';
     CartComponent,
     CartItemComponent,
     CustomerHomeComponent,
-    CustomerNavbarComponent
+    CustomerNavbarComponent,
   ],
   imports: [
     CommonModule,
     CustomerRoutingModule,
-    FontAwesomeModule
+    FontAwesomeModule,
   ]
 })
 export class CustomerModule { }
