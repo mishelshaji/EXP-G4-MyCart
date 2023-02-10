@@ -10,6 +10,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faShopify } from '@fortawesome/free-brands-svg-icons';
 import { FooterComponent } from "../shared/footer/footer.component";
 import { FeedbackComponent } from './feedback/feedback.component';
+import { OrderSummaryComponent } from './order-summary/order-summary.component';
 
 @NgModule({
     declarations: [
@@ -18,7 +19,8 @@ import { FeedbackComponent } from './feedback/feedback.component';
         CartItemComponent,
         CustomerHomeComponent,
         CustomerNavbarComponent,
-        FeedbackComponent
+        FeedbackComponent,
+        OrderSummaryComponent
     ],
     imports: [
         CommonModule,
