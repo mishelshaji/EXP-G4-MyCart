@@ -11,6 +11,7 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
 import { NavbarComponent } from '../shared/navbar/navbar.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { LoginComponent } from './login/login.component';
+import { HomePageComponent } from '../shared/home-page/home-page.component';
 import { FooterComponent } from "../shared/footer/footer.component";
 
 @NgModule({
@@ -28,6 +29,7 @@ import { FooterComponent } from "../shared/footer/footer.component";
     FormsModule,
     NavbarComponent,
     FontAwesomeModule,
+    HomePageComponent,
     FooterComponent
   ]
 })
