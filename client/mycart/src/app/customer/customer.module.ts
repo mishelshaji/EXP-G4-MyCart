@@ -15,12 +15,12 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     CartComponent,
     CartItemComponent,
     CustomerHomeComponent,
-    CustomerNavbarComponent,
+    CustomerNavbarComponent
   ],
   imports: [
     CommonModule,
     CustomerRoutingModule,
-    FontAwesomeModule,
+    FontAwesomeModule
   ]
 })
 export class CustomerModule { }

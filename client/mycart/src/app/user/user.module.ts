@@ -26,7 +26,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     UserRoutingModule,
     FormsModule,
     NavbarComponent,
-    FontAwesomeModule,
+    FontAwesomeModule
   ]
 })
 export class UserModule { 
