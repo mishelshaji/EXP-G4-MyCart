@@ -12,12 +12,6 @@ import { RouterModule } from '@angular/router';
   styleUrls: ['./navbar.component.css']
 })
 
-
 export class NavbarComponent {
   faShop = faShopify;
-  collapsed = true;
-  toggleCollapsed(): void {
-    this.collapsed = !this.collapsed;
-  }
-  
 }
