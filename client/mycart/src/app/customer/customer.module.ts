@@ -11,22 +11,24 @@ import { faShopify } from '@fortawesome/free-brands-svg-icons';
 import { HomePageComponent } from '../shared/home-page/home-page.component';
 import { FooterComponent } from "../shared/footer/footer.component";
 import { FeedbackComponent } from './feedback/feedback.component';
+import { OrderSummaryComponent } from './order-summary/order-summary.component';
 
 @NgModule({
-  declarations: [
-    CustomerLayoutComponent,
-    CartComponent,
-    CartItemComponent,
-    CustomerHomeComponent,
-    CustomerNavbarComponent,
-    FeedbackComponent
-  ],
-  imports: [
-    CommonModule,
-    CustomerRoutingModule,
-    FontAwesomeModule,
-    HomePageComponent,
-    FooterComponent
-  ]
+    declarations: [
+        CustomerLayoutComponent,
+        CartComponent,
+        CartItemComponent,
+        CustomerHomeComponent,
+        CustomerNavbarComponent,
+        FeedbackComponent,
+        OrderSummaryComponent
+    ],
+    imports: [
+        CommonModule,
+        CustomerRoutingModule,
+        FontAwesomeModule,
+        HomePageComponent,
+        FooterComponent
+    ]
 })
 export class CustomerModule { }
