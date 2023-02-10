@@ -14,7 +14,7 @@ const routes: Routes = [
       { path: 'otp', component: OtpComponent },
       { path: 'login', component: LoginComponent }
     ]
-  },
+  }
 ];
 
 @NgModule({

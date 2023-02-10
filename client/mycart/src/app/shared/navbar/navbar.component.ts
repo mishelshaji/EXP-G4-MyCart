@@ -14,7 +14,6 @@ import { IconProp } from '@fortawesome/fontawesome-svg-core';
   styleUrls: ['./navbar.component.css']
 })
 
-
 export class NavbarComponent {
-  faShop = faShopify as IconProp;
+  faShop = faShopify;
 }

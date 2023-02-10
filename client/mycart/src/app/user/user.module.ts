@@ -11,6 +11,8 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
 import { NavbarComponent } from '../shared/navbar/navbar.component';
 import { LoginComponent } from './login/login.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { HomePageComponent } from '../shared/home-page/home-page.component';
+import { FooterComponent } from "../shared/footer/footer.component";
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     UserRoutingModule,
     FormsModule,
     NavbarComponent,
-    FontAwesomeModule
+    FontAwesomeModule,
+    HomePageComponent,
+    FooterComponent
   ]
 })
 export class UserModule { 
