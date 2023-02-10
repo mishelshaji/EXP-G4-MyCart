@@ -19,7 +19,8 @@ import { FormsModule } from '@angular/forms';
         CartItemComponent,
         CustomerHomeComponent,
         CustomerNavbarComponent,
-        FeedbackComponent
+        FeedbackComponent,
+        
     ],
     imports: [
         CommonModule,
