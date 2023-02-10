@@ -8,23 +8,25 @@ import { CustomerHomeComponent } from './customer-home/customer-home.component';
 import { CustomerNavbarComponent } from './shared/customer-navbar/customer-navbar.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faShopify } from '@fortawesome/free-brands-svg-icons';
+import { HomePageComponent } from '../shared/home-page/home-page.component';
 import { FooterComponent } from "../shared/footer/footer.component";
 import { FeedbackComponent } from './feedback/feedback.component';
 
 @NgModule({
-    declarations: [
-        CustomerLayoutComponent,
-        CartComponent,
-        CartItemComponent,
-        CustomerHomeComponent,
-        CustomerNavbarComponent,
-        FeedbackComponent
-    ],
-    imports: [
-        CommonModule,
-        CustomerRoutingModule,
-        FontAwesomeModule,
-        FooterComponent
-    ]
+  declarations: [
+    CustomerLayoutComponent,
+    CartComponent,
+    CartItemComponent,
+    CustomerHomeComponent,
+    CustomerNavbarComponent,
+    FeedbackComponent
+  ],
+  imports: [
+    CommonModule,
+    CustomerRoutingModule,
+    FontAwesomeModule,
+    HomePageComponent,
+    FooterComponent
+  ]
 })
 export class CustomerModule { }
