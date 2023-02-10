@@ -27,7 +27,6 @@ import { FormsModule } from '@angular/forms';
         FontAwesomeModule,
         FooterComponent,
         FormsModule
-       
     ]
 })
 export class CustomerModule { }
