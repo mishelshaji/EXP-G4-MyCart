@@ -6,5 +6,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./feedback.component.css']
 })
 export class FeedbackComponent {
+  model = {
+    email: '',
+    fullname: '',
+    feedback:''
+  };
+  onSubmit(form: any) {
+    console.log(form);
+  }
 
 }

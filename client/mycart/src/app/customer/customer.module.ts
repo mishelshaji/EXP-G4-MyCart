@@ -10,6 +10,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faShopify } from '@fortawesome/free-brands-svg-icons';
 import { FooterComponent } from "../shared/footer/footer.component";
 import { FeedbackComponent } from './feedback/feedback.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
     declarations: [
@@ -24,7 +25,9 @@ import { FeedbackComponent } from './feedback/feedback.component';
         CommonModule,
         CustomerRoutingModule,
         FontAwesomeModule,
-        FooterComponent
+        FooterComponent,
+        FormsModule
+       
     ]
 })
 export class CustomerModule { }
