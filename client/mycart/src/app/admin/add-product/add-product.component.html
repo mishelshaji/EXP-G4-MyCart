@@ -1,5 +1,4 @@
-<h1 class="text-center text-primary my-4">MYCART</h1>
-<h2 class="text-center text-dark my-4 font-weight-bold">Add Product</h2>
+<h1 class="text-center text-dark my-4 font-weight-bold">Add Products</h1>
 <div class="row">
     <div class="col-md-6 offset-md-3">
         <form #productform="ngForm" (ngSubmit)="onSubmit()">
@@ -39,8 +38,8 @@
             </div>
             <div class="my-3">
                 <label>Description</label>
-                <input type="text" name="description" [(ngModel)]="model.description" #description="ngModel"
-                    class="form-control" placeholder="Enter Product Description" required>
+                <textarea name="description" [(ngModel)]="model.description" #description="ngModel" class="form-control"
+                    placeholder="Enter Product Description" required></textarea>
                 <div class="text-danger" *ngIf="description.invalid && description.touched">
                     <div *ngIf="description.errors?.['required']">Product description is required.</div>
                 </div>

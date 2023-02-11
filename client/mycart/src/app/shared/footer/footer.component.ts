@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faShopify, faFacebook, faTwitter, faWhatsapp, faInstagram, faLinkedin, faGit } from "@fortawesome/free-brands-svg-icons";
 import { RouterModule } from "@angular/router";
+import { IconProp } from '@fortawesome/fontawesome-svg-core';
 
 
 @Component({
@@ -13,11 +14,11 @@ import { RouterModule } from "@angular/router";
   styleUrls: ['./footer.component.css']
 })
 export class FooterComponent {
-  faShop = faShopify;
-  faFb = faFacebook;
-  faTw = faTwitter;
-  faWtsapp = faWhatsapp;
-  faInsta = faInstagram;
-  faLin = faLinkedin;
-  faGit = faGit
+  faShop = faShopify as IconProp;
+  faFb = faFacebook as IconProp;
+  faTw = faTwitter as IconProp;
+  faWtsapp = faWhatsapp as IconProp;
+  faInsta = faInstagram as IconProp;
+  faLin = faLinkedin as IconProp;
+  faGit = faGit as IconProp;
 }
