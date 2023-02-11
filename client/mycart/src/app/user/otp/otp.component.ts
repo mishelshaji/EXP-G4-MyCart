@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./otp.component.css']
 })
 export class OtpComponent {
+  model = {
+    otp: ''
+  }
 
+  onSubmit() {
+  }
 }

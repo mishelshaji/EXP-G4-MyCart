@@ -17,7 +17,7 @@ export class AddProductComponent {
     offer: '',
     quantity: ''
   };
-  
+
   onSubmit() {
   }
 }
