@@ -5,14 +5,16 @@ import { RegisterComponent } from './register/register.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { LoginComponent } from './login/login.component';
 import { UserLayoutComponent } from './user-layout/user-layout.component';
+import { ProductDetailsComponent } from '../shared/product-details/product-details.component';
 
 const routes: Routes = [
   {
     path: '', component: UserLayoutComponent, children: [
-      {path: 'signup', component: RegisterComponent},
-      {path: 'otp', component: OtpComponent},
       { path: '', component: LandingPageComponent },
-      { path: 'login', component: LoginComponent }
+      { path: 'signup', component: RegisterComponent },
+      { path: 'otp', component: OtpComponent },
+      { path: 'login', component: LoginComponent },
+      { path: 'product', component: ProductDetailsComponent }
     ]
   }
 ];

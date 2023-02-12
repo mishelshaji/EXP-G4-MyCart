@@ -6,12 +6,4 @@ import { ProductsService } from 'src/app/services/products.service';
   templateUrl: './landing-page.component.html',
   styleUrls: ['./landing-page.component.css']
 })
-export class LandingPageComponent {
-
-  productsCards:any;
-
-  constructor(){
-    let obj = new ProductsService();
-    this.productsCards = obj.getAll();
-  }
-}
+export class LandingPageComponent {}
