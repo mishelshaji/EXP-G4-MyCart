@@ -13,6 +13,7 @@ import { FooterComponent } from "../shared/footer/footer.component";
 import { FeedbackComponent } from './feedback/feedback.component';
 import { FormsModule } from '@angular/forms';
 import { OrderSummaryComponent } from './order-summary/order-summary.component';
+import { CustomerProfileComponent } from './customer-profile/customer-profile.component';
 
 @NgModule({
 
@@ -23,7 +24,8 @@ import { OrderSummaryComponent } from './order-summary/order-summary.component';
         CustomerHomeComponent,
         CustomerNavbarComponent,
         FeedbackComponent,
-        OrderSummaryComponent
+        OrderSummaryComponent,
+        CustomerProfileComponent
     ],
     imports: [
         CommonModule,
