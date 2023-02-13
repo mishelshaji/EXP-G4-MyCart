@@ -14,6 +14,7 @@ import { FeedbackComponent } from './feedback/feedback.component';
 import { FormsModule } from '@angular/forms';
 import { OrderSummaryComponent } from './order-summary/order-summary.component';
 import { CustomerProfileComponent } from './customer-profile/customer-profile.component';
+import { InvoiceComponent } from './invoice/invoice.component';
 
 @NgModule({
 
@@ -25,7 +26,8 @@ import { CustomerProfileComponent } from './customer-profile/customer-profile.co
         CustomerNavbarComponent,
         FeedbackComponent,
         OrderSummaryComponent,
-        CustomerProfileComponent
+        CustomerProfileComponent,
+        InvoiceComponent
     ],
     imports: [
         CommonModule,
