@@ -15,14 +15,10 @@ export class ProductsService {
     { id: 5, name: "product 5" },
     { id: 6, name: "product 6" },
     { id: 7, name: "product 7" },
-    { id: 8, name: "product 8" },
-
-
+    { id: 8, name: "product 8" }
   ];
 
   getAll() {
     return this.products;
   }
-
-  
 }
