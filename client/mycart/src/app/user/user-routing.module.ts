@@ -9,9 +9,9 @@ import { UserLayoutComponent } from './user-layout/user-layout.component';
 const routes: Routes = [
   {
     path: '', component: UserLayoutComponent, children: [
-      {path: 'signup', component: RegisterComponent},
-      {path: 'otp', component: OtpComponent},
       { path: '', component: LandingPageComponent },
+      { path: 'signup', component: RegisterComponent },
+      { path: 'otp', component: OtpComponent },
       { path: 'login', component: LoginComponent }
     ]
   }
