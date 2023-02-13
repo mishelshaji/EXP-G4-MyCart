@@ -7,6 +7,7 @@ import { CustomerLayoutComponent } from './customer-layout/customer-layout.compo
 import { FeedbackComponent } from './feedback/feedback.component';
 import { InvoiceComponent } from './invoice/invoice.component';
 import { OrderSummaryComponent } from './order-summary/order-summary.component';
+import { CustomerProfileComponent } from "./customer-profile/customer-profile.component";
 
 const routes: Routes = [
   {
@@ -14,8 +15,9 @@ const routes: Routes = [
       { path: 'cart', component: CartComponent },
       { path: 'home', component: CustomerHomeComponent },
       { path: 'order-summary', component: OrderSummaryComponent },
-      { path: 'feedback' , component: FeedbackComponent},
-      { path: 'invoice' , component: InvoiceComponent}
+      { path: 'feedback', component: FeedbackComponent},
+      { path: 'profile', component: CustomerProfileComponent},
+      { path: 'invoice', component: InvoiceComponent}
     ]
   }
 ];
