@@ -15,9 +15,9 @@ const routes: Routes = [
       { path: 'cart', component: CartComponent },
       { path: 'home', component: CustomerHomeComponent },
       { path: 'order-summary', component: OrderSummaryComponent },
-      { path: 'feedback' , component: FeedbackComponent},
-      { path: 'profile' , component: CustomerProfileComponent},
-      { path: 'invoice' , component: InvoiceComponent}
+      { path: 'feedback', component: FeedbackComponent},
+      { path: 'profile', component: CustomerProfileComponent},
+      { path: 'invoice', component: InvoiceComponent}
     ]
   }
 ];
