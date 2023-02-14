@@ -11,7 +11,8 @@ namespace MyCart.Domain.Models
     {
         public int Id { get; set; }
 
-        public Customer Customer { get; set; }
+        public int ApplicationUserId { get; set; }
+        public ApplicationUser ApplicationUser { get; set; }
 
         [StringLength(500)]
         public string Message { get; set; }

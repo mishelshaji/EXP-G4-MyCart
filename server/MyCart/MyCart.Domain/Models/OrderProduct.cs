@@ -13,6 +13,8 @@ namespace MyCart.Domain.Models
     {
         public int Id { get; set; }
 
+        public int ProductId { get; set; }
+
         public Product Product { get; set; }
 
         [Range(0, 2_00_000)]

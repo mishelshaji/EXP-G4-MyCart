@@ -22,6 +22,8 @@ namespace MyCart.Domain.Models
         [Column(TypeName = "decimal(6, 3)")]
         public decimal OfferPrice { get; set; }
 
+        public int ProductId { get; set; }
+
         public Product Product { get; set; }
     }
 }

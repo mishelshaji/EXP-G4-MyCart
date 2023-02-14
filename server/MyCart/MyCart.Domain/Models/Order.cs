@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using MyCart.Domain.Types;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -11,12 +12,8 @@ namespace MyCart.Domain.Models
 {
     public class Order
     {
-        public enum Status
-        {
-            Paid,
-            Unpaid,
-            Refunded,
-        }
+
+
         public int Id { get; set; }
 
         public Customer Customer { get; set; }
@@ -24,7 +21,7 @@ namespace MyCart.Domain.Models
         [StringLength(250)]
         public string DeliveryAddress { get; set; }
 
-        public Status PaymentStatus { get; set; }
+        public PaymentStatus PaymentStatus { get; set; }
 
         public DateTime OrderTime { get; set; }
 

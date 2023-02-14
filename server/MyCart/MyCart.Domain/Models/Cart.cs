@@ -10,8 +10,12 @@ namespace MyCart.Domain.Models
     {
         public int Id { get; set; }
 
-        public Product Product { get; set; }    
+        public int ProductId { get; set; }
 
-        public Customer Customer { get; set; }
+        public Product Product { get; set; }
+
+        public int ApplicationUserId { get; set; }
+
+        public ApplicationUser ApplicationUser { get; set; }
     }
 }
