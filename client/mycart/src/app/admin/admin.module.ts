@@ -9,6 +9,7 @@ import { AddProductComponent } from './add-product/add-product.component';
 import { FormsModule } from '@angular/forms';
 import { ViewFeedbackComponent } from './view-feedback/view-feedback.component';
 import { FooterComponent } from '../shared/footer/footer.component';
+import { ProductsComponent } from './products/products.component';
 
 
 @NgModule({
@@ -18,6 +19,7 @@ import { FooterComponent } from '../shared/footer/footer.component';
     AdminNavbarComponent,
     AddProductComponent,
     ViewFeedbackComponent,
+    ProductsComponent,
   ],
   imports: [
     CommonModule,
