@@ -19,7 +19,7 @@ import { UpdateProductComponent } from './update-product/update-product.componen
     AdminNavbarComponent,
     AddProductComponent,
     ViewFeedbackComponent,
-    UpdateProductComponent,
+    UpdateProductComponent
   ],
   imports: [
     CommonModule,
