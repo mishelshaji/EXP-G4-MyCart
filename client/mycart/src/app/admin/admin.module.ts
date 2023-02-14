@@ -11,7 +11,6 @@ import { ViewFeedbackComponent } from './view-feedback/view-feedback.component';
 import { FooterComponent } from '../shared/footer/footer.component';
 import { ProductsComponent } from './products/products.component';
 
-
 @NgModule({
   declarations: [
     AdminHomeComponent,
@@ -19,7 +18,7 @@ import { ProductsComponent } from './products/products.component';
     AdminNavbarComponent,
     AddProductComponent,
     ViewFeedbackComponent,
-    ProductsComponent,
+    ProductsComponent
   ],
   imports: [
     CommonModule,

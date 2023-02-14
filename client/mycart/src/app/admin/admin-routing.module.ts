@@ -11,7 +11,6 @@ const routes: Routes = [
       { path: 'product/create', component: AddProductComponent },
       { path: 'feedback/view', component: ViewFeedbackComponent },
       { path: 'products', component: ProductsComponent }
-
     ]
   }
 ];
