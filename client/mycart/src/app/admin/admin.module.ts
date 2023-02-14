@@ -9,6 +9,7 @@ import { AddProductComponent } from './add-product/add-product.component';
 import { FormsModule } from '@angular/forms';
 import { ViewFeedbackComponent } from './view-feedback/view-feedback.component';
 import { FooterComponent } from '../shared/footer/footer.component';
+import { UpdateProductComponent } from './update-product/update-product.component';
 import { ProductsComponent } from './products/products.component';
 
 @NgModule({
@@ -18,6 +19,7 @@ import { ProductsComponent } from './products/products.component';
     AdminNavbarComponent,
     AddProductComponent,
     ViewFeedbackComponent,
+    UpdateProductComponent
     ProductsComponent
   ],
   imports: [
