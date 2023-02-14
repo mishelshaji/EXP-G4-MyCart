@@ -9,6 +9,9 @@ import { AddProductComponent } from './add-product/add-product.component';
 import { FormsModule } from '@angular/forms';
 import { ViewFeedbackComponent } from './view-feedback/view-feedback.component';
 import { FooterComponent } from '../shared/footer/footer.component';
+import { HomePageComponent } from '../shared/home-page/home-page.component';
+import { DropdownComponent } from './dropdown/dropdown.component';
+import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
@@ -18,13 +21,15 @@ import { FooterComponent } from '../shared/footer/footer.component';
     AdminNavbarComponent,
     AddProductComponent,
     ViewFeedbackComponent,
+    DropdownComponent
   ],
   imports: [
     CommonModule,
     AdminRoutingModule,
     FontAwesomeModule,
     FormsModule,
-    FooterComponent
+    FooterComponent,
+    NgbDropdownModule
   ]
 })
 export class AdminModule { }
