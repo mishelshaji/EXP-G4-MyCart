@@ -9,9 +9,9 @@ import { ViewFeedbackComponent } from './view-feedback/view-feedback.component';
 const routes: Routes = [
   {
     path: '', component: AdminLayoutComponent, children: [
-      { path: 'product/create', component: AddProductComponent },
+      { path: 'products/create', component: AddProductComponent },
       { path: 'feedback/view', component: ViewFeedbackComponent },
-      { path: 'product/update', component:UpdateProductComponent}
+      { path: 'products/update/id', component: UpdateProductComponent },
       { path: 'products', component: ProductsComponent }
     ]
   }
