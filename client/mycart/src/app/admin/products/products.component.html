@@ -1,0 +1,55 @@
+<h2 class="text-center text-dark my-4 font-weight-bold">Product List</h2>
+<div class="container-fluid">
+    <div class="justify-content-center" style="overflow-x: scroll;">
+        <table class="table">
+            <thead class="text-white bg-info">
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Category</th>
+                    <th>Unit Price</th>
+                    <th>Stock</th>
+                    <th>Image</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Samsung Galaxy</td>
+                    <td>Samsung Galaxy 64GB ROM 6GB RAM</td>
+                    <td>Smart phone</td>
+                    <td>{{20000 | currency:'INR'}}</td>
+                    <td>200</td>
+                    <td><img src="assets/images/samsung.jpg" width="100" class="img-fluid"></td>
+                    <td>
+                        <div class="d-grid gap-1 d-md-flex justify-content-md-end">
+                            <button class="btn btn-success">Edit</button>
+                            <button class="btn btn-danger">
+                                <fa-icon [icon]="faTrash"></fa-icon>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>iPad</td>
+                    <td>iPad Retina display, 25.91 cm LED-backlit Multi-Touch display·</td>
+                    <td>Tab</td>
+                    <td>{{120000 | currency:'INR'}}</td>
+                    <td>40</td>
+                    <td><img src="assets/images/ipad2.jpg" width="100" class="img-fluid"></td>
+                    <td>
+                        <div class="d-grid gap-1 d-md-flex justify-content-md-end">
+                            <button class="btn btn-success">Edit</button>
+                            <button class="btn btn-danger">
+                                <fa-icon [icon]="faTrash"></fa-icon>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

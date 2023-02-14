@@ -3,11 +3,11 @@ import { CommonModule } from '@angular/common';
 import { ProductsService } from 'src/app/services/products.service';
 
 @Component({
-  selector: 'app-home-page',
-  standalone: true,
-  imports: [CommonModule],
-  templateUrl: './home-page.component.html',
-  styleUrls: ['./home-page.component.css']
+    selector: 'app-home-page',
+    standalone: true,
+    templateUrl: './home-page.component.html',
+    styleUrls: ['./home-page.component.css'],
+    imports: [CommonModule]
 })
 export class HomePageComponent {
   productsCards: any;

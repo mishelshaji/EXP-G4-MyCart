@@ -1,0 +1,34 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-6 text-center mt-3" id="product-image">
+            <img src="https://picsum.photos/200/300" alt="Product image" class="img-fluid">
+        </div>
+        <div class="col-lg-6 d-flex flex-column justify-content-between" id="product-details">
+            <div class="product-name d-flex flex-row align-items-center justify-content-center mt-3">
+                <div class="w-50">
+                    <span class="ms-2">Product Name</span>
+                </div>
+                <div class="d-flex flex-row align-items-center w-50 ms-2">
+                    <span class="mrp-price me-2 text-secon">
+                        <del>{{ 1200 | currency: 'INR' }}</del>
+                    </span>
+                    <span class="text-primary me-2">{{ 1000 | currency: 'INR' }}</span>
+                </div>
+            </div>
+            <div class="product-description-div mt-5">
+                <p class="product-description text-justify m-3 mb-4">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                    sed do eiusmod tempor incididunt ut labore et dolore magna
+                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                    ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    Duis aute irure dolor in reprehenderit in voluptate velit
+                    esse cillum dolore eu fugiat nulla pariatur.
+                </p>
+            </div>
+            <div class=" button-product-details d-flex flex-column justify-content-around align-items-center mt-4 h-25">
+                <button class="btn btn-warning w-50 mb-2">Add to Cart</button>
+                <button class="btn-success btn w-50 mb-3">Buy Now</button>
+            </div>
+        </div>
+    </div>
+</div>
