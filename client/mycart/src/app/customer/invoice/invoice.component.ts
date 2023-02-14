@@ -6,5 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./invoice.component.css']
 })
 export class InvoiceComponent {
-
+  printPage() {
+    window.print();
+  }
 }
