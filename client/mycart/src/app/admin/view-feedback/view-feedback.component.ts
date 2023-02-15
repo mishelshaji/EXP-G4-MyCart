@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FeedbackService } from 'src/app/services/feedback.service';
 
 @Component({
   selector: 'app-view-feedback',
@@ -6,5 +7,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./view-feedback.component.css']
 })
 export class ViewFeedbackComponent {
+  feedbackItem: any;
 
+  constructor(private feedbackService: FeedbackService) {
+    console.log(this.feedbackItem)
+    this.feedbackItem = this.feedbackService.getAll();
+  }
 }
