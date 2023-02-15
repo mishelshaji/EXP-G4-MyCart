@@ -12,7 +12,8 @@ import { FooterComponent } from '../shared/footer/footer.component';
 import { HomePageComponent } from '../shared/home-page/home-page.component';
 import { DropdownComponent } from './dropdown/dropdown.component';
 import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
-
+import { UpdateProductComponent } from './update-product/update-product.component';
+import { ProductsComponent } from './products/products.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,9 @@ import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
     AdminNavbarComponent,
     AddProductComponent,
     ViewFeedbackComponent,
-    DropdownComponent
+    DropdownComponent,
+    UpdateProductComponent,
+    ProductsComponent
   ],
   imports: [
     CommonModule,
