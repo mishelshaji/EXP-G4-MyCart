@@ -14,6 +14,7 @@ import { DropdownComponent } from './dropdown/dropdown.component';
 import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 import { UpdateProductComponent } from './update-product/update-product.component';
 import { ProductsComponent } from './products/products.component';
+import { AddCategoriesComponent } from './add-categories/add-categories.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { ProductsComponent } from './products/products.component';
     AdminNavbarComponent,
     AddProductComponent,
     ViewFeedbackComponent,
+    AddCategoriesComponent
     DropdownComponent,
     UpdateProductComponent,
     ProductsComponent
