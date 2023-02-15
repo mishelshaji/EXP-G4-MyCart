@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AddProductComponent } from './add-product/add-product.component';
+import { AdminHomeComponent } from './admin-home/admin-home.component';
 import { AdminLayoutComponent } from './admin-layout/admin-layout.component';
 import { UpdateProductComponent } from './update-product/update-product.component';
 import { ProductsComponent } from './products/products.component';
@@ -10,11 +11,12 @@ import { AddCategoriesComponent } from './add-categories/add-categories.componen
 const routes: Routes = [
   {
     path: '', component: AdminLayoutComponent, children: [
-      { path: 'product/create', component: AddProductComponent },
+      { path: 'home', component: AdminHomeComponent },
+      { path: 'products/create', component: AddProductComponent },
       { path: 'feedback/view', component: ViewFeedbackComponent },
-      { path: 'update', component:UpdateProductComponent},
       { path: 'products', component: ProductsComponent },
-      { path: 'categories/create', component: AddCategoriesComponent }
+      { path: 'categories/create', component: AddCategoriesComponent },
+      { path: 'products/update/id', component: UpdateProductComponent }
     ]
   }
 ];

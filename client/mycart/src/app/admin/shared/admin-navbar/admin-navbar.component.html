@@ -1,37 +1,29 @@
 <nav class="navbar navbar-expand-sm navbar-dark bg-primary">
-    <div class="container">
-        <span class="navbar-brand">
-            <fa-icon class="fs-3" [icon]="faShop"></fa-icon>
-            <span class="my-cart-logo">MY</span>
-            <span class="cart-logo">CART</span>
-        </span>
-        <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse"
-            data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false"
-            aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="collapsibleNavId">
-            <ul class="navbar-nav ms-auto mt-2 mt-lg-0 ">
-                <li class="nav-item ">
-                    <a class="nav-link active" href="#" aria-current="page" [routerLink]="['/admin/product/create']">Add
-                        Products</a>
-                </li>
-                <li class="nav-item ">
-                    <a class="nav-link active" href="#" aria-current="page">View Products</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link active" href="#">View Orders</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link active" href="#">View Customers</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link active" href="#" [routerLink]="['/admin/feedback/view']">View Feedbacks</a>
-                </li>
-                <li class="nav-item">
-                    <a class="btn btn-success ms-4">Log Out</a>
-                </li>
-            </ul>
-        </div>
+  <div class="container">
+    <a class="navbar-brand" [routerLink]="['/admin/home']">
+      <fa-icon class="fs-3" [icon]="faShop"></fa-icon>
+      <span class="my-cart-logo">MY</span>
+      <span class="cart-logo">CART</span>
+    </a>
+    <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavId"
+      aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="collapsibleNavId">
+      <ul class="navbar-nav ms-auto mt-2 mt-lg-0 ">
+        <li class="nav-item">
+          <app-dropdown></app-dropdown>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="#">View Orders</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="#">View Customers</a>
+        </li>
+        <li class="nav-item">
+          <a class="btn btn-success ms-4">Log Out</a>
+        </li>
+      </ul>
     </div>
+  </div>
 </nav>
