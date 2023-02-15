@@ -5,14 +5,16 @@ import { AdminLayoutComponent } from './admin-layout/admin-layout.component';
 import { UpdateProductComponent } from './update-product/update-product.component';
 import { ProductsComponent } from './products/products.component';
 import { ViewFeedbackComponent } from './view-feedback/view-feedback.component';
+import { AddCategoriesComponent } from './add-categories/add-categories.component';
 
 const routes: Routes = [
   {
     path: '', component: AdminLayoutComponent, children: [
       { path: 'product/create', component: AddProductComponent },
       { path: 'feedback/view', component: ViewFeedbackComponent },
-      { path: 'product/update', component:UpdateProductComponent}
-      { path: 'products', component: ProductsComponent }
+      { path: 'update', component:UpdateProductComponent},
+      { path: 'products', component: ProductsComponent },
+      { path: 'categories/create', component: AddCategoriesComponent }
     ]
   }
 ];
