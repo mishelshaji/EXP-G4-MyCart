@@ -1,0 +1,28 @@
+<div class="d-flex flex-row">
+    <div class="navbar-collapse" [class.collapse]="collapsed" id="navbarContent">
+        <ul class="navbar-nav ms-auto">
+            <li class="nav-item" ngbDropdown>
+                <a class="nav-link active" tabindex="0" ngbDropdownToggle id="navbarDropdown1"
+                    role="button">Products</a>
+                <div ngbDropdownMenu aria-labelledby="navbarDropdown1" class="dropdown-menu">
+                    <a ngbDropdownItem [routerLink]="['product/create']">Add
+                        Products</a>
+                    <a ngbDropdownItem>View Products</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="navbar-collapse" [class.collapse]="collapsed" id="navbarContent">
+        <ul class="navbar-nav ms-auto">
+            <li class="nav-item" ngbDropdown>
+                <a class="nav-link active" tabindex="0" ngbDropdownToggle id="navbarDropdown1"
+                    role="button">Category</a>
+                <div ngbDropdownMenu aria-labelledby="navbarDropdown1" class="dropdown-menu">
+                    <a ngbDropdownItem [routerLink]="['/']">Add
+                        Category</a>
+                    <a ngbDropdownItem>View Category</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
