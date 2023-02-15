@@ -22,10 +22,12 @@ namespace MyCart.Domain.Models
         [StringLength(12)]
         public string Phone { get; set; }
 
-        public DateOnly DateOfBirth { get; set; }
+        public string DateOfBirth { get; set; }
 
         public int ApplicationUserId { get; set; }
 
         public ApplicationUser ApplicationUser { get; set; }
+
+        public DateTime? ModifiedOn { get; set; }
     }
 }

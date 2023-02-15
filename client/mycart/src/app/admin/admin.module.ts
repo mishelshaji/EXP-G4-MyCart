@@ -19,7 +19,7 @@ import { ProductsComponent } from './products/products.component';
     AdminNavbarComponent,
     AddProductComponent,
     ViewFeedbackComponent,
-    UpdateProductComponent
+    UpdateProductComponent,
     ProductsComponent
   ],
   imports: [

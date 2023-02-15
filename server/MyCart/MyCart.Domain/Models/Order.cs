@@ -13,7 +13,6 @@ namespace MyCart.Domain.Models
     public class Order
     {
 
-
         public int Id { get; set; }
 
         public Customer Customer { get; set; }
@@ -25,8 +24,7 @@ namespace MyCart.Domain.Models
 
         public DateTime OrderTime { get; set; }
 
-        [Range(0, 10_00_000)]
-        [Column(TypeName = "decimal(7, 3)")]
+        [Column(TypeName = "decimal(10, 3)")]
         public decimal TotalPrice { get; set; }
     }
 }

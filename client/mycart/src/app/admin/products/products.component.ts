@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { IconProp } from '@fortawesome/fontawesome-svg-core';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
@@ -7,5 +8,5 @@ import { faTrash } from '@fortawesome/free-solid-svg-icons';
   styleUrls: ['./products.component.css']
 })
 export class ProductsComponent {
-  faTrash = faTrash;
+  faTrash = faTrash as IconProp;
 }

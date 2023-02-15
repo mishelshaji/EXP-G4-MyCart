@@ -1,0 +1,246 @@
+﻿using MyCart.Domain.Models;
+using MyCart.Domain.Types;
+using MyCart.Services.Data;
+using MyCart.Services.Dto;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Reflection.Metadata.Ecma335;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace MyCart.Services.Services
+{
+    public class ProductServices
+    {
+        private readonly ApplicationDbContext _db;
+
+        public ProductServices(ApplicationDbContext db)
+        {
+            _db = db;
+        }
+
+        public async Task<ServiceResponse<List<ProductViewDto>>> GetAllAsync()
+        {
+
+            var products = await _db.Products
+                .Include(m => m.Category)
+                .Include(m => m.Price).Where(m => m.Price.ProductId == m.Id)
+                .Select(m => new ProductViewDto
+                {
+                    Id = m.Id,
+                    Name = m.Name,
+                    Brand = m.Brand,
+                    Description = m.Description,
+                    CategoryId = m.CategoryId,
+                    Stock = m.Stock,
+                    Price = new()
+                    {
+                        Id = m.Price.Id,
+                        OfferPrice = m.Price.OfferPrice,
+                        RetailPrice = m.Price.RetailPrice,
+                    },
+                    Category = new()
+                    {
+                        Id = m.Category.Id,
+                        Name = m.Category.Name,
+                        Description = m.Category.Description
+                    },
+                    CreatedOn = m.CreatedOn
+                }).ToListAsync();
+
+            return new()
+            {
+                Result = products
+            };
+        }
+
+        public async Task<ServiceResponse<ProductViewDto?>> GetByIdAsync(int id)
+        {
+            var result = new ServiceResponse<ProductViewDto?>();
+
+            var product = await _db.Products
+                .Include(m => m.Category)
+                .Include(m => m.Price).Where(m => m.Price.ProductId == id)
+                .FirstOrDefaultAsync(m => m.Id == id);
+
+            if (product == null)
+                return null;
+
+            result = new()
+            {
+                Result = new()
+                {
+                    Id = product.Id,
+                    Name = product.Name,
+                    Brand = product.Brand,
+                    Description = product.Description,
+                    Stock = product.Stock,
+                    Price = new()
+                    {
+                        Id = product.Price.Id,
+                        OfferPrice = product.Price.OfferPrice,
+                        RetailPrice = product.Price.RetailPrice,
+
+                    },
+                    Category = new()
+                    {
+                        Id = product.Category.Id,
+                        Name = product.Category.Name,
+                        Description = product.Category.Description
+                    }
+
+                }
+            };
+
+            return result;
+        }
+
+        public async Task<ServiceResponse<ProductViewDto>> CreateAysnc(ProductCreateDto dto)
+        {
+            var result = new ServiceResponse<ProductViewDto>();
+            var category = await _db.Categories.FindAsync(dto.CategoryId);
+
+            if (category == null)
+                result.AddError(nameof(dto.CategoryId), "Invalid category");
+
+            if (!result.IsValid)
+                return result;
+
+            Product product = new()
+            {
+                Name = dto.Name,
+                Brand = dto.Brand,
+                Description = dto.Description,
+                CategoryId = dto.CategoryId,
+                Stock = dto.Stock,
+            };
+
+            _db.Products.Add(product);
+            await _db.SaveChangesAsync();
+
+            Price price = new()
+            {
+                RetailPrice = dto.Price,
+                OfferPrice = dto.OfferPrice,
+                ProductId = product.Id,
+            };
+
+            _db.Prices.Add(price);
+            await _db.SaveChangesAsync();
+
+            var productPrice = await _db.Prices.FindAsync(product.Id);
+            if (productPrice == null)
+            {
+                result.AddError("", "product id is null");
+                return result;
+            }
+
+            result.Result = new ProductViewDto()
+            {
+                Id = product.Id,
+                Name = product.Name,
+                Brand = product.Brand,
+                Description = product.Description,
+                CategoryId = product.CategoryId,
+                Stock = product.Stock,
+                Price = new()
+                {
+                    Id = productPrice.Id,
+                    OfferPrice = productPrice.OfferPrice,
+                    RetailPrice = productPrice.RetailPrice,
+                },
+                Category = new CategoryViewDto()
+                {
+                    Id = product.CategoryId,
+                    Name = category.Name,
+                    Description = category.Description,
+                },
+
+            };
+
+            return result;
+        }
+
+        public async Task<ServiceResponse<ProductViewDto>?> UpdateAsync(int id, ProductCreateDto dto)
+        {
+            var result = new ServiceResponse<ProductViewDto>();
+
+
+            var product = await _db.Products
+                .Include(m => m.Category).Where(m => m.Category.Id == m.CategoryId)
+                .Include(m => m.Price).Where(m => m.Price.ProductId == id)
+                .FirstOrDefaultAsync(m => m.Id == id);
+
+            // If the product does not exist, return back to controller.
+            if (product == null)
+                return null;
+
+            // Check if the category exists.
+            if (!await _db.Categories.AnyAsync(m => m.Id == dto.CategoryId))
+                result.AddError(nameof(dto.CategoryId), "Invalid category");
+
+            if (await _db.Products.AnyAsync(m => m.Name == dto.Name && m.Id != id))
+                result.AddError(nameof(dto.Name), "A similar product already exists.");
+
+            if (!result.IsValid)
+                return result;
+
+            product.Name = dto.Name;
+            product.Brand = dto.Brand;
+            product.Description = dto.Description;
+            product.CategoryId = dto.CategoryId;
+            product.Stock = dto.Stock;
+            product.Price = new()
+            {
+                OfferPrice = dto.Price,
+                RetailPrice = dto.Price,
+            };
+
+
+            await _db.SaveChangesAsync();
+
+            result.Result = new ProductViewDto()
+            {
+                Id = product.Id,
+                Name = product.Name,
+                Description = product.Description,
+                Brand = dto.Brand,
+                CategoryId = dto.CategoryId,
+                Stock = dto.Stock,
+                Category = new()
+                {
+                    Id = product.Category.Id,
+                    Name = product.Category.Name,
+                    Description = product.Category.Description
+                },
+                Price = new()
+                {
+                    Id = product.Price.Id,
+                    OfferPrice = product.Price.OfferPrice,
+                    RetailPrice = product.Price.RetailPrice,
+                }
+            };
+            return result;
+        }
+
+        public async Task<ServiceResponse<bool>> DeleteAync(int id)
+        {
+            var result = new ServiceResponse<bool>();
+            var product = await _db.Products.FindAsync(id);
+
+            if (product == null)
+                return null;
+
+            _db.Products.Remove(product);
+            await _db.SaveChangesAsync();
+
+            return new()
+            {
+                Result = true
+            };
+
+        }
+
+    }
+}

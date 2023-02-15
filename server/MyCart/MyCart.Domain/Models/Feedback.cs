@@ -16,5 +16,7 @@ namespace MyCart.Domain.Models
 
         [StringLength(500)]
         public string Message { get; set; }
+
+        public DateTime CreatedOn { get; set; } = DateTime.UtcNow;
     }
 }

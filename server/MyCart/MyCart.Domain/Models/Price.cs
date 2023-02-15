@@ -14,16 +14,19 @@ namespace MyCart.Domain.Models
     {
         public int Id { get; set; }
 
-        [Range(0, 2_00_000)]
-        [Column(TypeName = "decimal(6, 3)")]
+        [Column(TypeName = "decimal(10, 3)")]
         public decimal RetailPrice { get; set; }
 
-        [Range(0, 2_00_000)]
-        [Column(TypeName = "decimal(6, 3)")]
+
+        [Column(TypeName = "decimal(10, 3)")]
         public decimal OfferPrice { get; set; }
 
         public int ProductId { get; set; }
 
         public Product Product { get; set; }
+
+        public DateTime CreatedOn { get; set; } = DateTime.Now;
+
+        public DateTime? UpdatedOn { get; set; }
     }
 }
