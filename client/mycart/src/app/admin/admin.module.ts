@@ -9,8 +9,12 @@ import { AddProductComponent } from './add-product/add-product.component';
 import { FormsModule } from '@angular/forms';
 import { ViewFeedbackComponent } from './view-feedback/view-feedback.component';
 import { FooterComponent } from '../shared/footer/footer.component';
+import { HomePageComponent } from '../shared/home-page/home-page.component';
+import { DropdownComponent } from './dropdown/dropdown.component';
+import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 import { UpdateProductComponent } from './update-product/update-product.component';
 import { ProductsComponent } from './products/products.component';
+import { AddCategoriesComponent } from './add-categories/add-categories.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +23,8 @@ import { ProductsComponent } from './products/products.component';
     AdminNavbarComponent,
     AddProductComponent,
     ViewFeedbackComponent,
+    AddCategoriesComponent,
+    DropdownComponent,
     UpdateProductComponent,
     ProductsComponent
   ],
@@ -27,7 +33,8 @@ import { ProductsComponent } from './products/products.component';
     AdminRoutingModule,
     FontAwesomeModule,
     FormsModule,
-    FooterComponent
+    FooterComponent,
+    NgbDropdownModule
   ]
 })
 export class AdminModule { }
