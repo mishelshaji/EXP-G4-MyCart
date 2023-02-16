@@ -28,7 +28,6 @@ export class CartService {
       quantity: 3,
       userId: 1
     }
-
   ]
 
   constructor() { }

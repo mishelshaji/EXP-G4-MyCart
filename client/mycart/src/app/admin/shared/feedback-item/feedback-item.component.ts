@@ -7,6 +7,6 @@ import { Component, Input } from '@angular/core';
 })
 export class FeedbackItemComponent {
 
-  @Input("item") feedbackItem: any;
+  @Input() feedbackItem: any;
 
 }

@@ -18,7 +18,6 @@ export class FeedbackService {
       email: 'johndoe97@gmail.com',
       description: 'Customer friendly and good services.'
     }
-
   ]
 
   constructor() { }
