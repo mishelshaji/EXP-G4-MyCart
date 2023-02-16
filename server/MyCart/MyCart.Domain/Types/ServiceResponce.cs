@@ -20,7 +20,7 @@ namespace MyCart.Domain.Types
             _errors = new();
         }
 
-        public void AddError(string key, string errorMessage) 
+        public void AddError(string key, string errorMessage)
         {
             if (!_errors.ContainsKey(key))
             {

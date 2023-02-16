@@ -11,10 +11,10 @@ namespace MyCart.WebApp.Areas.Admin.Controllers
     {
         private readonly ProductServices _services;
 
-        public ProductsController(ProductServices services) 
+        public ProductsController(ProductServices services)
         {
             _services = services;
-        } 
+        }
 
         [HttpPost]
         [ProducesResponseType(typeof(ProductViewDto), StatusCodes.Status200OK)]
@@ -66,5 +66,13 @@ namespace MyCart.WebApp.Areas.Admin.Controllers
             return Ok(result.Result);
         }
 
+        [HttpDelete("{id}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(Nullable), StatusCodes.Status404NotFound)]
+        public async Task<IActionResult> DeleteAsync(int id)
+        {
+            var result = await _services.DeleteAsync(id);
+            return result == null ? NotFound() : Ok();
+        }
     }
 }

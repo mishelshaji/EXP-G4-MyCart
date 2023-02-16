@@ -224,14 +224,20 @@ namespace MyCart.Services.Services
             return result;
         }
 
-        public async Task<ServiceResponse<bool>> DeleteAync(int id)
+        public async Task<ServiceResponse<bool>> DeleteAsync(int id)
         {
             var result = new ServiceResponse<bool>();
+
+            // Select product with the given id and returns.
             var product = await _db.Products.FindAsync(id);
 
-            if (product == null)
+            // Select price which is related to the given product id from price table
+            var productPrice = await _db.Prices.FirstOrDefaultAsync(m => m.Id == product.Id);
+
+            if (product == null || productPrice == null)
                 return null;
 
+            _db.Prices.Remove(productPrice);
             _db.Products.Remove(product);
             await _db.SaveChangesAsync();
 
