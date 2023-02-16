@@ -12,7 +12,7 @@ using MyCart.Services.Data;
 namespace MyCart.Services.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230215185947_CreatedDatabaseMyCart")]
+    [Migration("20230216085403_CreatedDatabaseMyCart")]
     partial class CreatedDatabaseMyCart
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
