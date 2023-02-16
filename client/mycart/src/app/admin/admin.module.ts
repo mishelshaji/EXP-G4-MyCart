@@ -15,6 +15,7 @@ import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 import { UpdateProductComponent } from './update-product/update-product.component';
 import { ProductsComponent } from './products/products.component';
 import { FeedbackItemComponent } from './shared/feedback-item/feedback-item.component';
+import { AddCategoriesComponent } from './add-categories/add-categories.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { FeedbackItemComponent } from './shared/feedback-item/feedback-item.comp
     AdminNavbarComponent,
     AddProductComponent,
     ViewFeedbackComponent,
+    AddCategoriesComponent,
     DropdownComponent,
     UpdateProductComponent,
     ProductsComponent,

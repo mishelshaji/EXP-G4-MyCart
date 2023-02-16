@@ -1,8 +1,21 @@
+using Microsoft.EntityFrameworkCore;
+using MyCart.Services.Data;
+using MyCart.Services.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddScoped<CategoryServices>();
+builder.Services.AddScoped<ProductServices>();
+
+
+var connStr = builder.Configuration.GetConnectionString("DefaultConnection");
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+{
+    options.UseSqlServer(connStr);
+});
 
 var app = builder.Build();
 

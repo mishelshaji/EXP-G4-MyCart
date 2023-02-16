@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyCart.WebApp", "MyCart\MyCart.WebApp.csproj", "{9B7399F4-55E3-4794-A7BE-0CEE17446247}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyCart.WebApp", "MyCart\MyCart.WebApp.csproj", "{8FF74997-66BB-46D3-87B3-F75B9CF4E9AF}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{8D5678A7-846A-411A-9DC6-394649CE7D40}"
 EndProject
@@ -13,7 +13,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentatio
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyCart.Domain", "MyCart.Domain\MyCart.Domain.csproj", "{E64C39E1-86DC-4CF8-884F-D0C0D16D744C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyCart.Services", "MyCart.Services\MyCart.Services.csproj", "{67DFBE78-975E-4161-B9DE-73E08D4CB51E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyCart.Services", "MyCart.Services\MyCart.Services.csproj", "{67DFBE78-975E-4161-B9DE-73E08D4CB51E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,10 +21,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{9B7399F4-55E3-4794-A7BE-0CEE17446247}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9B7399F4-55E3-4794-A7BE-0CEE17446247}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9B7399F4-55E3-4794-A7BE-0CEE17446247}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9B7399F4-55E3-4794-A7BE-0CEE17446247}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8FF74997-66BB-46D3-87B3-F75B9CF4E9AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8FF74997-66BB-46D3-87B3-F75B9CF4E9AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8FF74997-66BB-46D3-87B3-F75B9CF4E9AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8FF74997-66BB-46D3-87B3-F75B9CF4E9AF}.Release|Any CPU.Build.0 = Release|Any CPU
 		{E64C39E1-86DC-4CF8-884F-D0C0D16D744C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{E64C39E1-86DC-4CF8-884F-D0C0D16D744C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E64C39E1-86DC-4CF8-884F-D0C0D16D744C}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -38,7 +38,6 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{9B7399F4-55E3-4794-A7BE-0CEE17446247} = {CDA369BA-D70F-4804-B125-3C0465E0F591}
 		{E64C39E1-86DC-4CF8-884F-D0C0D16D744C} = {8D5678A7-846A-411A-9DC6-394649CE7D40}
 		{67DFBE78-975E-4161-B9DE-73E08D4CB51E} = {B7711971-318B-4847-9551-796CE0F268C4}
 	EndGlobalSection
