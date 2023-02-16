@@ -7,9 +7,8 @@ using System.Threading.Tasks;
 
 namespace MyCart.Domain.Models
 {
-    public class ApplicationUser 
+    public class ApplicationUser : IdentityUser
     {
-        public string Id { get; set; }
 
         public string FullName { get; set; }
 
