@@ -23,7 +23,7 @@ import { AddCategoriesComponent } from './add-categories/add-categories.componen
     AdminNavbarComponent,
     AddProductComponent,
     ViewFeedbackComponent,
-    AddCategoriesComponent
+    AddCategoriesComponent,
     DropdownComponent,
     UpdateProductComponent,
     ProductsComponent
