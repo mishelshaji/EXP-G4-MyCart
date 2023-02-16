@@ -26,5 +26,14 @@ namespace MyCart.Domain.Models
 
         public Category Category { get; set; }
 
+        [Range(0, 1000)]
+        public int Stock { get; set; }
+
+        public DateTime CreatedOn { get; set; } = DateTime.UtcNow;
+
+        public DateTime? UpdatedOn { get; set;}
+
+        public Price Price { get; set; }
+
     }
 }

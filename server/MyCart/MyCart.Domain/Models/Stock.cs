@@ -17,5 +17,7 @@ namespace MyCart.Domain.Models
 
         [Range(0, 1000)]
         public int Quantity { get; set; }
+
+        public DateTime CreatedOn { get; set; } = DateTime.Now;
     }
 }
