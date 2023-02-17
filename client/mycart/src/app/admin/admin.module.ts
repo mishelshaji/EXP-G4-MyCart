@@ -16,6 +16,7 @@ import { UpdateProductComponent } from './update-product/update-product.componen
 import { ProductsComponent } from './products/products.component';
 import { FeedbackItemComponent } from './shared/feedback-item/feedback-item.component';
 import { AddCategoriesComponent } from './add-categories/add-categories.component';
+import { NgSelectModule } from '@ng-select/ng-select';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { AddCategoriesComponent } from './add-categories/add-categories.componen
     FontAwesomeModule,
     FormsModule,
     FooterComponent,
-    NgbDropdownModule
+    NgbDropdownModule,
+    NgSelectModule
   ]
 })
 export class AdminModule { }

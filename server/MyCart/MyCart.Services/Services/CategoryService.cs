@@ -19,14 +19,14 @@ namespace MyCart.Services.Services
             _db = db;
         }
 
-        public async Task<ServiceResponse<List<CategoryViewDto>>> GetAllAsync()
+        public async Task<ServiceResponse<CategoryViewDto[]>> GetAllAsync()
         {
             var categories = await _db.Categories.Select(m => new CategoryViewDto
             {
                 Id = m.Id,
                 Name = m.Name,
                 Description = m.Description,
-            }).ToListAsync();
+            }).ToArrayAsync();
 
             return new()
             {

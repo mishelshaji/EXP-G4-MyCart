@@ -126,10 +126,10 @@ namespace MyCart.Services.Services
                 ProductId = product.Id,
             };
 
-            _db.Prices.Add(price);
+             _db.Prices.Add(price);
             await _db.SaveChangesAsync();
 
-            var productPrice = await _db.Prices.FindAsync(product.Id);
+            var productPrice = await _db.Prices.FirstOrDefaultAsync(m=>m.ProductId == product.Id);
             if (productPrice == null)
             {
                 result.AddError("", "product id is null");

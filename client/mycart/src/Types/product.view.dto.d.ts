@@ -12,7 +12,7 @@ declare interface ProductViewDto {
 
     stock: number;
 
-    price: number;
+    price: PriceViewDto;
 
-    category: CategoryViewDto | null;
+    category: CategoryViewDto;
 }

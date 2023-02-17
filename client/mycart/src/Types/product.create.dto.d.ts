@@ -1,16 +1,16 @@
 declare interface ProductCreateDto {
 
-    id: number;
-
     name: string;
 
     brand: string;
 
     description: string;
 
-    categoryId: string
+    categoryId: number
 
     stock: number;
 
-    price: number;
+    retailPrice: number;
+
+    offerPrice: number;
 }

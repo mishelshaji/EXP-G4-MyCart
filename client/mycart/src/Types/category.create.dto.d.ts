@@ -1,4 +1,4 @@
-declare interface CategoryViewDto {
+declare interface CategoryCreateDto {
 
     name: string;
 
