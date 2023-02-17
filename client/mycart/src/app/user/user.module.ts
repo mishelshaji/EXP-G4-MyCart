@@ -11,6 +11,7 @@ import { LoginComponent } from './login/login.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HomePageComponent } from '../shared/home-page/home-page.component';
 import { FooterComponent } from "../shared/footer/footer.component";
+import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { FooterComponent } from "../shared/footer/footer.component";
     UserLayoutComponent,
     OtpComponent,
     LandingPageComponent,
-    LoginComponent
+    LoginComponent,
+    NotFoundComponent
   ],
   imports: [
     CommonModule,
