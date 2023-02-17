@@ -13,7 +13,6 @@ export class HomePageComponent {
   productsCards: any;
 
   constructor() {
-    let obj = new ProductsService();
-    this.productsCards = obj.getAll();
+      
   }
 }

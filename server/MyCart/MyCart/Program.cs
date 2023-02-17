@@ -9,6 +9,8 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<CategoryServices>();
 builder.Services.AddScoped<ProductServices>();
+builder.Services.AddScoped<FeedbackServices>();
+
 
 
 var connStr = builder.Configuration.GetConnectionString("DefaultConnection");

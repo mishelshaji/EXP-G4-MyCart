@@ -1,22 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MyCart.Domain.Models
+namespace MyCart.Services.Dto
 {
-    public class Feedback
+    public class FeedbackViewDto
     {
         public int Id { get; set; }
 
-        [StringLength(25)]
         public string Fullname { get; set; }
 
-        [StringLength(250)]
         public string Message { get; set; }
 
-        public DateTime CreatedOn { get; set; } = DateTime.UtcNow;
+        public DateTime CreatedOn { get; set; }
+
+
+        public FeedbackViewDto(){}
     }
 }
