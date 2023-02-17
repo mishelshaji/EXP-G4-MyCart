@@ -22,9 +22,9 @@ namespace MyCart.Services.Services
         public async Task<List<CartViewDto>> GetAllAsync()
         {
             return await _db.Carts.Select(m => new CartViewDto
-            { 
+            {
                 Id = m.Id,
-                ProductId= m.ProductId,
+                ProductId = m.ProductId,
             }).ToListAsync();
         }
 

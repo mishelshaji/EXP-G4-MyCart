@@ -4,7 +4,7 @@ using MyCart.Services.Services;
 
 namespace MyCart.WebApp.Areas.Customer.Controllers
 {
-    public class CartController: CustomerBaseController
+    public class CartController : CustomerBaseController
     {
         private readonly CartServices _cartservices;
 
@@ -22,7 +22,7 @@ namespace MyCart.WebApp.Areas.Customer.Controllers
         }
 
         [HttpPost]
-        [ProducesResponseType(typeof(CartViewDto),StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(CartViewDto), StatusCodes.Status200OK)]
         public async Task<IActionResult> Post(CartCreateDto dto)
         {
             var result = await _cartservices.CreateAsync(dto);
