@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace MyCart.Services.Migrations
 {
-    public partial class CreatedDatabaseMyCart : Migration
+    public partial class Creatingtables : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
