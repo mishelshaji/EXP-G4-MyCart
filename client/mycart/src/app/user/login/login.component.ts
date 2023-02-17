@@ -14,23 +14,20 @@ export class LoginComponent {
     private services: AccountService,
     private router: Router,
     private tokenHelper: TokenHelper
-    ) {}
+  ) { }
 
   model: LoginDto = {
-    email: '',
+    email: '' ,
     password: ''
   };
 
   onSubmit() {
     this.services.login(this.model).subscribe({
       next: (response: any) => {
-        console.log(response.result);
         this.tokenHelper.setToken(response.result);
         this.router.navigateByUrl('/customer/home');
       },
-      error: (errors: any) =>{
-        console.log(errors);
-      }
-    })
+      error: (errors: any) => {}
+    });
   }
 }

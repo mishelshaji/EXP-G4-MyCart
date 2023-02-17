@@ -1,5 +1,5 @@
 declare interface customerCreateDto {
-
+    
     name: string;
 
     email: string;
@@ -9,6 +9,6 @@ declare interface customerCreateDto {
     phone: string;
 
     dateOfBirth: Date;
-
+    
     cpassword: string;
 }

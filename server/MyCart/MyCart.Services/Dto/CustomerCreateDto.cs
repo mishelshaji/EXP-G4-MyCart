@@ -17,7 +17,5 @@ namespace MyCart.Services.Dto
         public  string phone { get; set; }
 
         public  DateTime DateOfBirth { get; set; }
-
-
     }
 }

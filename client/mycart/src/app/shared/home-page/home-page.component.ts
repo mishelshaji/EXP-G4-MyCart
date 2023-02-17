@@ -19,7 +19,6 @@ export class HomePageComponent {
     this.productsService.getAll().subscribe({
       next: (result: any) => {
         this.products = result;
-        console.log(this.products);
       }
     });
   }

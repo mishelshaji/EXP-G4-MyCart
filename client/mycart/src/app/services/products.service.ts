@@ -8,12 +8,11 @@ import { map } from 'rxjs';
 
 export class ProductsService {
 
-  url = "https://localhost:7191/api/area/Products";
+  url = "https://localhost:7191/api/area/products";
 
   constructor(private http: HttpClient) { }
 
   getAll() {
-    // return this.http.get<ProductViewDto[]>(this.url);
     return this.http.get<ProductViewDto[]>(this.url).pipe(map((data: any) => data.result));
   }
 
