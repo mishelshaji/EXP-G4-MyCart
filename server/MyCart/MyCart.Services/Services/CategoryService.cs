@@ -10,11 +10,11 @@ using System.Threading.Tasks;
 
 namespace MyCart.Services.Services
 {
-    public class CategoryServices
+    public class CategoryService
     {
         private readonly ApplicationDbContext _db;
 
-        public CategoryServices(ApplicationDbContext db)
+        public CategoryService(ApplicationDbContext db)
         {
             _db = db;
         }

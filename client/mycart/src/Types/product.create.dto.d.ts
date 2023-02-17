@@ -1,4 +1,4 @@
-declare interface ProductViewDto {
+declare interface ProductCreateDto {
 
     id: number;
 
@@ -13,6 +13,4 @@ declare interface ProductViewDto {
     stock: number;
 
     price: number;
-
-    category: CategoryViewDto | null;
 }

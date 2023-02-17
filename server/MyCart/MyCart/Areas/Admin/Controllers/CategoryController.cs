@@ -7,9 +7,9 @@ namespace MyCart.WebApp.Areas.Admin.Controllers
 {
     public class CategoryController : AdminBaseController
     {
-        private readonly CategoryServices _services;
+        private readonly CategoryService _services;
 
-        public CategoryController(CategoryServices services)
+        public CategoryController(CategoryService services)
         {
             _services = services;
         }

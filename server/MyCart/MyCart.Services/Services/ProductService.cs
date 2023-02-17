@@ -11,11 +11,11 @@ using System.Threading.Tasks;
 
 namespace MyCart.Services.Services
 {
-    public class ProductServices
+    public class ProductService
     {
         private readonly ApplicationDbContext _db;
 
-        public ProductServices(ApplicationDbContext db)
+        public ProductService(ApplicationDbContext db)
         {
             _db = db;
         }

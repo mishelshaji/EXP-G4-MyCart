@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { TokenHelper } from 'src/Utlis/Helpers/TokenHelper';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     FontAwesomeModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [TokenHelper],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

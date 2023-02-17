@@ -13,7 +13,6 @@ namespace MyCart.Services.Dto
 
         public decimal OfferPrice { get; set; }
 
-
         public int ProductId { get; set; }
 
         public Product?  Product { get; set; }

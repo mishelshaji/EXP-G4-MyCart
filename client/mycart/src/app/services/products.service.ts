@@ -13,6 +13,12 @@ export class ProductsService {
   constructor(private http: HttpClient) { }
 
   getAll() {
-    return this.http.get<ProductViewDto[]>(this.url).pipe(map((data: any) => data.result ));
+    // return this.http.get<ProductViewDto[]>(this.url);
+    return this.http.get<ProductViewDto[]>(this.url).pipe(map((data: any) => data.result));
   }
+
+  create(product: ProductCreateDto) {
+    return this.http.post<ProductCreateDto>(this.url, product);
+}
+
 }

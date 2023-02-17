@@ -2,6 +2,7 @@ import { Component, Input } from '@angular/core';
 import { NgForm, NgModel } from '@angular/forms';
 import { Route, Router } from '@angular/router';
 import { concatWith } from 'rxjs';
+import { AccountService } from 'src/app/services/account.service';
 
 @Component({
   selector: 'app-register',
@@ -10,14 +11,15 @@ import { concatWith } from 'rxjs';
 })
 export class RegisterComponent {
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private service: AccountService) {
 
   }
-  model = {
-    fname: '',
+  
+  model: customerCreateDto = {
+    name: '',
     email: '',
     phone: '',
-    dob: '',
+    dateOfBirth: new Date,
     password: '',
     cpassword: ''
   };
@@ -56,5 +58,13 @@ export class RegisterComponent {
   }
 
   onSubmit() {
+    this.service.create(this.model).subscribe({
+      next: (response: any) => {
+          console.log(response);
+      },
+      error: (errors: any) =>{
+          console.log(errors);
+      }
+    })
   }
 }

@@ -2,17 +2,17 @@ declare interface ProductViewDto {
 
     id: number;
 
-    Name: string;
+    name: string;
 
-    Brand: string;
+    brand: string;
 
-    Description: string;
+    description: string;
 
-    CategoryId: string
+    categoryId: string
 
-    Stock: number;
+    stock: number;
 
-    Price: number;
+    price: number;
 
-    Category: CategoryViewDto | null;
+    category: CategoryViewDto | null;
 }
