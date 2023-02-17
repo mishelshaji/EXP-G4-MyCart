@@ -60,7 +60,7 @@ namespace MyCart.Services.Services
 
             if (user.Id == null)
             {
-                response.AddError("", "userid is null in this context");
+                response.AddError("", "Userid is null in this context");
                 return response;
             }
             var customer = new Customer
