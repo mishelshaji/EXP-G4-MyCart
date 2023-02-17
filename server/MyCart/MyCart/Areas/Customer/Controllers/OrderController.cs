@@ -2,12 +2,12 @@
 using Microsoft.AspNetCore.Mvc;
 using MyCart.Services.Dto;
 using MyCart.Services.Services;
+using MyCart.WebApp.Areas.Customer.Controllers;
 
 namespace MyCart.WebApp.Areas.Admin.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
-    public class OrderController : AdminBaseController
+    
+    public class OrderController : CustomerBaseController
     {
         private readonly OrderServices _service;
 
@@ -18,7 +18,7 @@ namespace MyCart.WebApp.Areas.Admin.Controllers
 
         [HttpGet]
         [ProducesResponseType(typeof(OrderViewDto), StatusCodes.Status200OK)]
-        public async Task<IActionResult> GetAllAsync()
+        public async Task<IActionResult> GetAll()
         {
             var result = await _service.GetAllAsync();
             return Ok(result);
@@ -26,7 +26,7 @@ namespace MyCart.WebApp.Areas.Admin.Controllers
 
         [HttpPost]
         [ProducesResponseType(typeof(OrderViewDto), StatusCodes.Status201Created)]
-        public async Task<IActionResult> PostCategory(OrderCreateDto dto)
+        public async Task<IActionResult> PostOrders(OrderCreateDto dto)
         {
             var result = await _service.CreateAsync(dto);
             return Ok(result);
@@ -35,7 +35,7 @@ namespace MyCart.WebApp.Areas.Admin.Controllers
         [HttpDelete("{id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(Nullable), StatusCodes.Status404NotFound)]
-        public async Task<IActionResult> DeleteAsync(int id)
+        public async Task<IActionResult> Delete(int id)
         {
             var result = await _service.DeleteAsync(id);
             return result == null ? NotFound() : Ok();
