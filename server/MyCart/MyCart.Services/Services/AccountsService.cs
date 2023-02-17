@@ -109,6 +109,21 @@ namespace MyCart.Services.Services
             return response;
         }
 
+        public async Task<CustomerViewDto> GetProfileAsync(string id)
+        {
+            var user = await _userManager.FindByIdAsync(id);
+            if (user == null)
+            {
+                return null;
+            }
+
+            return new CustomerViewDto
+            {
+               Name = user.FullName,
+               Email = user.Email,
+               Phone = user.PhoneNumber
+            };
+        }
 
         private string GenerateToken(ApplicationUser user)
         {

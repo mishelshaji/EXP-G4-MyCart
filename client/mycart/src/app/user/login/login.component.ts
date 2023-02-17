@@ -17,7 +17,7 @@ export class LoginComponent {
   ) { }
 
   model: LoginDto = {
-    email: '' ,
+    email: '',
     password: ''
   };
 

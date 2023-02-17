@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { CustomerGuard } from 'src/Utlis/guards/customer.guard';
 import { NotFoundComponent } from './user/not-found/not-found.component';
 
 const routes: Routes = [

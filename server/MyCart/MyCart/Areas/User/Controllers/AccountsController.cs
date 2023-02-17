@@ -1,7 +1,10 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MyCart.Services.Dto;
 using MyCart.Services.Services;
+using System.Data;
+using System.Security.Claims;
 
 namespace MyCart.WebApp.Areas.User.Controllers
 {
@@ -39,6 +42,15 @@ namespace MyCart.WebApp.Areas.User.Controllers
                 return Ok(result);
 
             return BadRequest(result.Errors);
+        }
+
+        [Authorize(Roles = "Customer")]
+        [HttpGet("profile")]
+        public async Task<IActionResult> GetProfile()
+        {
+            var id = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var user = await _service.GetProfileAsync(id);
+            return user == null ? NotFound() : Ok(user);
         }
     }
 }

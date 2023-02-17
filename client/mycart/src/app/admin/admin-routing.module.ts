@@ -16,8 +16,7 @@ const routes: Routes = [
       { path: 'feedback/view', component: ViewFeedbackComponent },
       { path: 'products/update/:id', component: UpdateProductComponent },
       { path: 'products/:id', component: ProductsComponent },
-      { path: 'categories/create', component: AddCategoriesComponent },
-      { path: 'products/update/:id', component: UpdateProductComponent }
+      { path: 'categories/create', component: AddCategoriesComponent }
     ]
   }
 ];
