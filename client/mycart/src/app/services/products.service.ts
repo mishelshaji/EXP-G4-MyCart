@@ -16,8 +16,19 @@ export class ProductsService {
     return this.http.get<ProductViewDto[]>(this.url).pipe(map((data: any) => data.result));
   }
 
+  getById(id: number) {
+    return this.http.get<ProductViewDto>(`${this.url}/${id}`);
+  }
+
   create(product: ProductCreateDto) {
     return this.http.post<ProductCreateDto>(this.url, product);
-}
+  }
 
+  delete(productId: number) {
+    return this.http.delete(`${this.url}/${productId}`);
+  }
+
+  update(id: number, product: ProductCreateDto) {
+    return this.http.put<ProductViewDto>(`${this.url}/${id}`, product);
+  }
 }

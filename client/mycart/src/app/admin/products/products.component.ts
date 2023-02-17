@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
 import { ProductsService } from 'src/app/services/products.service';
@@ -10,7 +11,9 @@ import { ProductsService } from 'src/app/services/products.service';
 })
 export class ProductsComponent {
 
-  constructor(private service: ProductsService) {
+  constructor(private service: ProductsService,
+    private router: Router
+    ) {
   }
 
   products: ProductViewDto[] = [];
@@ -26,6 +29,18 @@ export class ProductsComponent {
         console.log(errors);
       }
     });
-  }  
+  } 
 
+  edit(productId: number) {
+    this.router.navigate(['/admin/products/update/', productId]);
+  }
+  
+  Delete(productId: number){
+    this.service.delete(productId).subscribe({
+      next: (response: any) => {
+        console.log(response);
+        this.ngOnInit();       
+      }
+    });
+  }
 }

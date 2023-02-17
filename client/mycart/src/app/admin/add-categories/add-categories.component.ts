@@ -15,11 +15,12 @@ export class AddCategoriesComponent {
     description: ''
   };
 
-  onSubmit() {
+  onSubmit(form: any) {
     this.categoryService.create(this.model).subscribe({
       next: (response: any) => {
         if (response.isValid) {
           alert("Category is Created");
+          form.reset();
         }
       },
       error: (errors: any) => {

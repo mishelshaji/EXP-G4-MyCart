@@ -232,12 +232,13 @@ namespace MyCart.Services.Services
             var product = await _db.Products.FindAsync(id);
 
             // Select price which is related to the given product id from price table
-            var productPrice = await _db.Prices.FirstOrDefaultAsync(m => m.Id == product.Id);
+            var productPrice = await _db.Prices.FirstOrDefaultAsync(m => m.ProductId == product.Id);
 
             if (product == null || productPrice == null)
                 return null;
 
             _db.Prices.Remove(productPrice);
+            await _db.SaveChangesAsync();
             _db.Products.Remove(product);
             await _db.SaveChangesAsync();
 

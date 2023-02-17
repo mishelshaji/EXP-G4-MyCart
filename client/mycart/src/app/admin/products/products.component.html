@@ -1,5 +1,5 @@
 <h2 class="text-center text-dark my-4 font-weight-bold">Product List</h2>
-<div class="container-fluid">
+<div class="container">
     <div class="justify-content-center" style="overflow-x: scroll;">
         <table class="table">
             <thead class="text-white bg-info">
@@ -14,7 +14,7 @@
                     <th>Action</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody class="table-dark">
                 <tr *ngFor="let product of products">
                     <td>{{product.id}}</td>
                     <td>{{product.name}}</td>
@@ -25,14 +25,13 @@
                     <td><img src="assets/images/samsung.jpg" width="100" class="img-fluid"></td>
                     <td>
                         <div class="d-grid gap-1 d-md-flex justify-content-md-end">
-                            <button class="btn btn-success" [routerLink]="['products/update']">Edit</button>
-                            <button class="btn btn-danger">
+                            <button class="btn btn-success" (click)="edit(product.id)" >Edit</button>
+                            <button class="btn btn-danger" (click)="Delete(product.id)">
                                 <fa-icon [icon]="faTrash"></fa-icon>
                             </button>
                         </div>
                     </td>
                 </tr>
-
         </table>
     </div>
 </div>

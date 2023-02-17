@@ -5,7 +5,7 @@ import { ProductsService } from 'src/app/services/products.service';
 
 @Component({
   selector: 'app-add-product',
-  templateUrl: './add-product.component.html',
+  templateUrl:'./add-product.component.html',
   styleUrls: ['./add-product.component.css']
 })
 export class AddProductComponent {
@@ -28,10 +28,11 @@ export class AddProductComponent {
   };
 
 
-  ngOnInit(): void {
+  ngOnInit(form: any): void {
     this.categoryService.getAll().subscribe({
       next: (result: any) => {
         this.categories = result;
+
       },
       error: (errors: any) => {
         console.log(errors);
@@ -39,15 +40,12 @@ export class AddProductComponent {
     });
   }
 
-  test() {
-    console.log(this.model.categoryId);
-  }
-
-  onSubmit() {
+  onSubmit(productform: any) {
     this.productService.create(this.model).subscribe({
       next: (response: any) => {
         if (response.isValid) {
           alert("Product is Created");
+          productform.reset();
         } else {
           alert("Sorry something went wrong..")
         }

@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ProductsService } from 'src/app/services/products.service';
 
 @Component({
   selector: 'app-update-product',
@@ -6,6 +8,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./update-product.component.css']
 })
 export class UpdateProductComponent {
+
+  productId: number | undefined;
+
+  constructor(
+    private services: ProductsService,
+    private router: Router,
+    private route: ActivatedRoute) {
+    this.productId = route.snapshot.params['id'];
+  }
+
   model = {
     image: '',
     category: '',
@@ -17,7 +29,23 @@ export class UpdateProductComponent {
     quantity: ''
   };
 
+  ngOnInit() {
+    if (this.productId == null) {
+      return null;
+    }
+    this.services.getById(this.productId).subscribe({
+      next: (result: any) => {
+        this.model = result;
+      },
+      error: (errors) => {
+        console.log(errors);
+        if(errors == 404){
+          return;
+        }     
+      }
+    });
+    return true;
+  }
   onSubmit() {
   }
-
 }
