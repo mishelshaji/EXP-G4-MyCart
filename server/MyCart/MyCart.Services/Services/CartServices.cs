@@ -5,6 +5,7 @@ using MyCart.Services.Dto;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -19,13 +20,27 @@ namespace MyCart.Services.Services
             _db = db;
         }
 
-        public async Task<List<CartViewDto>> GetAllAsync()
+        public async Task<ServiceResponse<List<CartViewDto>>> GetAllAsync()
         {
-            return await _db.Carts.Select(m => new CartViewDto
+
+            var carts = await _db.Carts  
+                .Include(m=>m.Product).
+                Where(m=> m.Product.Id == m.ProductId)
+                .Select(m => new CartViewDto
+                {
+                    Id = m.Id,
+                    Product = new()
+                    {
+                        Id = m.Product.Id,
+                        Name = m.Product.Name,
+                        Description = m.Product.Description
+                    }
+                }).ToListAsync();
+
+            return new()
             {
-                Id = m.Id,
-                ProductId = m.ProductId,
-            }).ToListAsync();
+                Result = carts
+            };
         }
 
         public async Task<CartViewDto> CreateAsync(CartCreateDto dto)
@@ -33,7 +48,9 @@ namespace MyCart.Services.Services
             var result = await _db.Products.FindAsync(dto.ProductId);
             Cart cart = new()
             {
-                ProductId = dto.ProductId,
+                //ProductId = dto.ProductId,
+                
+
             };
 
             _db.Carts.Add(cart);

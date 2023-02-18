@@ -16,6 +16,8 @@ import { UpdateProductComponent } from './update-product/update-product.componen
 import { ProductsComponent } from './products/products.component';
 import { FeedbackItemComponent } from './shared/feedback-item/feedback-item.component';
 import { AddCategoriesComponent } from './add-categories/add-categories.component';
+import { ViewOrderComponent } from './view-order/view-order.component';
+import { ViewCategoryComponent } from './view-category/view-category.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,9 @@ import { AddCategoriesComponent } from './add-categories/add-categories.componen
     DropdownComponent,
     UpdateProductComponent,
     ProductsComponent,
-    FeedbackItemComponent
+    FeedbackItemComponent,
+    ViewOrderComponent,
+    ViewCategoryComponent
   ],
   imports: [
     CommonModule,
