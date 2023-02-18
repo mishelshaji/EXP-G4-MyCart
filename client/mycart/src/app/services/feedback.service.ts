@@ -1,28 +1,15 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FeedbackService {
+    url = "https://localhost:7191/api";
 
-  feedbackItem = [
-    {
-      id: 1,
-      name: 'Anna Mary',
-      email: 'anna123@gmail.com',
-      description: 'My Cart has good customer service and quality products.'
-    },
-    {
-      id: 2,
-      name: 'John Doe',
-      email: 'johndoe97@gmail.com',
-      description: 'Customer friendly and good services.'
+    constructor(private http: HttpClient) {}
+
+    feedback(model: FeedbackCreateDto){
+        return this.http.post(this.url + "/FeedbackCreate", model);
     }
-  ]
-
-  constructor() { }
-
-  getAll() {
-    return this.feedbackItem;
-  }
 }

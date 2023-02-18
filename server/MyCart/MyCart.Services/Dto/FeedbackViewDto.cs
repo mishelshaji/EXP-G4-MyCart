@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MyCart.Domain.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,13 +11,15 @@ namespace MyCart.Services.Dto
     {
         public int Id { get; set; }
 
-        public string Fullname { get; set; }
+        public string Name { get; set; }
 
+        public string ApplicationUserId { get; set; }
+
+        
         public string Message { get; set; }
 
         public DateTime CreatedOn { get; set; }
 
-
-        public FeedbackViewDto(){}
+        public ApplicationUser ApplicationUser { get; set; }
     }
 }

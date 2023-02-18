@@ -1,5 +1,3 @@
-declare interface FeeddbackCreateDto {
-    email: string,
-    fullname: string,
+declare interface FeedbackCreateDto {
     feedback: string
 }

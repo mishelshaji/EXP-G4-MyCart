@@ -10,13 +10,8 @@ namespace MyCart.Services.Dto
 {
     public class FeedbackCreateDto
     {
+        public string ApplicationUserId { get; set; } 
 
-        public int ApplicationUserId { get; set; }
-
-        [StringLength(25)]
-        public string Fullname { get; set; }
-
-        [StringLength(250)]
         public string Message { get; set; }
 
         public DateTime CreatedOn { get; set; } = DateTime.UtcNow;

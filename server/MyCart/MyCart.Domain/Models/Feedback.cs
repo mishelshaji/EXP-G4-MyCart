@@ -11,11 +11,12 @@ namespace MyCart.Domain.Models
     {
         public int Id { get; set; }
 
-        [StringLength(25)]
-        public string Fullname { get; set; }
-
         [StringLength(250)]
         public string Message { get; set; }
+
+        public string? ApplicationUserId { get; set; }
+
+        public ApplicationUser? ApplicationUser { get; set; }
 
         public DateTime CreatedOn { get; set; } = DateTime.UtcNow;
     }
