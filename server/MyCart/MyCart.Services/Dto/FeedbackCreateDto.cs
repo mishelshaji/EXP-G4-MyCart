@@ -1,15 +1,17 @@
-﻿using System;
+﻿using MyCart.Domain.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MyCart.Domain.Models
+namespace MyCart.Services.Dto
 {
-    public class Feedback
+    public class FeedbackCreateDto
     {
-        public int Id { get; set; }
+
+        public int ApplicationUserId { get; set; }
 
         [StringLength(25)]
         public string Fullname { get; set; }

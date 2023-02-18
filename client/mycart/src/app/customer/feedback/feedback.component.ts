@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FeedbackServiceService } from 'src/app/services/feedback.service.service';
 
 @Component({
   selector: 'app-feedback',
@@ -6,15 +7,19 @@ import { Component } from '@angular/core';
   styleUrls: ['./feedback.component.css']
 })
 export class FeedbackComponent {
-  model = 
+  model : FeeddbackCreateDto = 
   {
     email: '',
     fullname: '',
     feedback: ''
   };
 
-  onSubmit(form: any) {
-    console.log(form);
-  }
+  constructor(
+    private service: FeedbackServiceService
+    ){}
 
+  onSubmit() {
+    this.service.feedback(this.model).subscribe()
+  }
 }
+
