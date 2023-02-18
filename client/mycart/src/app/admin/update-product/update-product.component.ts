@@ -44,12 +44,10 @@ export class UpdateProductComponent {
         product.stock = result.stock;
       },
       error: (errors) => {
-        console.log(errors);
-        if(errors == 404)
-        {
+        if (errors == 404) {
           alert("Something went wrong");
           return;
-        }     
+        }
       }
     });
     return true;

@@ -5,6 +5,7 @@ import { map } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
+
 export class CategoryService {
 
   url = "https://localhost:7191/api/admin/category"

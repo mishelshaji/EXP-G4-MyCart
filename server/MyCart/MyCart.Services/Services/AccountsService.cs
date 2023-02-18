@@ -45,10 +45,9 @@ namespace MyCart.Services.Services
             {
                 FullName = dto.Name,
                 Email = dto.Email,
-                UserName = Guid.NewGuid().ToString() // Generate a unique string
+                UserName = Guid.NewGuid().ToString()
             };
 
-            // Create the user and add to role.
             var userStatus = await _userManager.CreateAsync(user, dto.Password);
             if (!userStatus.Succeeded)
             {
@@ -98,7 +97,6 @@ namespace MyCart.Services.Services
                 return response;
             }
 
-            // If the signin failed, generate error messages.
             if (signin.IsLockedOut)
                 response.AddError("", "Account locked.");
             else if (signin.IsNotAllowed)
@@ -112,7 +110,7 @@ namespace MyCart.Services.Services
         public async Task<ServiceResponse<CustomerViewDto>> GetProfileAsync(string id)
         {
             var response = new ServiceResponse<CustomerViewDto>();
-            var customer = _db.Customers.FirstOrDefault(m=>m.ApplicationUserId == id);
+            var customer = _db.Customers.FirstOrDefault(m => m.ApplicationUserId == id);
             if (customer == null)
             {
                 return response;
@@ -142,7 +140,7 @@ namespace MyCart.Services.Services
             {
                 new Claim(ClaimTypes.NameIdentifier, user.Id),
                 new Claim(ClaimTypes.Name, $"{user.FullName}"),
-                 new Claim(ClaimTypes.Role, role) // Specify Roles
+                 new Claim(ClaimTypes.Role, role)
             };
 
             string issuer = _configuration["Jwt:Issuer"];

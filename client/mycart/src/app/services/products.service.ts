@@ -9,7 +9,7 @@ import { map } from 'rxjs';
 export class ProductsService {
 
   url = "https://localhost:7191/api/admin/products";
-  urlUserArea = "https://localhost:7191/api/User/ProductUser";
+  urlUserArea = "https://localhost:7191/api/User/productuser";
 
   constructor(private http: HttpClient) { }
 

@@ -6,6 +6,7 @@ import { CategoryService } from 'src/app/services/category.service';
   templateUrl: './add-categories.component.html',
   styleUrls: ['./add-categories.component.css']
 })
+
 export class AddCategoriesComponent {
 
   constructor(private categoryService: CategoryService) {

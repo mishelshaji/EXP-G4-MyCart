@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
@@ -9,12 +9,10 @@ import { ProductsService } from 'src/app/services/products.service';
   templateUrl: './products.component.html',
   styleUrls: ['./products.component.css']
 })
-export class ProductsComponent {
+export class ProductsComponent implements OnInit {
 
   constructor(private service: ProductsService,
-    private router: Router
-    ) {
-  }
+    private router: Router) { }
 
   products: ProductViewDto[] = [];
 
@@ -29,17 +27,16 @@ export class ProductsComponent {
         console.log(errors);
       }
     });
-  } 
+  }
 
   edit(productId: number) {
     this.router.navigate(['/admin/products/update/', productId]);
   }
-  
-  Delete(productId: number){
+
+  Delete(productId: number) {
     this.service.delete(productId).subscribe({
       next: (response: any) => {
-        console.log(response);
-        this.ngOnInit();       
+        this.ngOnInit();
       }
     });
   }
