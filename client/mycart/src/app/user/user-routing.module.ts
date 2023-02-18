@@ -14,7 +14,7 @@ const routes: Routes = [
       { path: 'signup', component: RegisterComponent },
       { path: 'otp', component: OtpComponent },
       { path: 'login', component: LoginComponent },
-      { path: 'product', component: ProductDetailsComponent }
+      { path: 'product/:id', component: ProductDetailsComponent }
     ]
   }
 ];

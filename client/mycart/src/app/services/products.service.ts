@@ -25,6 +25,10 @@ export class ProductsService {
     return this.http.get<ProductViewDto>(`${this.url}/${id}`);
   }
 
+  getByIdForUser(id: number) {
+    return this.http.get<ProductViewDto>(`${this.urlUserArea}/${id}`);
+  }
+
   create(product: ProductCreateDto) {
     return this.http.post<ProductCreateDto>(this.url, product);
   }
