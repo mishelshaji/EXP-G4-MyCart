@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MyCart.WebApp.Areas.Customer.Controllers
@@ -11,3 +11,4 @@ namespace MyCart.WebApp.Areas.Customer.Controllers
 
     }
 } 
+
