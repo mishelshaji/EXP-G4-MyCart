@@ -3,29 +3,6 @@
     <div class="col-md-6 offset-md-3">
         <form #form="ngForm" (ngSubmit)="onSubmit()">
             <div class="m-3">
-                <label for="email" class="mb-2">Email</label>
-                <input type="email" id="email" class="form-control text-center text-dark mb-2" name="email"
-                    placeholder="Enter Email" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" minlength="5"
-                    maxlength="70" #email="ngModel" [(ngModel)]="model.email" required>
-                <div class="text-danger" *ngIf="email.invalid && email.touched">
-                    <div *ngIf="email.errors?.['minlength']">Email is too short.</div>
-                    <div *ngIf="email.errors?.['required']">Email is required.</div>
-                    <div *ngIf="email.errors?.['maxlength']">Email is too long.</div>
-                    <div *ngIf="email.errors?.['pattern']">Email is invalid.</div>
-                </div>
-            </div>
-            <div class="m-3">
-                <label for="fullname" class="mb-2">Full Name</label>
-                <input type="fullname" id="password" class="form-control text-center text-dark mb-2" name="fullname"
-                    placeholder="Enter full Name" minlength="6" maxlength="25" [(ngModel)]="model.fullname"
-                    #fullname="ngModel" required>
-                <div class="text-danger" *ngIf="fullname.invalid && fullname.touched">
-                    <div *ngIf="fullname.errors?.['minlength']">The given name is too small.</div>
-                    <div *ngIf="fullname.errors?.['maxlength']">The given name is too long.</div>
-                    <div *ngIf="fullname.errors?.['required']">Full name is required.</div>
-                </div>
-            </div>
-            <div class="m-3">
                 <label for="feedback" class="mb-2">Feedback</label>
                 <textarea type="feedback" id="feedback" class="form-control text-center text-dark mb-2" name="feedback"
                     placeholder="Give feedback here" minlength="4" maxlength="25" [(ngModel)]="model.feedback"

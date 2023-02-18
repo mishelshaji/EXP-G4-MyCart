@@ -19,7 +19,8 @@ namespace MyCart.WebApp.Areas.Admin.Controllers
         [ProducesResponseType(typeof(FeedbackViewDto[]), StatusCodes.Status200OK)]
         public async Task<IActionResult> GetAllAsync()
         {
-            return Ok(await _service.GetAllAsync());
+            var result = await _service.GetAllAsync();
+            return Ok(result.Result);
         }
     }
 }

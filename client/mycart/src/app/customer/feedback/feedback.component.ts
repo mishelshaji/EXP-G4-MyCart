@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { FeedbackServiceService } from 'src/app/services/feedback.service.service';
+import { Router } from '@angular/router';
+import { FeedbackService } from 'src/app/services/feedback.service';
 
 @Component({
   selector: 'app-feedback',
@@ -7,19 +8,25 @@ import { FeedbackServiceService } from 'src/app/services/feedback.service.servic
   styleUrls: ['./feedback.component.css']
 })
 export class FeedbackComponent {
-  model : FeeddbackCreateDto = 
+  model : FeedbackCreateDto = 
   {
-    email: '',
-    fullname: '',
     feedback: ''
   };
 
   constructor(
-    private service: FeedbackServiceService
+    private service: FeedbackService,
+    private router:Router
     ){}
 
-  onSubmit() {
-    this.service.feedback(this.model).subscribe()
+  onSubmit() {    
+    this.service.feedback(this.model).subscribe({
+      next:(Data)=>{
+        console.log(Data);
+      },
+      error:(err)=>{
+        console.error(err); 
+      }
+    })
   }
 }
 

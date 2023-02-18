@@ -24,7 +24,7 @@ namespace MyCart.Domain.Models
 
         public string DateOfBirth { get; set; }
 
-        public int ApplicationUserId { get; set; }
+        public string ApplicationUserId { get; set; }
 
         public ApplicationUser ApplicationUser { get; set; }
 

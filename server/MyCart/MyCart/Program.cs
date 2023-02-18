@@ -11,9 +11,8 @@ builder.Services.AddScoped<CategoryServices>();
 builder.Services.AddScoped<ProductServices>();
 builder.Services.AddScoped<FeedbackServices>();
 
-
-
 var connStr = builder.Configuration.GetConnectionString("DefaultConnection");
+
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
 {
     options.UseSqlServer(connStr);
@@ -27,6 +26,12 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+app.UseCors(options =>
+{
+    options.AllowAnyHeader();
+    options.AllowAnyOrigin();
+    options.AllowAnyMethod();
+});
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
