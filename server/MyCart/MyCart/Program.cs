@@ -10,6 +10,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<CategoryServices>();
 builder.Services.AddScoped<ProductServices>();
 builder.Services.AddScoped<OrderServices>();
+builder.Services.AddScoped<CartServices>();
 
 
 var connStr = builder.Configuration.GetConnectionString("DefaultConnection");
