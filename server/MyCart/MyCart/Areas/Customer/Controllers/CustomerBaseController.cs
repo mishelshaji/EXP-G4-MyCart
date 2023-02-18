@@ -8,5 +8,6 @@ namespace MyCart.WebApp.Areas.Customer.Controllers
     [ApiController]
     public class CustomerBaseController : ControllerBase
     {
+
     }
 } 

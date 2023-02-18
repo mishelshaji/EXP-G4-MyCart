@@ -59,9 +59,10 @@ namespace MyCart.Services.Services
             result.Result = new()
             {
                 Id = order.Id,
-                CustomerId = order.CustomerId,
+
                 Customer = new()
                 {
+                    Id = customer.Id,
                     Name = customer.Name,
                     Email = customer.Email,
 
