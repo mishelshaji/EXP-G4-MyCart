@@ -121,7 +121,7 @@ namespace MyCart.Services.Services
 
             Price price = new()
             {
-                RetailPrice = dto.Price,
+                RetailPrice = dto.RetailPrice,
                 OfferPrice = dto.OfferPrice,
                 ProductId = product.Id,
             };
@@ -193,8 +193,8 @@ namespace MyCart.Services.Services
             product.Stock = dto.Stock;
             product.Price = new()
             {
-                OfferPrice = dto.Price,
-                RetailPrice = dto.Price,
+                OfferPrice = dto.OfferPrice,
+                RetailPrice = dto.RetailPrice,
             };
 
 

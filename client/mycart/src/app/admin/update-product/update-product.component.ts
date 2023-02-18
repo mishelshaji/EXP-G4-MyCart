@@ -9,7 +9,7 @@ import { ProductsService } from 'src/app/services/products.service';
 })
 export class UpdateProductComponent {
 
-  productId: number | undefined;
+  productId: number;
 
   constructor(
     private services: ProductsService,
@@ -19,14 +19,13 @@ export class UpdateProductComponent {
   }
 
   model = {
-    image: '',
-    category: '',
-    pname: '',
-    bname: '',
+    categoryId: 0,
+    name: '',
+    brand: '',
     description: '',
-    mrp: '',
-    offer: '',
-    quantity: ''
+    retailPrice: 0,
+    offerPrice: 0,
+    stock: 0
   };
 
   ngOnInit() {
@@ -35,11 +34,20 @@ export class UpdateProductComponent {
     }
     this.services.getById(this.productId).subscribe({
       next: (result: any) => {
-        this.model = result;
+        var product = this.model;
+        product.name = result.name;
+        product.brand = result.brand;
+        product.categoryId = result.category.id;
+        product.description = result.description;
+        product.retailPrice = result.price.retailPrice;
+        product.offerPrice = result.price.offerPrice;
+        product.stock = result.stock;
       },
       error: (errors) => {
         console.log(errors);
-        if(errors == 404){
+        if(errors == 404)
+        {
+          alert("Something went wrong");
           return;
         }     
       }
@@ -47,5 +55,13 @@ export class UpdateProductComponent {
     return true;
   }
   onSubmit() {
+    this.services.update(this.productId, this.model).subscribe({
+      next: (result: any) => {
+        alert("Product updated");
+      },
+      error: (result: any) => {
+        alert("Updation Failed");
+      }
+    });
   }
 }

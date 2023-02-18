@@ -16,7 +16,7 @@ export class HomePageComponent {
   constructor(private productsService: ProductsService) {}
 
   ngOnInit() {
-    this.productsService.getAll().subscribe({
+    this.productsService.getAllForUser().subscribe({
       next: (result: any) => {
         this.products = result;
       }
