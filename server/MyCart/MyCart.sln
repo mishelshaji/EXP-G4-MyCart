@@ -11,7 +11,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastru
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{CDA369BA-D70F-4804-B125-3C0465E0F591}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyCart.Domain", "MyCart.Domain\MyCart.Domain.csproj", "{E64C39E1-86DC-4CF8-884F-D0C0D16D744C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyCart.Domain", "MyCart.Domain\MyCart.Domain.csproj", "{E64C39E1-86DC-4CF8-884F-D0C0D16D744C}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyCart.Services", "MyCart.Services\MyCart.Services.csproj", "{67DFBE78-975E-4161-B9DE-73E08D4CB51E}"
 EndProject
@@ -38,6 +38,7 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
+		{8FF74997-66BB-46D3-87B3-F75B9CF4E9AF} = {CDA369BA-D70F-4804-B125-3C0465E0F591}
 		{E64C39E1-86DC-4CF8-884F-D0C0D16D744C} = {8D5678A7-846A-411A-9DC6-394649CE7D40}
 		{67DFBE78-975E-4161-B9DE-73E08D4CB51E} = {B7711971-318B-4847-9551-796CE0F268C4}
 	EndGlobalSection
