@@ -14,6 +14,7 @@ import { DropdownComponent } from './dropdown/dropdown.component';
 import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 import { UpdateProductComponent } from './update-product/update-product.component';
 import { ProductsComponent } from './products/products.component';
+import { FeedbackItemComponent } from './shared/feedback-item/feedback-item.component';
 import { AddCategoriesComponent } from './add-categories/add-categories.component';
 
 @NgModule({
@@ -26,7 +27,8 @@ import { AddCategoriesComponent } from './add-categories/add-categories.componen
     AddCategoriesComponent,
     DropdownComponent,
     UpdateProductComponent,
-    ProductsComponent
+    ProductsComponent,
+    FeedbackItemComponent
   ],
   imports: [
     CommonModule,

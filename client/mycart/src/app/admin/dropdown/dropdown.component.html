@@ -5,9 +5,9 @@
                 <a class="nav-link active" tabindex="0" ngbDropdownToggle id="navbarDropdown1"
                     role="button">Products</a>
                 <div ngbDropdownMenu aria-labelledby="navbarDropdown1" class="dropdown-menu">
-                    <a ngbDropdownItem [routerLink]="['product/create']">Add
+                    <a ngbDropdownItem [routerLink]="['products/create']">Add
                         Products</a>
-                    <a ngbDropdownItem>View Products</a>
+                    <a ngbDropdownItem [routerLink]="['products']">View Products</a>
                 </div>
             </li>
         </ul>
