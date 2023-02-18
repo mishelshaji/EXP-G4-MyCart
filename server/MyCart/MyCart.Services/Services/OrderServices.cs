@@ -52,7 +52,7 @@ namespace MyCart.Services.Services
                 TotalPrice = dto.TotalPrice
             };
 
-            // Insert and saves data into Database
+
             _db.Orders.Add(order);
             await _db.SaveChangesAsync();
 
