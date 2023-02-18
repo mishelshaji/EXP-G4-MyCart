@@ -7,9 +7,9 @@ import { Injectable } from '@angular/core';
 export class ViewFeedbackService {
   url = "https://localhost:7191/api/area";
 
-  constructor(private http: HttpClient,) {}
+  constructor(private http: HttpClient) { }
 
-  getAll(){
-      return this.http.get<FeedbackViewDto[]>(this.url + "/Feedback");
+  getAll() {
+    return this.http.get<FeedbackViewDto[]>(this.url + "/Feedback");
   }
 }
