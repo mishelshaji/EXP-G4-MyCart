@@ -17,6 +17,7 @@ export class TokenInterceptor implements HttpInterceptor {
 
     const token = this.tokenHelper.getToken();
     if (!token) {
+      console.log("No token");
       return next.handle(request);
     }
 

@@ -45,7 +45,7 @@ namespace MyCart.Services.Services
             {
                 FullName = dto.Name,
                 Email = dto.Email,
-                UserName = Guid.NewGuid().ToString()
+                UserName = Guid.NewGuid().ToString() // Generate a unique string
             };
 
             // Create the user and add to role.
@@ -109,28 +109,40 @@ namespace MyCart.Services.Services
             return response;
         }
 
-        public async Task<CustomerViewDto> GetProfileAsync(string id)
+        public async Task<ServiceResponse<CustomerViewDto>> GetProfileAsync(string id)
         {
-            var user = await _userManager.FindByIdAsync(id);
-            if (user == null)
+            var response = new ServiceResponse<CustomerViewDto>();
+            var customer = _db.Customers.FirstOrDefault(m=>m.ApplicationUserId == id);
+            if (customer == null)
             {
-                return null;
+                return response;
             }
 
-            return new CustomerViewDto
+            var user = new CustomerViewDto()
             {
-               Name = user.FullName,
-               Email = user.Email,
-               Phone = user.PhoneNumber
+                Id = customer.Id,
+                Name = customer.Name,
+                Email = customer.Email,
+                Phone = customer.Phone,
+                DateOfBirth = customer.DateOfBirth
             };
+            response.Result = user;
+            return response;
         }
 
         private string GenerateToken(ApplicationUser user)
         {
+
+            var role = _userManager.GetRolesAsync(user)
+                        .GetAwaiter()
+                        .GetResult()
+                        .First();
+
             var claims = new Claim[]
             {
                 new Claim(ClaimTypes.NameIdentifier, user.Id),
-                new Claim(ClaimTypes.Name, $"{user.FullName}")
+                new Claim(ClaimTypes.Name, $"{user.FullName}"),
+                 new Claim(ClaimTypes.Role, role) // Specify Roles
             };
 
             string issuer = _configuration["Jwt:Issuer"];
@@ -144,7 +156,7 @@ namespace MyCart.Services.Services
                 issuer,
                 audience,
                 claims,
-                expires: DateTime.Now.AddMinutes(1),
+                expires: DateTime.Now.AddDays(1),
                 signingCredentials: credentials);
 
             return new JwtSecurityTokenHandler().WriteToken(token);

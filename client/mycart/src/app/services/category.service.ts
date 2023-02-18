@@ -7,14 +7,12 @@ import { map } from 'rxjs';
 })
 export class CategoryService {
 
-  url = "https://localhost:7191/api/area/Category"
+  url = "https://localhost:7191/api/admin/category"
 
   constructor(private http: HttpClient) { }
 
   getAll() {
     return this.http.get<CategoryViewDto[]>(this.url).pipe(map((data: any) => data.result));
-    // return this.http.get<CategoryViewDto[]>(this.url);
-
   }
 
   create(model: CategoryCreateDto) {

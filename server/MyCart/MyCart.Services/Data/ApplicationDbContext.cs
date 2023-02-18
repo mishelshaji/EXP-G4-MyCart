@@ -63,6 +63,5 @@ namespace MyCart.Services.Data
 
         public DbSet<Stock> Stocks { get; set; }
 
-
     }
 }

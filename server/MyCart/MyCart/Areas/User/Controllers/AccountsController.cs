@@ -44,14 +44,15 @@ namespace MyCart.WebApp.Areas.User.Controllers
             return BadRequest(result.Errors);
         }
 
-        [Authorize(Roles = "Customer")]
-        [HttpGet("profile")]
-        public async Task<IActionResult> GetProfile()
-        {
-            var id = User.FindFirstValue(ClaimTypes.NameIdentifier);
-            var user = await _service.GetProfileAsync(id);
-            return user == null ? NotFound() : Ok(user);
-        }
+        ////[Authorize(Roles = "Customer")]
+        //[HttpGet]
+        //public async Task<IActionResult> GetProfile()
+        //{
+        //    var id = User.FindFirstValue(ClaimTypes.NameIdentifier);
+        //    //string id = "84b932d5-2969-4c3c-980e-962cf96e802e";
+        //    var user = await _service.GetProfileAsync(id);
+        //    return Ok(user);
+        //}
     }
 }
 

@@ -20,7 +20,8 @@ import { NgSelectModule } from '@ng-select/ng-select';
     FontAwesomeModule,
     HttpClientModule,
   ],
-  providers: [TokenHelper,
+  providers: [
+    TokenHelper,
     { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]

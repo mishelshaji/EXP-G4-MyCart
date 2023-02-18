@@ -10,6 +10,7 @@ const routes: Routes = [
   },
   {
     path: 'customer',
+    canActivate: [CustomerGuard],
     loadChildren: () => import('./customer/customer.module').then(m => m.CustomerModule)
   },
   {
@@ -24,8 +25,6 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule,
-
-  ]
+  exports: [RouterModule]
 })
 export class AppRoutingModule { }

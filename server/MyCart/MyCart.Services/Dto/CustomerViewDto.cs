@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,6 +17,7 @@ namespace MyCart.Services.Dto
 
         public string Phone { get; set; }
 
-        public CustomerViewDto? Customer { get; set; }
+        public DateTime DateOfBirth { get; set; }
+
     }
 }

@@ -22,7 +22,4 @@ export class CustomerGuard implements CanActivate {
     }
     return true;
   }
-  
-
-
 }
