@@ -12,10 +12,10 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddScoped<CategoryServices>();
-builder.Services.AddScoped<ProductServices>();
-builder.Services.AddScoped<OrderServices>();
-builder.Services.AddScoped<FeedbackServices>();
+builder.Services.AddScoped<CategoryService>();
+builder.Services.AddScoped<ProductService>();
+//builder.Services.AddScoped<OrderServices>();
+builder.Services.AddScoped<FeedbackService>();
 builder.Services.AddScoped<CartServices>();
 
 

@@ -17,7 +17,7 @@ namespace MyCart.WebApp.Areas.Customer.Controllers
             _service = service;
         }
 
-        [Authorize(Roles = "customer")]
+        //[Authorize(Roles = "customer")]
         [HttpGet]
         public async Task<IActionResult> GetProfile()
         {

@@ -7,19 +7,19 @@ namespace MyCart.WebApp.Areas.Customer.Controllers
 {
     public class FeedbackCreateController : CustomerBaseController
     {
-        private readonly FeedbackServices _services;
+        private readonly FeedbackService _services;
 
-        public FeedbackCreateController(FeedbackServices services)
+        public FeedbackCreateController(FeedbackService services)
         {
             _services = services;
         }
 
-        [HttpPost]
-        [ProducesResponseType(typeof(FeedbackCreateDto[]), StatusCodes.Status200OK)]
-        public async Task<IActionResult> PostAsync(FeedbackCreateDto dto)
-        {
-            var result = await _services.CreateAsync(dto);
-            return Ok(result);
-        }
+        //[HttpPost]
+        //[ProducesResponseType(typeof(FeedbackCreateDto[]), StatusCodes.Status200OK)]
+        //public async Task<IActionResult> PostAsync(FeedbackCreateDto dto)
+        //{
+        //    var result = await _services.CreateAsync(dto);
+        //    return Ok(result);
+        //}
     }
 }

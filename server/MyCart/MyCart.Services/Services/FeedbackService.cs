@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace MyCart.Services.Services
 {
-    internal class FeedbackServices
+    public class FeedbackService
     {
+
     }
 }
