@@ -8,9 +8,10 @@ import { FeedbackService } from 'src/app/services/feedback.service';
   styleUrls: ['./feedback.component.css']
 })
 export class FeedbackComponent {
+
   model : FeedbackCreateDto = 
   {
-    feedback: ''
+    message : ''
   };
 
   constructor(
@@ -19,9 +20,10 @@ export class FeedbackComponent {
     ){}
 
   onSubmit() {    
-    this.service.feedback(this.model).subscribe({
-      next:(Data)=>{
-        console.log(Data);
+    this.service.Create(this.model).subscribe({
+      next:(result: any)=>{
+        console.log(result);
+        
       },
       error:(err)=>{
         console.error(err); 

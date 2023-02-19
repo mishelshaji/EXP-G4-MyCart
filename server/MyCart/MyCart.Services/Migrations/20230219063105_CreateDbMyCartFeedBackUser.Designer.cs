@@ -12,8 +12,8 @@ using MyCart.Services.Data;
 namespace MyCart.Services.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230219052918_CreateDatabaseMyCartDb")]
-    partial class CreateDatabaseMyCartDb
+    [Migration("20230219063105_CreateDbMyCartFeedBackUser")]
+    partial class CreateDbMyCartFeedBackUser
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -382,6 +382,10 @@ namespace MyCart.Services.Migrations
                         .IsRequired()
                         .HasMaxLength(250)
                         .HasColumnType("nvarchar(250)");
+
+                    b.Property<string>("UserEmail")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 

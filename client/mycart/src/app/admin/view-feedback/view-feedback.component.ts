@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ViewFeedbackService } from 'src/app/services/view-feedback.service';
+import { FeedbackService } from 'src/app/services/feedback.service';
 
 @Component({
   selector: 'app-view-feedback',
@@ -7,16 +7,23 @@ import { ViewFeedbackService } from 'src/app/services/view-feedback.service';
   styleUrls: ['./view-feedback.component.css']
 })
 export class ViewFeedbackComponent implements OnInit {
-  FeedbackView: FeedbackViewDto[] | null = null;
 
-  constructor(private service: ViewFeedbackService) { }
+  FeedbackView: FeedbackViewDto[] = [];
+
+  constructor(private service: FeedbackService ) { }
 
   ngOnInit() {
     this.service.getAll().subscribe({
-      next: (Data) => {
-        console.log(Data);
-        this.FeedbackView = Data;
+      next: (response: any) => {
+        this.FeedbackView = response;
+        if(response != null) {
+          console.log("result successs");
+        }
+      },
+      error: (errors: any) => {
+        console.log(errors);
       }
+
     })
   }
 }
