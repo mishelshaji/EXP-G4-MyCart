@@ -112,7 +112,7 @@ namespace MyCart.Services.Services
         public async Task<ServiceResponse<CustomerViewDto>> GetProfileAsync(string id)
         {
             var response = new ServiceResponse<CustomerViewDto>();
-            var customer = _db.Customers.FirstOrDefault(m => m.ApplicationUserId == id);
+            var customer = await _db.Customers.FirstOrDefaultAsync(m => m.ApplicationUserId == id);
 
             if (customer == null)
             {

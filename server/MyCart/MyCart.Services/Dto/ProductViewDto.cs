@@ -22,7 +22,7 @@ namespace MyCart.Services.Dto
 
         public PriceViewDto Price { get; set; }
 
-        public CategoryViewDto? Category { get; set; }
+        public CategoryViewDto Category { get; set; }
 
         public DateTime CreatedOn { get; set; } 
     }

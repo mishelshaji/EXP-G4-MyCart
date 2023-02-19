@@ -1,9 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using MyCart.Services.Dto;
 using MyCart.Services.Services;
+using System.Security.Claims;
 
 namespace MyCart.WebApp.Areas.Customer.Controllers
 {
+    //[Authorize]
     public class CartController : CustomerBaseController
     {
         private readonly CartServices _cartservices;
@@ -17,7 +20,8 @@ namespace MyCart.WebApp.Areas.Customer.Controllers
         [ProducesResponseType(typeof(CartViewDto), StatusCodes.Status200OK)]
         public async Task<IActionResult> GetAllAsync()
         {
-            var result = await _cartservices.GetAllAsync();
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var result = await _cartservices.GetAllAsync(userId);
             return Ok(result);
         }
 
@@ -25,7 +29,8 @@ namespace MyCart.WebApp.Areas.Customer.Controllers
         [ProducesResponseType(typeof(CartViewDto), StatusCodes.Status200OK)]
         public async Task<IActionResult> Post(CartCreateDto dto)
         {
-            var result = await _cartservices.CreateAsync(dto);
+            var id = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var result = await _cartservices.CreateAsync(dto, id);
             return Ok(result);
         }
 
