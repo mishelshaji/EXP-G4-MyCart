@@ -40,7 +40,4 @@ export class ProductsService {
   update(id: number, product: ProductCreateDto) {
     return this.http.put<ProductViewDto>(`${this.url}/${id}`, product);
   }
-  getInt() {
-    console.log("this");
-  } 
 }
