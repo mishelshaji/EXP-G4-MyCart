@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace MyCart.WebApp.Areas.Admin.Controllers
 {
-    [Area("area")]
+    [Area("Admin")]
     [Route("api/[area]/[controller]")]
     [ApiController]
     public class AdminBaseController : ControllerBase

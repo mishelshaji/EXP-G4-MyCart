@@ -5,7 +5,7 @@
             <div class="m-3">
                 <label for="feedback" class="mb-2">Feedback</label>
                 <textarea type="feedback" id="feedback" class="form-control text-center text-dark mb-2" name="feedback"
-                    placeholder="Give feedback here" minlength="4" maxlength="25" [(ngModel)]="model.feedback"
+                    placeholder="Give feedback here" minlength="4" maxlength="2000" [(ngModel)]="model.message"
                     #feedback="ngModel" required></textarea>
                 <div class="text-danger" *ngIf="feedback.invalid && feedback.touched">
                     <div *ngIf="feedback.errors?.['minlength']">The given feedbackis too small.</div>

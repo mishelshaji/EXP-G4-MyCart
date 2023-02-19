@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { CustomerGuard } from 'src/Utlis/guards/customer.guard';
 import { NotFoundComponent } from './user/not-found/not-found.component';
 
 const routes: Routes = [
@@ -9,6 +10,7 @@ const routes: Routes = [
   },
   {
     path: 'customer',
+    canActivate: [CustomerGuard],
     loadChildren: () => import('./customer/customer.module').then(m => m.CustomerModule)
   },
   {
@@ -23,8 +25,6 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule,
-
-  ]
+  exports: [RouterModule]
 })
 export class AppRoutingModule { }

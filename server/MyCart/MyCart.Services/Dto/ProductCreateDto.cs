@@ -19,9 +19,8 @@ namespace MyCart.Services.Dto
 
         public int Stock { get; set; }  
 
-        public decimal  Price { get; set; }
+        public decimal  RetailPrice { get; set; }
 
         public decimal OfferPrice { get; set; }
-
     }
 }

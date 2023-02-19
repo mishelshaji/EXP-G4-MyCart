@@ -4,8 +4,8 @@
         <div class="card my-3 bg bg-primary">
             <div class="card-body m-2 bg bg-light">
                 <div class="row">
-                    <div class="col-lg-8" *ngFor="let item of FeedbackView">
-                        <p class="fw-bold lead mb-2"><strong>Name of customer</strong></p>
+                    <div class="col-lg-8" *ngFor="let item of feedbackView">
+                        <p class="fw-bold lead mb-2"><strong>{{item.userEmail}}</strong></p>
                         <p class="text-dark mb-2">{{item.message}}</p>
                         <p class="text-dark mb-4">{{item.createdOn | date: 'dd/MM/yyyy'}}</p>
                         <hr>

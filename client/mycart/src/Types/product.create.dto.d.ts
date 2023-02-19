@@ -1,18 +1,16 @@
-declare interface ProductViewDto {
+declare interface ProductCreateDto {
 
-    id: number;
+    name: string;
 
-    Name: string;
+    brand: string;
 
-    Brand: string;
+    description: string;
 
-    Description: string;
+    categoryId: number
 
-    CategoryId: string
+    stock: number;
 
-    Stock: number;
+    retailPrice: number;
 
-    Price: number;
-
-    Category: CategoryViewDto | null;
+    offerPrice: number;
 }

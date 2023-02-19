@@ -1,4 +1,6 @@
-﻿using MyCart.Domain.Models;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using MyCart.Domain.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,13 +9,39 @@ using System.Threading.Tasks;
 
 namespace MyCart.Services.Data
 {
-    public class ApplicationDbContext : DbContext
+    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             :base(options)
         {
                 
         }
+
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            base.OnModelCreating(builder);
+
+            #region Seeding Roles
+            var roles = new IdentityRole[]
+            {
+                new IdentityRole()
+                {
+                    Id = "e2a85572-7b8c-4a95-a862-c557c3b2e869",
+                    ConcurrencyStamp = "e2a85572-7b8c-4a95-a862-c557c3b2e869",
+                    Name = "Admin",
+                    NormalizedName = "ADMIN"
+                },
+                new IdentityRole()
+                {
+                    Id = "e2a85572-7b8c-4a95-a862-c557c3b2e870",
+                    ConcurrencyStamp = "e2a85572-7b8c-4a95-a862-c557c3b2e870",
+                    Name = "Customer",
+                    NormalizedName = "CUSTOMER"
+                }
+            };
+            builder.Entity<IdentityRole>().HasData(roles);
+        }
+            #endregion
 
         public DbSet<Cart> Carts { get; set; }
 
@@ -34,7 +62,6 @@ namespace MyCart.Services.Data
         public DbSet<Product> Products { get; set; }
 
         public DbSet<Stock> Stocks { get; set; }
-
 
     }
 }

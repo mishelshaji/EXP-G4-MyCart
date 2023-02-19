@@ -10,23 +10,23 @@ using System.Threading.Tasks;
 
 namespace MyCart.Services.Services
 {
-    public class CategoryServices
+    public class CategoryService
     {
         private readonly ApplicationDbContext _db;
 
-        public CategoryServices(ApplicationDbContext db)
+        public CategoryService(ApplicationDbContext db)
         {
             _db = db;
         }
 
-        public async Task<ServiceResponse<List<CategoryViewDto>>> GetAllAsync()
+        public async Task<ServiceResponse<CategoryViewDto[]>> GetAllAsync()
         {
             var categories = await _db.Categories.Select(m => new CategoryViewDto
             {
                 Id = m.Id,
                 Name = m.Name,
                 Description = m.Description,
-            }).ToListAsync();
+            }).ToArrayAsync();
 
             return new()
             {

@@ -11,15 +11,11 @@ namespace MyCart.Services.Dto
     {
         public int Id { get; set; }
 
-        public string Name { get; set; }
+        public string UserEmail { get; set; }
 
-        public string ApplicationUserId { get; set; }
-
-        
         public string Message { get; set; }
 
         public DateTime CreatedOn { get; set; }
 
-        public ApplicationUser ApplicationUser { get; set; }
     }
 }

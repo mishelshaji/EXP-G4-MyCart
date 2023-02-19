@@ -1,3 +1,3 @@
 declare interface FeedbackCreateDto {
-    feedback: string
+    message: string
 }

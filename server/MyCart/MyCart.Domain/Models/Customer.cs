@@ -22,7 +22,7 @@ namespace MyCart.Domain.Models
         [StringLength(12)]
         public string Phone { get; set; }
 
-        public string DateOfBirth { get; set; }
+        public DateTime DateOfBirth { get; set; }
 
         public string ApplicationUserId { get; set; }
 

@@ -9,9 +9,9 @@ namespace MyCart.WebApp.Areas.Admin.Controllers
 
     public class ProductsController : AdminBaseController
     {
-        private readonly ProductServices _services;
+        private readonly ProductService _services;
 
-        public ProductsController(ProductServices services)
+        public ProductsController(ProductService services)
         {
             _services = services;
         }

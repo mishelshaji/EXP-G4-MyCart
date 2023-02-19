@@ -14,9 +14,11 @@ namespace MyCart.Domain.Models
         [StringLength(250)]
         public string Message { get; set; }
 
+        public string UserEmail { get; set; }
+
         public string? ApplicationUserId { get; set; }
 
-        public ApplicationUser? ApplicationUser { get; set; }
+        public ApplicationUser ApplicationUser { get; set; }
 
         public DateTime CreatedOn { get; set; } = DateTime.UtcNow;
     }

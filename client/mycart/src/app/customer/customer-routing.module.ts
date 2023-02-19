@@ -9,6 +9,7 @@ import { InvoiceComponent } from './invoice/invoice.component';
 import { OrderSummaryComponent } from './order-summary/order-summary.component';
 import { CustomerProfileComponent } from "./customer-profile/customer-profile.component";
 import { PaymentComponent } from './payment/payment.component';
+import { ProductDetailsComponent } from '../shared/product-details/product-details.component';
 
 const routes: Routes = [
   {
@@ -19,7 +20,8 @@ const routes: Routes = [
       { path: 'feedback', component: FeedbackComponent },
       { path: 'profile', component: CustomerProfileComponent},
       { path: 'invoice', component: InvoiceComponent},
-      { path: 'payment', component:PaymentComponent}
+      { path: 'payment', component:PaymentComponent},
+      { path: 'product/:id', component: ProductDetailsComponent}
     ]
   }
 ];

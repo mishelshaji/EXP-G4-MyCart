@@ -1,15 +1,23 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { map } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FeedbackService {
-    url = "https://localhost:7191/api";
+
+    url = "https://localhost:7191/api/admin/feedback";
+    urlCustomer = "https://localhost:7191/api/customer";
+
 
     constructor(private http: HttpClient) {}
 
-    feedback(model: FeedbackCreateDto){
-        return this.http.post(this.url + "/FeedbackCreate", model);
+    Create(model: FeedbackCreateDto){
+        return this.http.post(this.urlCustomer + "/FeedbackCreate", model);
+    }
+
+    getAll() {
+      return this.http.get<FeedbackViewDto[]>(this.url);
     }
 }

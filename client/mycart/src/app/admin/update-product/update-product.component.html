@@ -3,24 +3,12 @@
     <div class="col-md-6 offset-md-3">
         <form #productform="ngForm" (ngSubmit)="onSubmit()">
             <div class="my-3">
-                <label>Product Image</label>
-                <input type="file" name="image" [(ngModel)]="model.image" #image="ngModel" class="form-control"
-                    placeholder="Upload Product Image" required>
-                <div class="text-danger" *ngIf="image.invalid && image.touched">
-                    <div *ngIf="image.errors?.['required']">Product image is required</div>
-                </div>
-            </div>
-            <div class="my-3">
-                <label>Category</label>
-                <input type="text" name="category" [(ngModel)]="model.category" #category="ngModel" class="form-control"
-                    placeholder="Enter Product Category" required>
-                <div class="text-danger" *ngIf="category.invalid && category.touched">
-                    <div *ngIf="category.errors?.['required']">Product Category is required</div>
-                </div>
+                <label for="category">Category</label>
+                <input type="text" name="categoryId" [(ngModel)]="model.categoryId" value="{{model.categoryId}}" class="form-control"> 
             </div>
             <div class="my-3">
                 <label>Product Name</label>
-                <input type="text" name="pname" [(ngModel)]="model.pname" #pname="ngModel" class="form-control"
+                <input type="text" name="pname" [(ngModel)]="model.name" #pname="ngModel" class="form-control"
                     placeholder="Enter Product Name" required>
                 <div class="text-danger" *ngIf="pname.invalid && pname.touched">
                     <div *ngIf="pname.errors?.['required']">Product name is required</div>
@@ -28,7 +16,7 @@
             </div>
             <div class="my-3">
                 <label>Brand Name</label>
-                <input type="text" name="bname" [(ngModel)]="model.bname" #bname="ngModel" class="form-control"
+                <input type="text" name="bname" [(ngModel)]="model.brand" #bname="ngModel" class="form-control"
                     placeholder="Enter Product Brand Name" required>
                 <div class="text-danger">
                     <div class="text-danger" *ngIf="bname.invalid && bname.touched">
@@ -46,7 +34,7 @@
             </div>
             <div class="my-3">
                 <label>Maximum Retail Price</label>
-                <input type="number" name="mrp" [(ngModel)]="model.mrp" #mrp="ngModel" class="form-control"
+                <input type="number" name="mrp" [(ngModel)]="model.retailPrice" #mrp="ngModel" class="form-control"
                     placeholder="Enter Maximum Retail Price" required>
                 <div class="text-danger" *ngIf="mrp.touched && mrp.invalid">
                     <div *ngIf="mrp.errors?.['required']">Maximum Retail Price is required</div>
@@ -54,20 +42,19 @@
             </div>
             <div class="my-3">
                 <label>Offer Price</label>
-                <input type="number" name="offer" [(ngModel)]="model.offer" #offer="ngModel" class="form-control"
+                <input type="number" name="offer" [(ngModel)]="model.offerPrice" #offer="ngModel" class="form-control"
                     placeholder="Enter Offer Price">
             </div>
             <div class="my-3">
                 <label>Quantity</label>
-                <input type="number" name="quantity" [(ngModel)]="model.quantity" #quantity="ngModel"
+                <input type="number" name="quantity" [(ngModel)]="model.stock" #quantity="ngModel"
                     class="form-control" placeholder="Enter Product Quantity" required>
                 <div class="text-danger" *ngIf="quantity.touched && quantity.invalid">
                     <div *ngIf="quantity.errors?.['required']">Product quantity is required</div>
                 </div>
             </div>
             <div class="d-grid my-3 d-flex justify-content-center">
-                <button type="submit" class="btn btn-primary w-30" [disabled]="productform.invalid"
-                    [routerLink]="">Submit</button>
+                <button type="submit" class="btn btn-primary w-30" [disabled]="productform.invalid">Submit</button>
             </div>
         </form>
     </div>

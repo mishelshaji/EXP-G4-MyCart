@@ -11,11 +11,11 @@ using System.Threading.Tasks;
 
 namespace MyCart.Services.Services
 {
-    public class ProductServices
+    public class ProductService
     {
         private readonly ApplicationDbContext _db;
 
-        public ProductServices(ApplicationDbContext db)
+        public ProductService(ApplicationDbContext db)
         {
             _db = db;
         }
@@ -121,15 +121,15 @@ namespace MyCart.Services.Services
 
             Price price = new()
             {
-                RetailPrice = dto.Price,
+                RetailPrice = dto.RetailPrice,
                 OfferPrice = dto.OfferPrice,
                 ProductId = product.Id,
             };
 
-            _db.Prices.Add(price);
+             _db.Prices.Add(price);
             await _db.SaveChangesAsync();
 
-            var productPrice = await _db.Prices.FindAsync(product.Id);
+            var productPrice = await _db.Prices.FirstOrDefaultAsync(m=>m.ProductId == product.Id);
             if (productPrice == null)
             {
                 result.AddError("", "product id is null");
@@ -193,8 +193,8 @@ namespace MyCart.Services.Services
             product.Stock = dto.Stock;
             product.Price = new()
             {
-                OfferPrice = dto.Price,
-                RetailPrice = dto.Price,
+                OfferPrice = dto.OfferPrice,
+                RetailPrice = dto.RetailPrice,
             };
 
 
@@ -232,12 +232,13 @@ namespace MyCart.Services.Services
             var product = await _db.Products.FindAsync(id);
 
             // Select price which is related to the given product id from price table
-            var productPrice = await _db.Prices.FirstOrDefaultAsync(m => m.Id == product.Id);
+            var productPrice = await _db.Prices.FirstOrDefaultAsync(m => m.ProductId == product.Id);
 
             if (product == null || productPrice == null)
                 return null;
 
             _db.Prices.Remove(productPrice);
+            await _db.SaveChangesAsync();
             _db.Products.Remove(product);
             await _db.SaveChangesAsync();
 

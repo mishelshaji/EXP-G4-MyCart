@@ -19,7 +19,7 @@ namespace MyCart.Domain.Models
         [StringLength(25)]
         public string Brand { get; set; }
 
-        [StringLength(255)]
+        [StringLength(2000)]
         public string Description { get; set; }
 
         public int CategoryId { get; set; }
