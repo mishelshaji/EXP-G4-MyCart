@@ -7,17 +7,10 @@ import { ProductsService } from 'src/app/services/products.service';
   templateUrl: './update-product.component.html',
   styleUrls: ['./update-product.component.css']
 })
+
 export class UpdateProductComponent {
 
   productId: number;
-
-  constructor(
-    private services: ProductsService,
-    private router: Router,
-    private route: ActivatedRoute) {
-    this.productId = route.snapshot.params['id'];
-  }
-
   model = {
     categoryId: 0,
     name: '',
@@ -27,6 +20,13 @@ export class UpdateProductComponent {
     offerPrice: 0,
     stock: 0
   };
+
+  constructor(
+    private services: ProductsService,
+    private router: Router,
+    private route: ActivatedRoute) {
+    this.productId = route.snapshot.params['id'];
+  }
 
   ngOnInit() {
     if (this.productId == null) {
@@ -52,6 +52,7 @@ export class UpdateProductComponent {
     });
     return true;
   }
+
   onSubmit() {
     this.services.update(this.productId, this.model).subscribe({
       next: (result: any) => {

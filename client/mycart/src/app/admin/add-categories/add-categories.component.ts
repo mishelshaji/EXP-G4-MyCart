@@ -11,6 +11,7 @@ export class AddCategoriesComponent {
 
   constructor(private categoryService: CategoryService) {
   }
+
   model = {
     name: '',
     description: ''

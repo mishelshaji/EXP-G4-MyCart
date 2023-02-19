@@ -24,6 +24,7 @@ export class LoginComponent {
   onSubmit() {
     this.services.login(this.model).subscribe({
       next: (response: any) => {
+        console.log(response.result);
         this.tokenHelper.setToken(response.result);
         this.router.navigateByUrl('/customer/home');
       },

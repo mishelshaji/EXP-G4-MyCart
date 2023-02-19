@@ -7,7 +7,6 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenHelper } from 'src/Utlis/Helpers/TokenHelper';
 import { TokenInterceptor } from 'src/Utlis/Interceptors/token.interceptor';
-import { NgSelectModule } from '@ng-select/ng-select';
 
 @NgModule({
   declarations: [
@@ -18,7 +17,7 @@ import { NgSelectModule } from '@ng-select/ng-select';
     AppRoutingModule,
     NgbModule,
     FontAwesomeModule,
-    HttpClientModule,
+    HttpClientModule
   ],
   providers: [
     TokenHelper,

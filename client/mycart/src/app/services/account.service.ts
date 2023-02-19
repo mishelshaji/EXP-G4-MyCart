@@ -4,10 +4,11 @@ import { Injectable } from '@angular/core';
 @Injectable({
   providedIn: 'root'
 })
+
 export class AccountService {
 
-  url = "https://localhost:7191/api/User/Accounts";
-  urlCustomer = "https://localhost:7191/api/Customer";
+  url = "https://localhost:7191/api/user/accounts";
+  urlCustomer = "https://localhost:7191/api/customer";
 
   constructor(private http: HttpClient) { }
 
@@ -16,7 +17,7 @@ export class AccountService {
   }
 
   create(model: customerCreateDto ) {
-    return this.http.post(this.url + "/customer/register", model)
+    return this.http.post(this.url + "/customer/register", model);
   }
 
   getProfile() {

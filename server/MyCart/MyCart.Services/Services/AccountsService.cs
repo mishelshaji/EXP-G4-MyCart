@@ -49,6 +49,7 @@ namespace MyCart.Services.Services
             };
 
             var userStatus = await _userManager.CreateAsync(user, dto.Password);
+
             if (!userStatus.Succeeded)
             {
                 response.AddError("", "Failed to create user");
@@ -82,8 +83,8 @@ namespace MyCart.Services.Services
         public async Task<ServiceResponse<string>> LoginAsync(LoginDto dto)
         {
             var response = new ServiceResponse<string>();
-
             var user = await _userManager.FindByEmailAsync(dto.Email);
+
             if (user == null)
             {
                 response.AddError(nameof(dto.Email), "An account with this email does not exist.");
@@ -91,6 +92,7 @@ namespace MyCart.Services.Services
             }
 
             var signin = await _signinManager.CheckPasswordSignInAsync(user, dto.Password, true);
+
             if (signin.Succeeded)
             {
                 response.Result = GenerateToken(user);
@@ -111,6 +113,7 @@ namespace MyCart.Services.Services
         {
             var response = new ServiceResponse<CustomerViewDto>();
             var customer = _db.Customers.FirstOrDefault(m => m.ApplicationUserId == id);
+
             if (customer == null)
             {
                 return response;

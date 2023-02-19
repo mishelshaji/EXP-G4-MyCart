@@ -3,7 +3,7 @@
     <div class="col-md-6 offset-md-3">
         <form #productform="ngForm" (ngSubmit)="onSubmit()">
             <div class="my-3">
-                <label for="category">category</label>
+                <label for="category">Category</label>
                 <input type="text" name="categoryId" [(ngModel)]="model.categoryId" value="{{model.categoryId}}" class="form-control"> 
             </div>
             <div class="my-3">
@@ -54,8 +54,7 @@
                 </div>
             </div>
             <div class="d-grid my-3 d-flex justify-content-center">
-                <button type="submit" class="btn btn-primary w-30" [disabled]="productform.invalid"
-                    [routerLink]="">Submit</button>
+                <button type="submit" class="btn btn-primary w-30" [disabled]="productform.invalid">Submit</button>
             </div>
         </form>
     </div>

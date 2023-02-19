@@ -8,22 +8,17 @@ import { FeedbackService } from 'src/app/services/feedback.service';
 })
 export class ViewFeedbackComponent implements OnInit {
 
-  FeedbackView: FeedbackViewDto[] = [];
+  feedbackView: FeedbackViewDto[] = [];
 
   constructor(private service: FeedbackService ) { }
 
   ngOnInit() {
     this.service.getAll().subscribe({
       next: (response: any) => {
-        this.FeedbackView = response;
-        if(response != null) {
-          console.log("result successs");
-        }
+        this.feedbackView = response;
       },
       error: (errors: any) => {
-        console.log(errors);
       }
-
     })
   }
 }

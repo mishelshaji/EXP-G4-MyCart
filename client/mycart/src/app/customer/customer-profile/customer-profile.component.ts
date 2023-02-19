@@ -8,6 +8,7 @@ import { TokenHelper } from 'src/Utlis/Helpers/TokenHelper';
   templateUrl: './customer-profile.component.html',
   styleUrls: ['./customer-profile.component.css']
 })
+
 export class CustomerProfileComponent implements OnInit {
 
   model = {
@@ -20,15 +21,13 @@ export class CustomerProfileComponent implements OnInit {
 
   constructor(private service: AccountService,
     private tokenHelper: TokenHelper,
-    private router: Router
-  ) {
-  }
+    private router: Router) {}
 
   ngOnInit() {
     this.service.getProfile().subscribe({
       next: (response: any) => {
         var result = response.result;
-        this.model.id = result.id,
+        this.model.id = result.id;
           this.model.name = result.name;
         this.model.email = result.email;
         this.model.phone = result.phone;

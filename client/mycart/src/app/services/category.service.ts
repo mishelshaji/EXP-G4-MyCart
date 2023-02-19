@@ -8,7 +8,7 @@ import { map } from 'rxjs';
 
 export class CategoryService {
 
-  url = "https://localhost:7191/api/admin/category"
+  url = "https://localhost:7191/api/admin/category";
 
   constructor(private http: HttpClient) { }
 

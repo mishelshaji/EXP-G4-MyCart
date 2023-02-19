@@ -8,7 +8,7 @@ import { map } from 'rxjs';
 export class FeedbackService {
 
     url = "https://localhost:7191/api/admin/feedback";
-    urlCustomer = "https://localhost:7191/api/Customer";
+    urlCustomer = "https://localhost:7191/api/customer";
 
 
     constructor(private http: HttpClient) {}

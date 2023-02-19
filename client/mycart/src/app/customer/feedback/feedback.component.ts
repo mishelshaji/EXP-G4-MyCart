@@ -20,15 +20,7 @@ export class FeedbackComponent {
     ){}
 
   onSubmit() {    
-    this.service.Create(this.model).subscribe({
-      next:(result: any)=>{
-        console.log(result);
-        
-      },
-      error:(err)=>{
-        console.error(err); 
-      }
-    })
+    this.service.Create(this.model).subscribe();
   }
 }
 

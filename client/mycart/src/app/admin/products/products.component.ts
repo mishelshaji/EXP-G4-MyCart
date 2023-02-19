@@ -9,14 +9,14 @@ import { ProductsService } from 'src/app/services/products.service';
   templateUrl: './products.component.html',
   styleUrls: ['./products.component.css']
 })
+
 export class ProductsComponent implements OnInit {
+
+  products: ProductViewDto[] = [];
+  faTrash = faTrash as IconProp;
 
   constructor(private service: ProductsService,
     private router: Router) { }
-
-  products: ProductViewDto[] = [];
-
-  faTrash = faTrash as IconProp;
 
   ngOnInit(): void {
     this.service.getAll().subscribe({
