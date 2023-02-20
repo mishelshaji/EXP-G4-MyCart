@@ -12,8 +12,8 @@ using MyCart.Services.Data;
 namespace MyCart.Services.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230219063105_CreateDbMyCartFeedBackUser")]
-    partial class CreateDbMyCartFeedBackUser
+    [Migration("20230220172230_ModifiedOrderId")]
+    partial class ModifiedOrderId
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -250,6 +250,9 @@ namespace MyCart.Services.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
+                    b.Property<DateTime>("AddedDate")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("ApplicationUserId")
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
@@ -261,7 +264,8 @@ namespace MyCart.Services.Migrations
 
                     b.HasIndex("ApplicationUserId");
 
-                    b.HasIndex("ProductId");
+                    b.HasIndex("ProductId", "ApplicationUserId")
+                        .IsUnique();
 
                     b.ToTable("Carts");
                 });
@@ -404,7 +408,7 @@ namespace MyCart.Services.Migrations
 
                     b.Property<string>("ApplicationUserId")
                         .IsRequired()
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("DeliveryAddress")
                         .IsRequired()
@@ -422,8 +426,6 @@ namespace MyCart.Services.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ApplicationUserId");
-
                     b.ToTable("Orders");
                 });
 
@@ -435,14 +437,14 @@ namespace MyCart.Services.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<decimal>("OfferPrice")
-                        .HasColumnType("decimal(6,3)");
+                    b.Property<decimal?>("OfferPrice")
+                        .HasColumnType("decimal(10,3)");
 
                     b.Property<int>("OrderId")
                         .HasColumnType("int");
 
-                    b.Property<decimal>("Price")
-                        .HasColumnType("decimal(6,3)");
+                    b.Property<decimal?>("Price")
+                        .HasColumnType("decimal(10,3)");
 
                     b.Property<int>("ProductId")
                         .HasColumnType("int");
@@ -655,17 +657,6 @@ namespace MyCart.Services.Migrations
                         .HasForeignKey("ApplicationUserId");
 
                     b.Navigation("ApplicationUser");
-                });
-
-            modelBuilder.Entity("MyCart.Domain.Models.Order", b =>
-                {
-                    b.HasOne("MyCart.Domain.Models.ApplicationUser", "User")
-                        .WithMany()
-                        .HasForeignKey("ApplicationUserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("MyCart.Domain.Models.OrderProduct", b =>

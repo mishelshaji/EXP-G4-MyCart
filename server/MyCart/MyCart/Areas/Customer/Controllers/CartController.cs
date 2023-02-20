@@ -39,7 +39,8 @@ namespace MyCart.WebApp.Areas.Customer.Controllers
         [ProducesResponseType(typeof(Nullable), StatusCodes.Status404NotFound)]
         public async Task<IActionResult> DeleteAsync(int id)
         {
-            var result = await _cartservices.DeleteAsync(id);
+            var user = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var result = await _cartservices.DeleteAsync(id, user);
             return result == null ? NotFound() : Ok();
         }
     }

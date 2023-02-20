@@ -60,7 +60,14 @@ export class RegisterComponent {
   onSubmit() {
     this.service.create(this.model).subscribe({
       next: (response: any) => {
-          console.log(response);
+          if(response == null){
+            let routeToLogin = confirm("Registration Successful");
+            if(routeToLogin){
+            this.router.navigate(['/login']);
+            }
+          }else {
+            alert("Registration Failed");
+          }
       },
       error: (errors: any) =>{
           console.log(errors);

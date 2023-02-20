@@ -29,7 +29,6 @@ namespace MyCart.Services.Services
             var cart = await _db.Carts
                         .Include(x => x.Product)
                         .Where(m => m.ApplicationUserId == id)
-
                         .Select(m => new CartViewDto
                         {
                             Id = m.Id,
@@ -77,10 +76,11 @@ namespace MyCart.Services.Services
             };
         }
 
-        public async Task<ServiceResponse<bool>?> DeleteAsync(int id)
+        public async Task<ServiceResponse<bool>?> DeleteAsync(int id, string userId)
         {
             var cart = await _db.Carts.FindAsync(id);
-            if (cart != null)
+
+            if (cart == null)
             {
                 return null;
             }

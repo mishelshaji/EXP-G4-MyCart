@@ -1,44 +1,47 @@
-﻿//using Microsoft.AspNetCore.Http;
-//using Microsoft.AspNetCore.Mvc;
-//using MyCart.Services.Dto;
-//using MyCart.Services.Services;
-//using MyCart.WebApp.Areas.Customer.Controllers;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using MyCart.Services.Dto;
+using MyCart.Services.Services;
+using MyCart.WebApp.Areas.Customer.Controllers;
+using System.Security.Claims;
 
-//namespace MyCart.WebApp.Areas.Admin.Controllers
-//{
-    
-//    public class OrderController : CustomerBaseController
-//    {
-//        private readonly OrderServices _service;
+namespace MyCart.WebApp.Areas.Admin.Controllers
+{
 
-//        public OrderController(OrderServices service)
-//        {
-//            _service = service;
-//        }
+    public class OrderController : CustomerBaseController
+    {
+        private readonly OrderServices _service;
 
-//        [HttpGet]
-//        [ProducesResponseType(typeof(OrderViewDto), StatusCodes.Status200OK)]
-//        public async Task<IActionResult> GetAll()
-//        {
-//            var result = await _service.GetAllAsync();
-//            return Ok(result);
-//        }
+        public OrderController(OrderServices service)
+        {
+            _service = service;
+        }
 
-//        [HttpPost]
-//        [ProducesResponseType(typeof(OrderViewDto), StatusCodes.Status201Created)]
-//        public async Task<IActionResult> PostOrders(OrderCreateDto dto)
-//        {
-//            var result = await _service.CreateAsync(dto);
-//            return Ok(result);
-//        }
+        //[HttpGet]
+        //[ProducesResponseType(typeof(OrderViewDto), StatusCodes.Status200OK)]
+        //public async Task<IActionResult> GetAll()
+        //{
+        //    var result = await _service.GetAllAsync();
+        //    return Ok(result);
+        //}
 
-//        [HttpDelete("{id}")]
-//        [ProducesResponseType(StatusCodes.Status200OK)]
-//        [ProducesResponseType(typeof(Nullable), StatusCodes.Status404NotFound)]
-//        public async Task<IActionResult> Delete(int id)
-//        {
-//            var result = await _service.DeleteAsync(id);
-//            return result == null ? NotFound() : Ok();
-//        }
-//    }
-//}
+        [HttpPost]
+        [ProducesResponseType(typeof(OrderViewDto), StatusCodes.Status201Created)]
+        public async Task<IActionResult> PostOrders(OrderCreateDto dto)
+        {
+            //var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var userId = "b4587108-231e-45c4-9935-db6acddfd2b8";
+            var result = await _service.CreateAsync(dto, userId);
+            return Ok(result);
+        }
+
+        //[HttpDelete("{id}")]
+        //[ProducesResponseType(StatusCodes.Status200OK)]
+        //[ProducesResponseType(typeof(Nullable), StatusCodes.Status404NotFound)]
+        //public async Task<IActionResult> Delete(int id)
+        //{
+        //    var result = await _service.DeleteAsync(id);
+        //    return result == null ? NotFound() : Ok();
+        //}
+    }
+}

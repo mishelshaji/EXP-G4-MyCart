@@ -21,8 +21,7 @@ export class HomePageComponent {
     this.productsService.getAllForUser().subscribe({
       next: (result: any) => {
         this.products = result;
-        console.log(this.products);
-        
+        console.log(this.products);   
       }
     });
   }

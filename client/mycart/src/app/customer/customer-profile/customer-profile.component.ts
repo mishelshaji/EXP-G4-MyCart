@@ -28,7 +28,7 @@ export class CustomerProfileComponent implements OnInit {
       next: (response: any) => {
         var result = response.result;
         this.model.id = result.id;
-          this.model.name = result.name;
+        this.model.name = result.name;
         this.model.email = result.email;
         this.model.phone = result.phone;
         this.model.dateOfBirth = result.dateOfBirth;

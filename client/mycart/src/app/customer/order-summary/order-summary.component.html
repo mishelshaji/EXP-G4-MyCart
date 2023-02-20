@@ -5,6 +5,11 @@
                 <div class="card-header px-4 py-2">
                     <h5 class="text-muted">Thanks for your Order, <span class="text-warning">Ajai</span>.</h5>
                 </div>
+                <form #form = "ngForm" (ngSubmit)="onSubmit()">
+                    <div class="p-3">
+                        <textarea [(ngModel)]="model.deliveryAddress" name="address" id="address" cols="20" rows="5" class="form-control">
+                        </textarea>
+                    </div>
                 <div class="card-body p-4">
                     <p class="text-muted">Your order</p>
                     <div class="card shadow-0 border mb-4">
@@ -81,6 +86,7 @@
                         amount: <span class="h2 mb-0 ms-2">{{138000 | currency:'INR'}}</span></h5>
                 </div>
                 <div class="d-flex justify-content-center align-items-center mt-2 mb-2"><button class="btn btn-light">Continue</button></div>
+                </form>
             </div>
         </div>
     </div>

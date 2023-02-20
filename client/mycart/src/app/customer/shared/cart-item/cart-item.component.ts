@@ -1,6 +1,7 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
+import { CartService } from 'src/app/services/cart.service';
 
 @Component({
   selector: 'app-cart-item',
@@ -14,6 +15,9 @@ export class CartItemComponent {
   faTrash = faTrash as IconProp;
 
   @Output("delete") delete = new EventEmitter<number>();
+
+  constructor(private cartService: CartService) {
+  }
 
   updateQuantity(e: MouseEvent) {
     let target = e.target as HTMLOptionElement;
@@ -31,11 +35,12 @@ export class CartItemComponent {
 
   }
 
-  deleteItem() {
-    let option = confirm("Do you want to delete?");
-    if (option) {
-      this.delete.emit(this.cartItem.id);
-    }
+  deleteItem(cartId: number) {
+    this.cartService.delete(cartId).subscribe({
+      next: (response: any) => {
+        window.location.reload();
+      }
+    });
   }
 
 }

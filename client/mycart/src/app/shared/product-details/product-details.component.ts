@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ProductsService } from 'src/app/services/products.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CartService } from 'src/app/services/cart.service';
 
 @Component({
@@ -31,6 +31,7 @@ export class ProductDetailsComponent {
   
   constructor(private service: ProductsService,
     private cartService: CartService,
+    private router: Router,
     private route: ActivatedRoute) {
       this.productId = route.snapshot.params['id'];
   }
@@ -55,7 +56,16 @@ export class ProductDetailsComponent {
           if(response.result){
             alert("Product is added to your cart");
           }
+        },
+        error : (errors: any) => {
+            if(errors.status == 500){
+              alert("Product already exists in the cart");
+            } 
         }
       });
+  }
+
+  orderSummary() {
+    this.router.navigate(['customer/order/summary']);
   }
 }

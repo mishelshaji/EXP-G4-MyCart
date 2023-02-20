@@ -16,7 +16,7 @@ const routes: Routes = [
     path: '', component: CustomerLayoutComponent, children: [
       { path: 'cart', component: CartComponent },
       { path: 'home', component: CustomerHomeComponent },
-      { path: 'order-summary', component: OrderSummaryComponent },
+      { path: 'order/summary', component: OrderSummaryComponent },
       { path: 'feedback', component: FeedbackComponent },
       { path: 'profile', component: CustomerProfileComponent},
       { path: 'invoice', component: InvoiceComponent},

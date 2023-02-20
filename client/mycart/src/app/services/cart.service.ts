@@ -17,4 +17,8 @@ export class CartService {
   Create(cartItem: CartCreateDto) {
     return this.http.post<CartCreateDto>(this.url, cartItem);
   }
+
+  delete(cartId: number) {
+    return this.http.delete(`${this.url}/${cartId}`);
+  }
 }

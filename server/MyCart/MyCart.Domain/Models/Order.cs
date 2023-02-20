@@ -17,8 +17,6 @@ namespace MyCart.Domain.Models
 
         public string ApplicationUserId { get; set; }
 
-        public ApplicationUser User { get; set; }
-
         [StringLength(250)]
         public string DeliveryAddress { get; set; }
 

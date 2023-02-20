@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace MyCart.Domain.Models
 {
+    [Index(nameof(ProductId), nameof(ApplicationUserId), IsUnique = true)]
     public class Cart
     {
         public int Id { get; set; }

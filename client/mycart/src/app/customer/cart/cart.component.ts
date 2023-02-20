@@ -15,22 +15,20 @@ export class CartComponent {
   cartItems: CartViewDto[] | null = [];
   totalAmount: number = 0;
 
-  constructor(private cartService: CartService) {
+  constructor(private cartService: CartService,
+    private productService: ProductsService
+  ) {
   }
 
   ngOnInit() {
     this.cartService.getAll().subscribe({
       next: (response: any) => {
         this.cartItems = response.result;
-        if(this.cartItems != null){
-          this.totalAmount += response.result.cart.id;
-        }
-        }
-      });
+        this.cartItems?.forEach((m:any)=> {
+          this.totalAmount += m.product.price.offerPrice;
+        })
+      }
+    });
   }
 
-  deleteItem(event: any) {
-    console.log("deleted");
-
-  }
 }

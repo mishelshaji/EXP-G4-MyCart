@@ -4,7 +4,8 @@
 </h2>
 <div class="container">
     <div class="card p-3" *ngIf="cartItems != null">
-        <app-cart-item [cartItem]="item" (delete)="deleteItem($event)" *ngFor="let item of cartItems"></app-cart-item>
+        <app-cart-item [cartItem]="item"  *ngFor="let item of cartItems"></app-cart-item>
+
     </div>
     <div class="alert alert-info" *ngIf="cartItems?.length === 0">
         <h3 class="text-center">Your cart is empty</h3>
@@ -18,6 +19,7 @@
             <span class="text-success">{{totalAmount}}</span>
         </div>
 
-        <button class="btn btn-warning h-25 m-2 text-center w-25">Pay Now</button>
+        <button class="btn btn-warning h-25 m-2 text-center w-25" 
+        [routerLink]="['/customer/order/summary']" routerLinkActive="router-link-active">Pay Now</button>
     </div>
 </div>
