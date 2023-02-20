@@ -61,7 +61,7 @@ namespace MyCart.Services.Services
             {
                 ApplicationUserId = userId,
                 DeliveryAddress = dto.DeliveryAddress,
-                PaymentStatus = dto.PaymentStatus,
+                PaymentStatus = PaymentStatus.Paid,
                 OrderTime = DateTime.UtcNow,
                 TotalPrice = dto.TotalPrice,
             };

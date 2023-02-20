@@ -15,7 +15,7 @@ export class OrderService {
   }
 
   postOrders(model: OrderCreateDto) {
-    return this.http.post<CategoryViewDto>(this.url, model);
+    return this.http.post<OrderViewDto>(this.url, model);
   }
 
   delete(id: number) {

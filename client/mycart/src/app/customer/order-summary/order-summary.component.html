@@ -3,89 +3,34 @@
         <div class="col-lg-10 col-xl-8">
             <div class="card">
                 <div class="card-header px-4 py-2">
-                    <h5 class="text-muted">Thanks for your Order, <span class="text-warning">Ajai</span>.</h5>
+                    <h5 class="text-muted">Place your order.</h5>
                 </div>
-                <form #form = "ngForm" (ngSubmit)="onSubmit()">
+                <form #form="ngForm" (ngSubmit)="onSubmit()">
+                    <label for="address">Delivery Address</label>
                     <div class="p-3">
-                        <textarea [(ngModel)]="model.deliveryAddress" name="address" id="address" cols="20" rows="5" class="form-control">
+                        <textarea [(ngModel)]="model.deliveryAddress" name="address" id="address" cols="20" rows="5"
+                            class="form-control">
                         </textarea>
                     </div>
-                <div class="card-body p-4">
-                    <p class="text-muted">Your order</p>
-                    <div class="card shadow-0 border mb-4">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-md-2">
-                                    <img src="assets/images/samsung.jpg" class="img-fluid">
-                                </div>
-                                <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
-                                    <p class="text-muted">Samsung Galaxy</p>
-                                </div>
-                                <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
-                                    <p class="text-muted small">White</p>
-                                </div>
-                                <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
-                                    <p class="text-muted small">Capacity: 64GB</p>
-                                </div>
-                                <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
-                                    <p class="text-muted small">Qty: 1</p>
-                                </div>
-                                <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
-                                    <p class="text-muted small">{{20000 | currency:'INR'}}</p>
+                    <div class="card-body p-4">
+                        <p class="text-muted">Your order</p>
+                        <div class="card shadow-0 border mb-4">
+                            <div class="card-body">
+                                <div class="row">
+                                    <app-order-item [orderedProduct]="item"
+                                        *ngFor="let item of cartItems"></app-order-item>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="card border mb-4">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-md-2">
-                                    <img src="assets/images/ipad2.jpg" class="img-fluid">
-                                </div>
-                                <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
-                                    <p class="text-muted">iPad</p>
-                                </div>
-                                <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
-                                    <p class="text-muted small">Pink rose</p>
-                                </div>
-                                <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
-                                    <p class="text-muted mb-0 small">Capacity: 32GB</p>
-                                </div>
-                                <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
-                                    <p class="text-muted small">Qty: 1</p>
-                                </div>
-                                <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
-                                    <p class="text-muted small">{{120000 | currency:'INR'}}</p>
-                                </div>
-                            </div>
+                        <div class="card-footer px-4 py-2 bg-info">
+                            <h5 class="d-flex align-items-center justify-content-end text-white text-uppercase">Total
+                                amount: <span class="h2 mb-0 ms-2">{{this.model.totalPrice | currency:'INR'}}</span>
+                            </h5>
+                        </div>
+                        <div class="d-flex justify-content-center align-items-center mt-2 mb-2">
+                            <button class="btn btn-success btn-lg">Book Now</button>
                         </div>
                     </div>
-
-                    <div class="d-flex justify-content-between pt-2">
-                        <p class="fw-bold">Order Details</p>
-                        <p class="text-muted"><span class="fw-bold me-4">Total</span>{{140000 |
-                            currency:'INR'}}</p>
-                    </div>
-
-                    <div class="d-flex justify-content-between pt-2">
-                        <p class="text-muted">Invoice Number : 788152</p>
-                        <p class="text-muted"><span class="fw-bold me-4">Discount</span>{{2000 |
-                            currency:'INR'}}</p>
-                    </div>
-
-                    <div class="d-flex justify-content-between">
-                        <p class="text-muted mb-3">Invoice Date : 22 Feb,2023</p>
-                    </div>
-
-                    <div class="d-flex justify-content-between">
-                        <p class="text-muted"><span class="fw-bold me-4">Delivery Charges</span> Free</p>
-                    </div>
-                </div>
-                <div class="card-footer px-4 py-2 bg-info">
-                    <h5 class="d-flex align-items-center justify-content-end text-white text-uppercase">Total
-                        amount: <span class="h2 mb-0 ms-2">{{138000 | currency:'INR'}}</span></h5>
-                </div>
-                <div class="d-flex justify-content-center align-items-center mt-2 mb-2"><button class="btn btn-light">Continue</button></div>
                 </form>
             </div>
         </div>

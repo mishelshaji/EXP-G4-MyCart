@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
+import { NgbToast } from '@ng-bootstrap/ng-bootstrap';
 import { CartService } from 'src/app/services/cart.service';
+import { OrderService } from 'src/app/services/order.service';
 
 @Component({
   selector: 'app-order-summary',
@@ -9,27 +11,32 @@ import { CartService } from 'src/app/services/cart.service';
 export class OrderSummaryComponent {
 
   cartItems: CartViewDto[] | null = [];
-  totalAmount: number = 0;
 
   model = {
     deliveryAddress : '',
-    totalPrice: this.totalAmount
+    totalPrice: 0
   }
 
-  constructor(private cartService: CartService) { }
+  constructor(private cartService: CartService, private orderService: OrderService) { }
 
   ngOnInit() {
     this.cartService.getAll().subscribe({
       next: (response: any) => {
         this.cartItems = response.result;
         this.cartItems?.forEach((m:any)=> {
-          this.totalAmount += m.product.price.offerPrice;
+          this.model.totalPrice += m.product.price.offerPrice;
         })
       }
     });
   }
 
   onSubmit() {
-    console.log(this.model);    
+    this.orderService.postOrders(this.model).subscribe({
+      next: (response: any) => {
+        if(response.isvalid) {
+          alert("Order placed Successfully");
+        }
+      }
+    });
   }
 }

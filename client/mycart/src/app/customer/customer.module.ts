@@ -15,6 +15,7 @@ import { OrderSummaryComponent } from './order-summary/order-summary.component';
 import { CustomerProfileComponent } from './customer-profile/customer-profile.component';
 import { InvoiceComponent } from './invoice/invoice.component';
 import { PaymentComponent } from './payment/payment.component';
+import { OrderItemComponent } from './order-item/order-item.component';
 
 @NgModule({
 
@@ -28,7 +29,8 @@ import { PaymentComponent } from './payment/payment.component';
         OrderSummaryComponent,
         CustomerProfileComponent,
         InvoiceComponent,
-        PaymentComponent
+        PaymentComponent,
+        OrderItemComponent
     ],
     imports: [
         CommonModule,

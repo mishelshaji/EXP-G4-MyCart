@@ -1,0 +1,25 @@
+<div class="card border mb-4">
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-2">
+                <img src="assets/images/ipad2.jpg" class="img-fluid">
+            </div>
+            <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
+                <p class="text-muted">{{orderedProduct.product.name}}</p>
+            </div>
+            <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
+                <p class="text-muted small">{{orderedProduct.product.brand}}</p>
+            </div>
+            <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
+                <p class="text-muted mb-0 small">{{orderedProduct.product.category.name}}</p>
+            </div>
+            <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
+                <p class="text-muted small">Qty: 1</p>
+            </div>
+            <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
+                <p class="text-muted small">{{orderedProduct.product.price.offerPrice | currency:'INR'}}</p>
+            </div>
+        </div>
+    </div>
+</div>
+

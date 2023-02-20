@@ -15,8 +15,6 @@ namespace MyCart.Services.Dto
     {
         public string DeliveryAddress { get; set; }
 
-        public PaymentStatus PaymentStatus { get; set; }
-
         public DateTime OrderTime { get; set; }
 
         public decimal TotalPrice { get; set; }
