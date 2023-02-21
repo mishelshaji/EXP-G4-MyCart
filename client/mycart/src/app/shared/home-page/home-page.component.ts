@@ -5,17 +5,17 @@ import { Router, RouterModule } from '@angular/router';
 import { TokenHelper } from 'src/Utlis/Helpers/TokenHelper';
 
 @Component({
-    selector: 'app-home-page',
-    standalone: true,
-    templateUrl: './home-page.component.html',
-    styleUrls: ['./home-page.component.css'],
-    imports: [CommonModule, RouterModule]
+  selector: 'app-home-page',
+  standalone: true,
+  templateUrl: './home-page.component.html',
+  styleUrls: ['./home-page.component.css'],
+  imports: [CommonModule, RouterModule]
 })
 export class HomePageComponent {
 
-  products:ProductViewDto[] | null = [];
+  products: ProductViewDto[] | null = [];
 
-  constructor(private productsService: ProductsService, private tokenHelper: TokenHelper) {}
+  constructor(private productsService: ProductsService, private tokenHelper: TokenHelper) { }
 
   ngOnInit() {
     this.productsService.getAllForUser().subscribe({

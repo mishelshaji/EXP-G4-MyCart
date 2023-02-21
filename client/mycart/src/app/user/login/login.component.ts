@@ -28,7 +28,9 @@ export class LoginComponent {
         this.tokenHelper.setToken(response.result);
         this.router.navigateByUrl('/customer/home');
       },
-      error: (errors: any) => {}
+      error: (errors: any) => {
+        alert("Invalid Email or Password");
+      }
     });
   }
 }

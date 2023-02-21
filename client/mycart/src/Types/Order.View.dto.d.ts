@@ -1,17 +1,16 @@
 declare interface OrderViewDto {
     
-    readonly id: number;
+    orderId: number;
 
-    customerId: number;
-
-    customer: string;
+    product: ProductViewDto;
 
     deliveryAddress: string;
 
-    paymentStatus: string;
-
     orderTime: Date;
 
-    totalPrice: number;
+    offerPrice: number;
+
+    retailPrice: number;
+
 
 }

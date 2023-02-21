@@ -14,7 +14,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<CategoryService>();
 builder.Services.AddScoped<ProductService>();
-//builder.Services.AddScoped<OrderServices>();
+builder.Services.AddScoped<OrderServices>();
 builder.Services.AddScoped<FeedbackServices>();
 builder.Services.AddScoped<CartServices>();
 

@@ -1,4 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore.Metadata.Internal;
+﻿        using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using MyCart.Domain.Models;
 using MyCart.Domain.Types;
 using System;
@@ -13,18 +13,17 @@ namespace MyCart.Services.Dto
 {
     public class OrderViewDto
     {
-        public int Id { get; set; }
+        public int orderId { get; set; }
 
-        public int CustomerId { get; set; }
-
-        public Customer Customer { get; set; }
+        public ProductViewDto Product { get; set; }
 
         public string DeliveryAddress { get; set; }
 
-        public PaymentStatus PaymentStatus { get; set; }
 
         public DateTime OrderTime { get; set; }
 
-        public decimal TotalPrice { get; set; }
+        public decimal? OfferPrice { get; set; }
+
+        public decimal ? RetailPrice { get; set; }
     }
 }

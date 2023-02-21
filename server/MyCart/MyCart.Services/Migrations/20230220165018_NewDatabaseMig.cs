@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace MyCart.Services.Migrations
 {
-    public partial class CreateDbMyCartFeedBack : Migration
+    public partial class NewDatabaseMig : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -64,19 +64,20 @@ namespace MyCart.Services.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Feedbacks",
+                name: "Orders",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Message = table.Column<string>(type: "nvarchar(250)", maxLength: 250, nullable: false),
-                    UserEmail = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    ApplicationUserId = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    ApplicationUserId = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    DeliveryAddress = table.Column<string>(type: "nvarchar(250)", maxLength: 250, nullable: false),
+                    PaymentStatus = table.Column<int>(type: "int", nullable: false),
+                    OrderTime = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    TotalPrice = table.Column<decimal>(type: "decimal(10,3)", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Feedbacks", x => x.Id);
+                    table.PrimaryKey("PK_Orders", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -231,26 +232,24 @@ namespace MyCart.Services.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Orders",
+                name: "Feedbacks",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    ApplicationUserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    DeliveryAddress = table.Column<string>(type: "nvarchar(250)", maxLength: 250, nullable: false),
-                    PaymentStatus = table.Column<int>(type: "int", nullable: false),
-                    OrderTime = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    TotalPrice = table.Column<decimal>(type: "decimal(10,3)", nullable: false)
+                    Message = table.Column<string>(type: "nvarchar(250)", maxLength: 250, nullable: false),
+                    UserEmail = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ApplicationUserId = table.Column<string>(type: "nvarchar(450)", nullable: true),
+                    CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Orders", x => x.Id);
+                    table.PrimaryKey("PK_Feedbacks", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Orders_AspNetUsers_ApplicationUserId",
+                        name: "FK_Feedbacks_AspNetUsers_ApplicationUserId",
                         column: x => x.ApplicationUserId,
                         principalTable: "AspNetUsers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
@@ -285,7 +284,8 @@ namespace MyCart.Services.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     ProductId = table.Column<int>(type: "int", nullable: false),
-                    ApplicationUserId = table.Column<string>(type: "nvarchar(450)", nullable: false)
+                    ApplicationUserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    AddedDate = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -311,9 +311,9 @@ namespace MyCart.Services.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     ProductId = table.Column<int>(type: "int", nullable: false),
-                    Price = table.Column<decimal>(type: "decimal(6,3)", nullable: false),
-                    OfferPrice = table.Column<decimal>(type: "decimal(6,3)", nullable: false),
-                    OrderId = table.Column<int>(type: "int", nullable: false)
+                    Price = table.Column<decimal>(type: "decimal(10,3)", nullable: true),
+                    OfferPrice = table.Column<decimal>(type: "decimal(10,3)", nullable: true),
+                    OrderId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -322,8 +322,7 @@ namespace MyCart.Services.Migrations
                         name: "FK_Orderproducts_Orders_OrderId",
                         column: x => x.OrderId,
                         principalTable: "Orders",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_Orderproducts_Products_ProductId",
                         column: x => x.ProductId,
@@ -431,9 +430,10 @@ namespace MyCart.Services.Migrations
                 column: "ApplicationUserId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Carts_ProductId",
+                name: "IX_Carts_ProductId_ApplicationUserId",
                 table: "Carts",
-                column: "ProductId");
+                columns: new[] { "ProductId", "ApplicationUserId" },
+                unique: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_Categories_Name",
@@ -458,6 +458,11 @@ namespace MyCart.Services.Migrations
                 unique: true);
 
             migrationBuilder.CreateIndex(
+                name: "IX_Feedbacks_ApplicationUserId",
+                table: "Feedbacks",
+                column: "ApplicationUserId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Orderproducts_OrderId",
                 table: "Orderproducts",
                 column: "OrderId");
@@ -466,11 +471,6 @@ namespace MyCart.Services.Migrations
                 name: "IX_Orderproducts_ProductId",
                 table: "Orderproducts",
                 column: "ProductId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Orders_ApplicationUserId",
-                table: "Orders",
-                column: "ApplicationUserId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Prices_ProductId",
@@ -537,13 +537,13 @@ namespace MyCart.Services.Migrations
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
+                name: "AspNetUsers");
+
+            migrationBuilder.DropTable(
                 name: "Orders");
 
             migrationBuilder.DropTable(
                 name: "Products");
-
-            migrationBuilder.DropTable(
-                name: "AspNetUsers");
 
             migrationBuilder.DropTable(
                 name: "Categories");

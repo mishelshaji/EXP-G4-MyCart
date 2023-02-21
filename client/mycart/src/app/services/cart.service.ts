@@ -6,11 +6,19 @@ import { Injectable } from '@angular/core';
 })
 export class CartService {
 
-  url = "";
+  url = "https://localhost:7191/api/customer/cart";
 
   constructor(private http: HttpClient) { }
 
   getAll() {
     return this.http.get<CartViewDto[]>(this.url);
+  }
+
+  Create(cartItem: CartCreateDto) {
+    return this.http.post<CartCreateDto>(this.url, cartItem);
+  }
+
+  delete(cartId: number) {
+    return this.http.delete(`${this.url}/${cartId}`);
   }
 }

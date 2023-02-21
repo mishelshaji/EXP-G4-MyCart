@@ -12,8 +12,8 @@ using MyCart.Services.Data;
 namespace MyCart.Services.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230219062212_CreateDbMyCartFeedBack")]
-    partial class CreateDbMyCartFeedBack
+    [Migration("20230220165018_NewDatabaseMig")]
+    partial class NewDatabaseMig
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -250,6 +250,9 @@ namespace MyCart.Services.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
+                    b.Property<DateTime>("AddedDate")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("ApplicationUserId")
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
@@ -261,7 +264,8 @@ namespace MyCart.Services.Migrations
 
                     b.HasIndex("ApplicationUserId");
 
-                    b.HasIndex("ProductId");
+                    b.HasIndex("ProductId", "ApplicationUserId")
+                        .IsUnique();
 
                     b.ToTable("Carts");
                 });
@@ -373,7 +377,7 @@ namespace MyCart.Services.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("ApplicationUserId")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<DateTime>("CreatedOn")
                         .HasColumnType("datetime2");
@@ -389,6 +393,8 @@ namespace MyCart.Services.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("ApplicationUserId");
+
                     b.ToTable("Feedbacks");
                 });
 
@@ -402,7 +408,7 @@ namespace MyCart.Services.Migrations
 
                     b.Property<string>("ApplicationUserId")
                         .IsRequired()
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("DeliveryAddress")
                         .IsRequired()
@@ -420,8 +426,6 @@ namespace MyCart.Services.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ApplicationUserId");
-
                     b.ToTable("Orders");
                 });
 
@@ -433,14 +437,14 @@ namespace MyCart.Services.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<decimal>("OfferPrice")
-                        .HasColumnType("decimal(6,3)");
+                    b.Property<decimal?>("OfferPrice")
+                        .HasColumnType("decimal(10,3)");
 
-                    b.Property<int>("OrderId")
+                    b.Property<int?>("OrderId")
                         .HasColumnType("int");
 
-                    b.Property<decimal>("Price")
-                        .HasColumnType("decimal(6,3)");
+                    b.Property<decimal?>("Price")
+                        .HasColumnType("decimal(10,3)");
 
                     b.Property<int>("ProductId")
                         .HasColumnType("int");
@@ -646,24 +650,20 @@ namespace MyCart.Services.Migrations
                     b.Navigation("ApplicationUser");
                 });
 
-            modelBuilder.Entity("MyCart.Domain.Models.Order", b =>
+            modelBuilder.Entity("MyCart.Domain.Models.Feedback", b =>
                 {
-                    b.HasOne("MyCart.Domain.Models.ApplicationUser", "User")
+                    b.HasOne("MyCart.Domain.Models.ApplicationUser", "ApplicationUser")
                         .WithMany()
-                        .HasForeignKey("ApplicationUserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("ApplicationUserId");
 
-                    b.Navigation("User");
+                    b.Navigation("ApplicationUser");
                 });
 
             modelBuilder.Entity("MyCart.Domain.Models.OrderProduct", b =>
                 {
                     b.HasOne("MyCart.Domain.Models.Order", "Order")
                         .WithMany()
-                        .HasForeignKey("OrderId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("OrderId");
 
                     b.HasOne("MyCart.Domain.Models.Product", "Product")
                         .WithMany()

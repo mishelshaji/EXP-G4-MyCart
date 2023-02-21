@@ -1,4 +1,5 @@
-﻿using MyCart.Domain.Models;
+﻿using Microsoft.AspNetCore.Identity;
+using MyCart.Domain.Models;
 using MyCart.Domain.Types;
 using MyCart.Services.Data;
 using MyCart.Services.Dto;
@@ -13,43 +14,73 @@ namespace MyCart.Services.Services
     public class CartServices
     {
         private readonly ApplicationDbContext _db;
+        private readonly UserManager<ApplicationUser> _userDb;
 
-        public CartServices(ApplicationDbContext db)
+        public CartServices(ApplicationDbContext db,
+           UserManager<ApplicationUser> userDb)
         {
             _db = db;
+            _userDb = userDb;
         }
 
-        public async Task<List<CartViewDto>> GetAllAsync()
+        public async Task<ServiceResponse<CartViewDto[]>> GetAllAsync(string id)
         {
-            return await _db.Carts.Select(m => new CartViewDto
+            // Select all the record of the specified user from the database
+            var cart = await _db.Carts
+                        .Include(x => x.Product)
+                        .Where(m => m.ApplicationUserId == id)
+                        .Select(m => new CartViewDto
+                        {
+                            Id = m.Id,
+                            Product = new()
+                            {
+                                Id = m.Product.Id,
+                                Name = m.Product.Name,
+                                Brand = m.Product.Brand,
+                                Description = m.Product.Description,
+                                Category = new()
+                                {
+                                    Id = m.Product.Category.Id,
+                                    Name = m.Product.Category.Name,
+                                    Description = m.Product.Description,
+                                },
+                                Price = new()
+                                {
+                                    OfferPrice = m.Product.Price.OfferPrice,
+                                }
+                            }
+                        }).ToArrayAsync();
+
+            return new()
             {
-                Id = m.Id,
-                ProductId = m.ProductId,
-            }).ToListAsync();
+                Result = cart
+            };
         }
 
-        public async Task<CartViewDto> CreateAsync(CartCreateDto dto)
+        public async Task<ServiceResponse<bool>?> CreateAsync(CartCreateDto dto, string id)
         {
             var result = await _db.Products.FindAsync(dto.ProductId);
             Cart cart = new()
             {
+                ApplicationUserId = id,
                 ProductId = dto.ProductId,
             };
 
             _db.Carts.Add(cart);
             await _db.SaveChangesAsync();
 
-            return new CartViewDto
+            return new ()
             {
-                Id = cart.Id,
-                ProductId = cart.ProductId,
+                Result = true
+
             };
         }
 
-        public async Task<ServiceResponse<bool>?> DeleteAsync(int id)
+        public async Task<ServiceResponse<bool>?> DeleteAsync(int id, string userId)
         {
             var cart = await _db.Carts.FindAsync(id);
-            if (cart != null)
+
+            if (cart == null)
             {
                 return null;
             }
