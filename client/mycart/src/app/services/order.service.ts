@@ -5,27 +5,22 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class OrderService {
-  url = "https://localhost:7191/api/customer/order";
-  adminUrl = "https://localhost:7191/api/Admin/AdminOrder";
+  customerUrl = "https://localhost:7191/api/customer/order";
+  adminUrl = "https://localhost:7191/api/admin/adminOrder";
 
   constructor(private http: HttpClient) {
   }
 
-  getAll() {
-    return this.http.get<OrderViewDto[]>(this.url);
-  }
-
   postOrders(model: OrderCreateDto) {
-    return this.http.post<OrderViewDto>(this.url, model);
-  }
-
-  delete(id: number) {
-    return this.http.delete(`${this.url}/${id}`)
+    return this.http.post<OrderViewDto>(this.customerUrl, model);
   }
 
   getAllForAdmin() {
     return this.http.get<OrderViewDto[]>(this.adminUrl);
   }
 
+  getForCustomers() {
+    return this.http.get<OrderViewDto[]>(this.customerUrl)
+  }
 }
 

@@ -10,6 +10,7 @@ import { OrderSummaryComponent } from './order-summary/order-summary.component';
 import { CustomerProfileComponent } from "./customer-profile/customer-profile.component";
 import { PaymentComponent } from './payment/payment.component';
 import { ProductDetailsComponent } from '../shared/product-details/product-details.component';
+import { ViewOrdersComponent } from './view-orders/view-orders.component';
 
 const routes: Routes = [
   {
@@ -21,7 +22,8 @@ const routes: Routes = [
       { path: 'profile', component: CustomerProfileComponent},
       { path: 'invoice', component: InvoiceComponent},
       { path: 'payment', component:PaymentComponent},
-      { path: 'product/:id', component: ProductDetailsComponent}
+      { path: 'product/:id', component: ProductDetailsComponent},
+      { path: 'order/view', component: ViewOrdersComponent}
     ]
   }
 ];

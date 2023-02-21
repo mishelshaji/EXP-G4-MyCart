@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.CodeAnalysis.FlowAnalysis.DataFlow.ValueContentAnalysis;
 using MyCart.Services.Dto;
 using MyCart.Services.Services;
 using MyCart.WebApp.Areas.Customer.Controllers;
@@ -21,7 +22,9 @@ namespace MyCart.WebApp.Areas.Admin.Controllers
         [ProducesResponseType(typeof(OrderViewDto), StatusCodes.Status200OK)]
         public async Task<IActionResult> GetAll()
         {
-            var result = await _service.GetAllAsync();
+            //var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var userId = "b4587108-231e-45c4-9935-db6acddfd2b8";
+            var result = await _service.GetAllForCustomerAsync(userId);
             return Ok(result);
         }
 

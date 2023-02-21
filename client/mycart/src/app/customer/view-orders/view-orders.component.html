@@ -15,6 +15,9 @@
                 </tr>
             </thead>
             <tbody class="text-center table-dark">
+                <div *ngIf="!notEmpty">
+                    Orders are Empty
+                </div>
                 <tr *ngFor="let order of orderProducts">
                     <td>{{order.orderId}}</td>
                     <td>{{order.product.id}}</td>
@@ -29,3 +32,4 @@
         </table>
     </div>
 </div>
+

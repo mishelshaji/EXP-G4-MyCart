@@ -54,6 +54,33 @@ namespace MyCart.Services.Services
             };
         }
 
+        public async Task<ServiceResponse<OrderViewDto[]>?> GetAllForCustomerAsync(string userId)
+        {
+            var result = new ServiceResponse<OrderViewDto[]?>();
+            var orderedProducts = await _db.Orderproducts
+                .Include(m => m.Product)
+                .Include(m => m.Order)
+                .Where(m => m.OrderId == m.Order.Id && m.Order.ApplicationUserId == userId)
+                .Select(m => new OrderViewDto
+                {
+                    orderId = m.OrderId,
+                    OrderTime = m.Order.OrderTime,
+                    DeliveryAddress = m.Order.DeliveryAddress,
+                    Product = new()
+                    {
+                        Id = m.Product.Id,
+                        Name = m.Product.Name,
+                        Brand = m.Product.Brand,
+                    },
+                    OfferPrice = m.OfferPrice,
+                    RetailPrice = m.Price,
+
+                }).ToArrayAsync();
+            return new ()
+            {
+                Result = orderedProducts
+            };
+        }
         public async Task<ServiceResponse<OrderViewDto>?> CreateAsync(OrderCreateDto dto, string userId)
         {
 

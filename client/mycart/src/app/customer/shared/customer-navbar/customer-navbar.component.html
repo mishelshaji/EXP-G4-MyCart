@@ -19,10 +19,10 @@
                     <a class="nav-link active" [routerLink]= "['/customer/home']" aria-current="page">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="#about-us">About</a>
+                    <a class="nav-link active" [routerLink]="['/customer/feedback']" routerLinkActive="router-link-active" >Contact Us</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active">Contact</a>
+                    <a class="nav-link active" [routerLink]="['/customer/order/view']" routerLinkActive="router-link-active" >Orders</a>
                 </li>
             </ul>
             <ul class="navbar-nav ms-auto mt-2 mt-lg-0 ">
