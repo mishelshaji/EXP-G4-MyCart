@@ -14,11 +14,11 @@ const routes: Routes = [
     path: '', component: AdminLayoutComponent, children: [
       { path: 'home', component: AdminHomeComponent },
       { path: 'products/create', component: AddProductComponent },
-      { path: 'products', component:ProductsComponent},
+      { path: 'products', component: ProductsComponent },
       { path: 'feedback/view', component: ViewFeedbackComponent },
       { path: 'products/update/:id', component: UpdateProductComponent },
       { path: 'categories/create', component: AddCategoriesComponent },
-      { path: 'order/view', component: ViewOrdersComponent}
+      { path: 'order/view', component: ViewOrdersComponent }
     ]
   }
 ];

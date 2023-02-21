@@ -19,11 +19,11 @@ const routes: Routes = [
       { path: 'home', component: CustomerHomeComponent },
       { path: 'order/summary', component: OrderSummaryComponent },
       { path: 'feedback', component: FeedbackComponent },
-      { path: 'profile', component: CustomerProfileComponent},
-      { path: 'invoice', component: InvoiceComponent},
-      { path: 'payment', component:PaymentComponent},
-      { path: 'product/:id', component: ProductDetailsComponent},
-      { path: 'order/view', component: ViewOrdersComponent}
+      { path: 'profile', component: CustomerProfileComponent },
+      { path: 'invoice', component: InvoiceComponent },
+      { path: 'payment', component: PaymentComponent },
+      { path: 'product/:id', component: ProductDetailsComponent },
+      { path: 'order/view', component: ViewOrdersComponent }
     ]
   }
 ];

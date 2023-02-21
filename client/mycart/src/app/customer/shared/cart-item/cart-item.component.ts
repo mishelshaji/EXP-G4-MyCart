@@ -8,6 +8,7 @@ import { CartService } from 'src/app/services/cart.service';
   templateUrl: './cart-item.component.html',
   styleUrls: ['./cart-item.component.css']
 })
+
 export class CartItemComponent {
 
   @Input() cartItem: any;
@@ -32,7 +33,6 @@ export class CartItemComponent {
     }
 
     this.productQuantity += option === 'add' ? 1 : -1;
-
   }
 
   deleteItem(cartId: number) {
