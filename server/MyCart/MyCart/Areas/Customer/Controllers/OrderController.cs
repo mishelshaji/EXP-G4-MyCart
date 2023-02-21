@@ -17,13 +17,13 @@ namespace MyCart.WebApp.Areas.Admin.Controllers
             _service = service;
         }
 
-        //[HttpGet]
-        //[ProducesResponseType(typeof(OrderViewDto), StatusCodes.Status200OK)]
-        //public async Task<IActionResult> GetAll()
-        //{
-        //    var result = await _service.GetAllAsync();
-        //    return Ok(result);
-        //}
+        [HttpGet]
+        [ProducesResponseType(typeof(OrderViewDto), StatusCodes.Status200OK)]
+        public async Task<IActionResult> GetAll()
+        {
+            var result = await _service.GetAllAsync();
+            return Ok(result);
+        }
 
         [HttpPost]
         [ProducesResponseType(typeof(OrderViewDto), StatusCodes.Status201Created)]
@@ -34,14 +34,5 @@ namespace MyCart.WebApp.Areas.Admin.Controllers
             var result = await _service.CreateAsync(dto, userId);
             return Ok(result);
         }
-
-        //[HttpDelete("{id}")]
-        //[ProducesResponseType(StatusCodes.Status200OK)]
-        //[ProducesResponseType(typeof(Nullable), StatusCodes.Status404NotFound)]
-        //public async Task<IActionResult> Delete(int id)
-        //{
-        //    var result = await _service.DeleteAsync(id);
-        //    return result == null ? NotFound() : Ok();
-        //}
     }
 }

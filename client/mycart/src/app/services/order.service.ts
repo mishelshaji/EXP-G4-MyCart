@@ -6,6 +6,7 @@ import { Injectable } from '@angular/core';
 })
 export class OrderService {
   url = "https://localhost:7191/api/customer/order";
+  adminUrl = "https://localhost:7191/api/Admin/AdminOrder";
 
   constructor(private http: HttpClient) {
   }
@@ -22,6 +23,9 @@ export class OrderService {
     return this.http.delete(`${this.url}/${id}`)
   }
 
+  getAllForAdmin() {
+    return this.http.get<OrderViewDto[]>(this.adminUrl);
+  }
 
 }
 
