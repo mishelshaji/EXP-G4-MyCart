@@ -22,8 +22,7 @@ namespace MyCart.WebApp.Areas.Admin.Controllers
         [ProducesResponseType(typeof(OrderViewDto), StatusCodes.Status200OK)]
         public async Task<IActionResult> GetAll()
         {
-            //var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-            var userId = "b4587108-231e-45c4-9935-db6acddfd2b8";
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
             var result = await _service.GetAllForCustomerAsync(userId);
             return Ok(result);
         }
@@ -32,8 +31,7 @@ namespace MyCart.WebApp.Areas.Admin.Controllers
         [ProducesResponseType(typeof(OrderViewDto), StatusCodes.Status201Created)]
         public async Task<IActionResult> PostOrders(OrderCreateDto dto)
         {
-            //var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-            var userId = "b4587108-231e-45c4-9935-db6acddfd2b8";
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
             var result = await _service.CreateAsync(dto, userId);
             return Ok(result);
         }

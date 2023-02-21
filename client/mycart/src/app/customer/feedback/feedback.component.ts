@@ -9,18 +9,22 @@ import { FeedbackService } from 'src/app/services/feedback.service';
 })
 export class FeedbackComponent {
 
-  model : FeedbackCreateDto = 
-  {
-    message : ''
-  };
+  model: FeedbackCreateDto =
+    {
+      message: ''
+    };
 
   constructor(
     private service: FeedbackService,
-    private router:Router
-    ){}
+    private router: Router
+  ) { }
 
-  onSubmit() {    
-    this.service.Create(this.model).subscribe();
+  onSubmit() {
+    this.service.Create(this.model).subscribe({
+      next: (response: any) => {
+        this.router.navigate(['customer/home']);
+      }
+    });
   }
 }
 

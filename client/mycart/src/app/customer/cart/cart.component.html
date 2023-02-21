@@ -4,7 +4,7 @@
 </h2>
 <div class="container">
     <div class="card p-3" *ngIf="cartItems != null">
-        <app-cart-item [cartItem]="item"  *ngFor="let item of cartItems"></app-cart-item>
+        <app-cart-item [cartItem]="item" *ngFor="let item of cartItems"></app-cart-item>
 
     </div>
     <div class="alert alert-info" *ngIf="cartItems?.length === 0">
@@ -16,9 +16,9 @@
     <div class="d-flex justify-content-around align-items-center" *ngIf="cartItems != null">
         <div>
             <span class="text-dark">Total Amount</span>
-            <span class="text-success">{{totalAmount}}</span>
+            <span class="text-success ms-2 fs-3">{{totalAmount | currency: 'INR'}}</span>
         </div>
-        <button class="btn btn-warning h-25 m-2 text-center w-25" 
-        [routerLink]="['/customer/order/summary']" routerLinkActive="router-link-active">Pay Now</button>
+        <button class="btn btn-warning h-25 m-2 text-center w-25" [routerLink]="['/customer/order/summary']"
+            routerLinkActive="router-link-active">Pay Now</button>
     </div>
 </div>

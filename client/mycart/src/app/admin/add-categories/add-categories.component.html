@@ -15,9 +15,10 @@
             </div>
             <div class="m-3">
                 <label for="description" class="mb-2">Description</label>
-                <input type="text" id="description" name="description" [(ngModel)]="model.description"
-                    #description="ngModel" class="form-control text-center text-dark mb-2" minlength="6" maxlength="25"
-                    required>
+                <textarea type="text" id="description" name="description" [(ngModel)]="model.description"
+                    #description="ngModel" class="form-control text-center text-dark mb-2" minlength="6"
+                    maxlength="2000" required>
+                </textarea>
             </div>
             <div class="d-flex justify-content-center align-items-center my-4">
                 <button type="submit" class="btn btn-warning" [disabled]="name.invalid">Save</button>
