@@ -23,7 +23,7 @@ export class LoginComponent {
     password: ''
   };
 
-  ngOnInit(){
+  ngOnInit() {
     this.tokenHelper.removeToken()
   }
 
@@ -33,15 +33,12 @@ export class LoginComponent {
         this.tokenHelper.setToken(response.result);
         console.log(this.tokenHelper.getToken());
         let token = this.tokenHelper.getDecodedToken();
-        if(token.role == 'Customer') {
-          this.toaster.success("Successfull", "Login");
+        if (token.role == 'Customer') {
           this.router.navigateByUrl('/customer/home');
         }
         else if (token.role == 'Admin') {
-          this.toaster.success("Successfull", "Login");
           this.router.navigateByUrl('/admin/home');
         }
-        
       },
       error: (errors: any) => {
         this.toaster.error("Invalid Email/Password", "Login");

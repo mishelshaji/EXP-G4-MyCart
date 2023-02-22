@@ -14,14 +14,14 @@ import { TokenHelper } from 'src/Utlis/Helpers/TokenHelper';
 export class AdminNavbarComponent {
   faShop = faShopify as IconProp;
 
-  constructor(private tokenHelper : TokenHelper,
+  constructor(private tokenHelper: TokenHelper,
     private router: Router
-    ) {    
+  ) {
   }
 
   signOut() {
     let decision = confirm("Are you sure you want to logout ?");
-    if(decision) {
+    if (decision) {
       this.tokenHelper.removeToken();
       this.router.navigate(['/login']);
     }

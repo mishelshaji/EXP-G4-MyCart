@@ -19,8 +19,8 @@ export class HomePageComponent {
 
   ngOnInit() {
     this.productsService.getAllForUser().subscribe({
-      next: (result: any) => {
-        this.products = result;
+      next: (response: any) => {
+        this.products = response.result;
       }
     });
   }

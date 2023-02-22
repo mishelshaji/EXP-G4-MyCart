@@ -14,11 +14,11 @@ export class ProductsService {
   constructor(private http: HttpClient) { }
 
   getAll() {
-    return this.http.get<ProductViewDto[]>(this.url).pipe(map((data: any) => data.result));
+    return this.http.get<ProductViewDto[]>(this.url);
   }
 
   getAllForUser() {
-    return this.http.get<ProductViewDto[]>(this.urlUserArea).pipe(map((data: any) => data.result));
+    return this.http.get<ProductViewDto[]>(this.urlUserArea);
   }
 
   getById(id: number) {

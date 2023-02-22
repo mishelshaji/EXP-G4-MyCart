@@ -22,7 +22,7 @@ export class CustomerProfileComponent implements OnInit {
 
   constructor(private service: AccountService,
     private tokenHelper: TokenHelper,
-    private router: Router) {}
+    private router: Router) { }
 
   ngOnInit() {
     this.service.getProfile().subscribe({
@@ -44,10 +44,9 @@ export class CustomerProfileComponent implements OnInit {
     this.tokenHelper.removeToken();
     if (!this.tokenHelper.hasToken()) {
       let decision = confirm("Are you sure you want to logout");
-      if(decision){
+      if (decision) {
         this.router.navigate(['login']);
       }
-   
     }
   }
 }

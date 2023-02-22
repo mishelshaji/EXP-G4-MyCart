@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 import { CategoryService } from 'src/app/services/category.service';
 
 @Component({
@@ -11,7 +12,8 @@ export class AddCategoriesComponent {
 
   constructor(
     private categoryService: CategoryService,
-    ) {
+    private toaster: ToastrService
+  ) {
   }
 
   model = {
@@ -23,13 +25,13 @@ export class AddCategoriesComponent {
     this.categoryService.create(this.model).subscribe({
       next: (response: any) => {
         if (response.isValid) {
-          // this.toaster.success("Created Successfully");
+          this.toaster.success("Created Successfully");
           form.reset();
         }
       },
       error: (errors: any) => {
         if (errors != null) {
-          // this.toaster.error("Request Failed");
+          this.toaster.error("Request Failed");
         }
       }
     });

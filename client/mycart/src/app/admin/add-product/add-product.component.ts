@@ -6,7 +6,7 @@ import { ProductsService } from 'src/app/services/products.service';
 
 @Component({
   selector: 'app-add-product',
-  templateUrl:'./add-product.component.html',
+  templateUrl: './add-product.component.html',
   styleUrls: ['./add-product.component.css']
 })
 export class AddProductComponent {
@@ -42,7 +42,7 @@ export class AddProductComponent {
     this.productService.create(this.model).subscribe({
       next: (response: any) => {
         if (response.isValid) {
-       this.toaster.success("Product is Created");
+          this.toaster.success("Product is Created");
           productform.reset();
         } else {
           this.toaster.error("Product Details are not valid, check again");
@@ -50,7 +50,7 @@ export class AddProductComponent {
       },
       error: (errors: any) => {
         if (errors != null) {
-         this.toaster.error("something went wrong");
+          this.toaster.error("something went wrong");
         }
       }
     })

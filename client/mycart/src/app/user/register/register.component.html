@@ -35,11 +35,11 @@
                     <label>Date of Birth</label>
                     <input type="date" name="dob" [(ngModel)]="model.dateOfBirth" #dob="ngModel" class="form-control"
                         placeholder="Enter Date of Birth" (change)="handleDob(dob)" required>
-                        <div class="text-danger">
-                            <div class="text-danger" *ngIf="dob.touched">
-                                <div *ngIf="futureDate == true">Invalid date</div>
-                                <div *ngIf="status">Age is less than 18</div>
-                            </div>
+                    <div class="text-danger">
+                        <div class="text-danger" *ngIf="dob.touched">
+                            <div *ngIf="futureDate == true">Invalid date</div>
+                            <div *ngIf="status">Age is less than 18</div>
+                        </div>
                         <div class="text-danger" *ngIf="dob.invalid && dob.touched">
                             <div *ngIf="dob.errors?.['required']">Date of birth is required</div>
                         </div>
@@ -70,7 +70,8 @@
                     </div>
                 </div>
                 <div class="d-grid my-3 d-flex justify-content-center">
-                    <button type="submit" class="btn btn-primary w-30" [disabled]="form.invalid && futureDate">REGISTER</button>
+                    <button type="submit" class="btn btn-primary w-30"
+                        [disabled]="form.invalid && futureDate">REGISTER</button>
                 </div>
             </form>
         </div>

@@ -8,26 +8,25 @@ import { TokenHelper } from 'src/Utlis/Helpers/TokenHelper';
 })
 export class CustomerGuard implements CanActivate {
 
-  constructor( private tokenHelper: TokenHelper,
+  constructor(private tokenHelper: TokenHelper,
     private router: Router,
-    private route: ActivatedRoute) {}
+    private route: ActivatedRoute) { }
 
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
 
-      const hasToken = this.tokenHelper.hasToken();
-      if (!hasToken) {
-        this.router.navigate(['/signup']);
-        return false;
+    const hasToken = this.tokenHelper.hasToken();
+    if (!hasToken) {
+      this.router.navigate(['/signup']);
+      return false;
     }
 
     const token = this.tokenHelper.getDecodedToken();
     var role = state.url.split('/')
     console.log(token.role.toLowerCase());
-    
-    if(role[1] != token.role.toLowerCase())
-    {
+
+    if (role[1] != token.role.toLowerCase()) {
       this.router.navigate(['/login'])
       this.tokenHelper.removeToken();
       return false;

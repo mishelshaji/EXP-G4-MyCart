@@ -10,7 +10,7 @@ export class ViewOrdersComponent {
 
   orderProducts: OrderViewDto[] | null = null;
 
-  constructor(private orderService: OrderService) {    
+  constructor(private orderService: OrderService) {
   }
 
   ngOnInit() {

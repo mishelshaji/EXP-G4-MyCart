@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { NgForm, NgModel } from '@angular/forms';
 import { Route, Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { AccountService } from 'src/app/services/account.service';
 import { TokenHelper } from 'src/Utlis/Helpers/TokenHelper';
 
@@ -26,6 +27,7 @@ export class RegisterComponent {
 
   constructor(
     private router: Router,
+    private toaster: ToastrService,
     private service: AccountService,
     private tokenHelper: TokenHelper) {
 
@@ -59,7 +61,6 @@ export class RegisterComponent {
         }
       }
     }
-
   }
 
   storePassword(password: NgModel) {
@@ -79,10 +80,10 @@ export class RegisterComponent {
     this.service.create(this.model).subscribe({
       next: (response: any) => {
         if (response == null) {
-          // this.toaster.success("Registration Successful");
+          this.toaster.success("Registration Successful");
           this.router.navigate(['/login']);
         } else {
-          // this.toaster.error("Registrtaion Failed");
+          this.toaster.error("Registrtaion Failed");
         }
       }
     })
