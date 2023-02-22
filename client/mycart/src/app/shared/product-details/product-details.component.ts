@@ -72,6 +72,7 @@ export class ProductDetailsComponent {
       });
     }else {
       this.toaster.info("Sorry, You are not logged in");
+      this.router.navigate(['/login']);
     }
     
   }

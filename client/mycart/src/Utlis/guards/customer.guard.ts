@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot, CanActivate, Route, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
+import { ActivatedRoute, ActivatedRouteSnapshot, CanActivate, Route, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
 import { Observable } from 'rxjs';
 import { TokenHelper } from 'src/Utlis/Helpers/TokenHelper';
 
@@ -9,7 +9,8 @@ import { TokenHelper } from 'src/Utlis/Helpers/TokenHelper';
 export class CustomerGuard implements CanActivate {
 
   constructor( private tokenHelper: TokenHelper,
-    private router: Router) {}
+    private router: Router,
+    private route: ActivatedRoute) {}
 
   canActivate(
     route: ActivatedRouteSnapshot,
@@ -17,9 +18,20 @@ export class CustomerGuard implements CanActivate {
 
       const hasToken = this.tokenHelper.hasToken();
       if (!hasToken) {
-        this.router.navigate(['/register']);
+        this.router.navigate(['/signup']);
         return false;
     }
-    return true;
+
+    const token = this.tokenHelper.getDecodedToken();
+    var role = state.url.split('/')
+    console.log(token.role.toLowerCase());
+    
+    if(role[1] != token.role.toLowerCase())
+    {
+      this.router.navigate(['/login'])
+      this.tokenHelper.removeToken();
+      return false;
+    }
+    return true
   }
 }

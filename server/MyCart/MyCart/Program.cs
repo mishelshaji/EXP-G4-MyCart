@@ -17,7 +17,7 @@ builder.Services.AddScoped<ProductService>();
 builder.Services.AddScoped<OrderServices>();
 builder.Services.AddScoped<FeedbackServices>();
 builder.Services.AddScoped<CartServices>();
-
+builder.Services.AddScoped<AccountsService>();
 
 var connStr = builder.Configuration.GetConnectionString("DefaultConnection");
 

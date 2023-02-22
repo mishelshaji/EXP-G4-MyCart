@@ -2,6 +2,7 @@ import { Component, Input } from '@angular/core';
 import { NgForm, NgModel } from '@angular/forms';
 import { Route, Router } from '@angular/router';
 import { AccountService } from 'src/app/services/account.service';
+import { TokenHelper } from 'src/Utlis/Helpers/TokenHelper';
 
 @Component({
   selector: 'app-register',
@@ -25,8 +26,14 @@ export class RegisterComponent {
 
   constructor(
     private router: Router,
-     private service: AccountService,
-     ) { }
+    private service: AccountService,
+    private tokenHelper: TokenHelper) {
+
+  }
+
+  ngOnInit() {
+    this.tokenHelper.removeToken()
+  }
 
   handleDob(dob: any) {
     let userDob = new Date(dob.value);
@@ -72,8 +79,8 @@ export class RegisterComponent {
     this.service.create(this.model).subscribe({
       next: (response: any) => {
         if (response == null) {
-            // this.toaster.success("Registration Successful");
-            this.router.navigate(['/login']);
+          // this.toaster.success("Registration Successful");
+          this.router.navigate(['/login']);
         } else {
           // this.toaster.error("Registrtaion Failed");
         }

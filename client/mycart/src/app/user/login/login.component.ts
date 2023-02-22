@@ -23,12 +23,25 @@ export class LoginComponent {
     password: ''
   };
 
+  ngOnInit(){
+    this.tokenHelper.removeToken()
+  }
+
   onSubmit() {
     this.services.login(this.model).subscribe({
       next: (response: any) => {
         this.tokenHelper.setToken(response.result);
-        this.toaster.success("Successfull", "Login");
-        this.router.navigateByUrl('/customer/home');
+        console.log(this.tokenHelper.getToken());
+        let token = this.tokenHelper.getDecodedToken();
+        if(token.role == 'Customer') {
+          this.toaster.success("Successfull", "Login");
+          this.router.navigateByUrl('/customer/home');
+        }
+        else if (token.role == 'Admin') {
+          this.toaster.success("Successfull", "Login");
+          this.router.navigateByUrl('/admin/home');
+        }
+        
       },
       error: (errors: any) => {
         this.toaster.error("Invalid Email/Password", "Login");
