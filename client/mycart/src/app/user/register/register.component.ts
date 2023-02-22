@@ -44,6 +44,7 @@ export class RegisterComponent {
     const timeDiff = Math.abs(Date.now() - userDob.getTime());
     if (userDob.getTime() > Date.now()) {
       this.futureDate = true;
+      this.status = false;
     } else {
       this.futureDate = false;
 
