@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AccountService } from 'src/app/services/account.service';
 import { TokenHelper } from 'src/Utlis/Helpers/TokenHelper';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-login',
@@ -13,7 +14,8 @@ export class LoginComponent {
   constructor(
     private services: AccountService,
     private router: Router,
-    private tokenHelper: TokenHelper
+    private tokenHelper: TokenHelper,
+    private toaster: ToastrService
   ) { }
 
   model: LoginDto = {
@@ -24,12 +26,12 @@ export class LoginComponent {
   onSubmit() {
     this.services.login(this.model).subscribe({
       next: (response: any) => {
-        console.log(response.result);
         this.tokenHelper.setToken(response.result);
+        this.toaster.success("Successfull", "Login");
         this.router.navigateByUrl('/customer/home');
       },
       error: (errors: any) => {
-        alert("Invalid Email or Password");
+        this.toaster.error("Invalid Email/Password", "Login");
       }
     });
   }

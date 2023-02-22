@@ -60,10 +60,6 @@ builder.Services.AddAuthentication(options =>
          };
      });
 
-builder.Services.AddScoped<CategoryService>();
-builder.Services.AddScoped<ProductService>();
-builder.Services.AddScoped<AccountsService>();
-
 var app = builder.Build();
 
 app.UseCors(options =>
@@ -79,12 +75,6 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseCors(options =>
-{
-    options.AllowAnyHeader();
-    options.AllowAnyOrigin();
-    options.AllowAnyMethod();
-});
 app.UseHttpsRedirection();
 
 app.UseAuthentication();

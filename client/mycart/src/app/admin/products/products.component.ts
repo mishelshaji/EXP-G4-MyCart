@@ -34,10 +34,13 @@ export class ProductsComponent implements OnInit {
   }
 
   Delete(productId: number) {
-    this.service.delete(productId).subscribe({
-      next: (response: any) => {
-        this.ngOnInit();
-      }
-    });
+    let decision = confirm("Are you sure you want to delete it ?");
+    if (decision) {
+      this.service.delete(productId).subscribe({
+        next: (response: any) => {
+          this.ngOnInit();
+        }
+      });
+    }
   }
 }

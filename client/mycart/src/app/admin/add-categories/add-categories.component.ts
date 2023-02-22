@@ -9,7 +9,9 @@ import { CategoryService } from 'src/app/services/category.service';
 
 export class AddCategoriesComponent {
 
-  constructor(private categoryService: CategoryService) {
+  constructor(
+    private categoryService: CategoryService,
+    ) {
   }
 
   model = {
@@ -21,13 +23,13 @@ export class AddCategoriesComponent {
     this.categoryService.create(this.model).subscribe({
       next: (response: any) => {
         if (response.isValid) {
-          alert("Category is Created");
+          // this.toaster.success("Created Successfully");
           form.reset();
         }
       },
       error: (errors: any) => {
         if (errors != null) {
-          alert("Something Wrong");
+          // this.toaster.error("Request Failed");
         }
       }
     });

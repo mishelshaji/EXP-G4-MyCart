@@ -2,14 +2,6 @@
 <div class="row">
     <div class="col-md-6 offset-md-3">
         <form #productform="ngForm" (ngSubmit)="onSubmit(productform)">
-            <!-- <div class="my-3">
-                <label>Product Image</label>
-                <input type="file" name="image" [(ngModel)]="model.image" #image="ngModel" class="form-control"
-                    placeholder="Upload Product Image" required>
-                <div class="text-danger" *ngIf="image.invalid && image.touched">
-                    <div *ngIf="image.errors?.['required']">Product image is required</div>
-                </div>
-            </div> -->
             <div class="my-3">
                 <label>Category</label>
                 <div class="my-3">
@@ -47,7 +39,7 @@
             </div>
             <div class="my-3">
                 <label>Maximum Retail Price</label>
-                <input type="number" name="mrp" [(ngModel)]="model.retailPrice" #mrp="ngModel" class="form-control"
+                <input name="mrp" [(ngModel)]="model.retailPrice" #mrp="ngModel" class="form-control"
                     placeholder="Enter Maximum Retail Price" required>
                 <div class="text-danger" *ngIf="mrp.touched && mrp.invalid">
                     <div *ngIf="mrp.errors?.['required']">Maximum Retail Price is required</div>
@@ -55,12 +47,12 @@
             </div>
             <div class="my-3">
                 <label>Offer Price</label>
-                <input type="number" name="offer" [(ngModel)]="model.offerPrice" #offer="ngModel" class="form-control"
+                <input name="offer" [(ngModel)]="model.offerPrice" #offer="ngModel" class="form-control"
                     placeholder="Enter Offer Price">
             </div>
             <div class="my-3">
                 <label>Quantity</label>
-                <input type="number" name="quantity" [(ngModel)]="model.stock" #quantity="ngModel" class="form-control"
+                <input name="quantity" [(ngModel)]="model.stock" #quantity="ngModel" class="form-control"
                     placeholder="Enter Product Quantity" required>
                 <div class="text-danger" *ngIf="quantity.touched && quantity.invalid">
                     <div *ngIf="quantity.errors?.['required']">Product quantity is required</div>
