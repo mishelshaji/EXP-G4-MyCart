@@ -19,7 +19,7 @@ export class ViewOrdersComponent {
         this.orderProducts = response.result;
         if (response.result != null) {
           this.notEmpty = true;
-        }
+        }       
       }
     });
   }

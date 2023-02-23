@@ -37,6 +37,7 @@ export class CartItemComponent {
 
   deleteItem(cartId: number) {
     let decision = confirm("Are you sure you want to delete it ?");
+    
     if(decision) {
       this.cartService.delete(cartId).subscribe({
         next: () => {

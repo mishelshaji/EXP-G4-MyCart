@@ -17,7 +17,6 @@ export class ViewOrdersComponent {
     this.orderService.getAllForAdmin().subscribe({
       next: (response: any) => {
         this.orderProducts = response.result;
-        console.log(response.result);
       }
     });
   }

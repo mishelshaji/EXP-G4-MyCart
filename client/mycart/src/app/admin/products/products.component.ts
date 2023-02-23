@@ -21,10 +21,7 @@ export class ProductsComponent implements OnInit {
   ngOnInit(): void {
     this.service.getAll().subscribe({
       next: (result: any) => {
-        this.products = result;
-      },
-      error: (errors: any) => {
-        console.log(errors);
+        this.products = result.result;
       }
     });
   }
@@ -35,11 +32,13 @@ export class ProductsComponent implements OnInit {
 
   Delete(productId: number) {
     let decision = confirm("Are you sure you want to delete it ?");
+
     if (decision) {
       this.service.delete(productId).subscribe({
         next: (response: any) => {
           this.ngOnInit();
         }
+
       });
     }
   }

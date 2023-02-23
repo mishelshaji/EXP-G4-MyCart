@@ -24,15 +24,19 @@ export class AddCategoriesComponent {
   onSubmit(form: any) {
     this.categoryService.create(this.model).subscribe({
       next: (response: any) => {
+
         if (response.isValid) {
           this.toaster.success("Created Successfully");
           form.reset();
         }
+
       },
       error: (errors: any) => {
+        
         if (errors != null) {
           this.toaster.error("Request Failed");
         }
+
       }
     });
   }

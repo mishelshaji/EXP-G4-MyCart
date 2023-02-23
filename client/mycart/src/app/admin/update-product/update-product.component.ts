@@ -50,6 +50,7 @@ export class UpdateProductComponent {
           this.toaster.error("Unable to fetch products at this moment", "product");
           return;
         }
+        
       }
     });
     return true;

@@ -41,17 +41,20 @@ export class AddProductComponent {
   onSubmit(productform: any) {
     this.productService.create(this.model).subscribe({
       next: (response: any) => {
+        
         if (response.isValid) {
           this.toaster.success("Product is Created");
           productform.reset();
         } else {
           this.toaster.error("Product Details are not valid, check again");
         }
+
       },
       error: (errors: any) => {
         if (errors != null) {
           this.toaster.error("something went wrong");
         }
+
       }
     })
   }

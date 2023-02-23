@@ -25,5 +25,6 @@ export class AdminNavbarComponent {
       this.tokenHelper.removeToken();
       this.router.navigate(['/login']);
     }
+    
   }
 }
