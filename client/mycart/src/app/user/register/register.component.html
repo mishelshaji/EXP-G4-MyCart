@@ -6,7 +6,7 @@
                 <div class="my-3">
                     <label>Full Name</label>
                     <input type="text" name="fname" [(ngModel)]="model.name" #fname="ngModel" class="form-control"
-                        placeholder="Enter Full Name" maxlength="30" required>
+                        placeholder="Enter Full Name" minlength="2" maxlength="30" required>
                     <div class="text-danger" *ngIf="fname.invalid && fname.touched">
                         <div *ngIf="fname.errors?.['required']">Full Name is required</div>
                     </div>
@@ -71,7 +71,7 @@
                 </div>
                 <div class="d-grid my-3 d-flex justify-content-center">
                     <button type="submit" class="btn btn-primary w-30"
-                        [disabled]="form.invalid || (!futureDate)">REGISTER</button>
+                        [disabled]="form.invalid || (futureDate)">REGISTER</button>
                 </div>
             </form>
         </div>

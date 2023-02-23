@@ -6,7 +6,7 @@ import { TokenHelper } from 'src/Utlis/Helpers/TokenHelper';
 @Injectable({
   providedIn: 'root'
 })
-export class CustomerGuard implements CanActivate {
+export class CustomGuard implements CanActivate {
 
   constructor(private tokenHelper: TokenHelper,
     private router: Router,

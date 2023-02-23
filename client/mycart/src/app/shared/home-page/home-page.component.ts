@@ -15,7 +15,7 @@ export class HomePageComponent {
 
   products: ProductViewDto[] | null = [];
 
-  constructor(private productsService: ProductsService, private tokenHelper: TokenHelper) { }
+  constructor(private productsService: ProductsService) { }
 
   ngOnInit() {
     this.productsService.getAllForUser().subscribe({
